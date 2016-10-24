@@ -1,0 +1,16 @@
+Source: flexibudget
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
+Maintainer: Vitex Software <info@vitexsoftware.cz>
+Uploaders: Vitex <vitex@hippy.cz>
+Priority: optional
+Homepage: https://www.vitexsoftware.cz/redmine/projects/flexibudget
+
+Package: flexibudget
+Depends: ${misc:Depends},ease-framework,libjs-font-awesome,php5-curl,libjs-fuelux
+Architecture: all
+Section: web
+Priority: optional
+Description: Software for finance decisions transparency
+ Software support for transparency of the Pirates finance department
+

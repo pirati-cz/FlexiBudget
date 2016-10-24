@@ -1,0 +1,97 @@
+#!/bin/bash
+# postinst script for flexibudget
+
+set -e
+. /usr/share/debconf/confmodule
+
+. /usr/share/debconf/confmodule
+
+. /usr/share/dbconfig-common/dpkg/postinst.mysql
+dbc_generate_include_owner="root:www-data"
+dbc_generate_include_perms="0640"
+dbc_generate_include=php:/etc/flexibudget/config-db.php
+
+if ! dbc_go flexibudget $@ ; then
+	echo 'Automatic configuration using dbconfig-common failed!'
+fi
+
+#Přepíše hodnotu klíče v konfiguráku TakPre
+function replace {
+    cfg="/usr/share/flexibudget/includes/config.php"
+    sed -i "/${1}'/c\define('${1}', '${2}');" $cfg
+}
+
+replace "DB_SERVER" `read_lmsconfig "host"`
+replace "DB_SERVER_USERNAME" `read_lmsconfig "user"`
+replace "DB_SERVER_PASSWORD" `read_lmsconfig "password"`
+replace "DB_DATABASE" `read_lmsconfig "database"`
+
+# Check their answer.
+db_get flexibudget/LMS_DIRECTORY
+if [ "$RET" = "false" ]; then
+    # Poor misguided one..
+    db_input critical flexibudget/LMS_DIRECTORY || true
+    db_go
+fi
+replace "LMS_DIRECTORY" $RET
+
+
+db_get flexibudget/FLEXIBEE_URL
+if [ "$RET" = "false" ]; then
+    # Poor misguided one..
+    db_input critical flexibudget/FLEXIBEE_URL || true
+    db_go
+fi
+replace "FLEXIBEE_URL" $RET
+
+db_get flexibudget/FLEXIBEE_LOGIN
+if [ "$RET" = "false" ]; then
+    # Poor misguided one..
+    db_input critical flexibudget/FLEXIBEE_LOGIN || true
+    db_go
+fi
+replace "FLEXIBEE_LOGIN" $RET
+
+db_get flexibudget/FLEXIBEE_PASSWORD
+if [ "$RET" = "false" ]; then
+    # Poor misguided one..
+    db_input critical flexibudget/FLEXIBEE_PASSWORD || true
+    db_go
+fi
+replace "FLEXIBEE_PASSWORD" $RET
+
+db_get flexibudget/FLEXIBEE_COMPANY
+if [ "$RET" = "false" ]; then
+    # Poor misguided one..
+    db_input critical flexibudget/FLEXIBEE_COMPANY || true
+    db_go
+fi
+replace "FLEXIBEE_COMPANY" $RET
+
+
+
+
+
+if [ -x /usr/sbin/a2enconf ] ; then
+    a2enconf flexibudget
+fi
+
+if [ -f /etc/init.d/apache2 ] ; then
+    if [ -x /usr/sbin/invoke-rc.d ]; then
+        invoke-rc.d apache2 reload 3>/dev/null || true
+    else
+        /etc/init.d/apache2 reload 3>/dev/null || true
+    fi
+fi
+
+if [ -f /etc/init.d/avahi ] ; then
+    if [ -x /usr/sbin/invoke-rc.d ]; then
+        invoke-rc.d avahi reload 3>/dev/null || true
+    else
+        /etc/init.d/avahi reload 3>/dev/null || true
+    fi
+fi
+
+#DEBHELPER#
+
+exit 0

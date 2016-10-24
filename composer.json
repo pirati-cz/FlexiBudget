@@ -1,0 +1,34 @@
+{
+    "name": "vitexsoftware/flexibudget",
+    "description": "Software for finance decisions transparency",
+    "license": "GPL-2.0",
+    "version": "0.0",
+    "authors": [
+        {
+            "name": "Vítězslav Dvořák",
+            "email": "info@vitexsoftware.cz"
+        }
+    ],
+    "require": {
+        "php": ">= 5.5.9",
+        "spoje.net/flexipeehp": "dev-master",
+        "vitexsoftware/ease-framework": "dev-master",
+        "league/commonmark": "^0.15.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FlexiBudget\\": "src/classes/",
+            "FlexiBudget\\ui\\": "src/classes/ui/",
+            "FlexiBudget\\Engine\\": "src/classes/engine",
+            "Test\\FlexiBudget\\": "testing/PHPUnit/src/classes/",
+            "Test\\FlexiBudget\\ui\\": "testing/PHPUnit/src/classes/ui/",
+            "Test\\FlexiBudget\\engine\\": "testing/PHPUnit/src/classes/engine/"
+        }
+    },
+    "require-dev": {
+        "phpunit/php-token-stream": "~1.2",
+        "robmorgan/phinx": "dev-master",
+        "phpunit/phpunit": "5.3.*",
+        "phpunit/phpunit-skeleton-generator": "*"
+    }
+}

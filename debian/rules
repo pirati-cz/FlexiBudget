@@ -1,0 +1,14 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_install:
+	dh_install
+	sed -i -e 's/\.\.\//.\//g' debian/flexibudget/usr/share/flexibudget/about.php
+	sed -i -e 's/..\/vendor/\/var\/lib\/flexibudget/g' debian/flexibudget/usr/share/flexibudget/includes/Init.php
+	sed -i -e 's/..\/i18n/\/usr\/share\/locale/g' debian/flexibudget/usr/share/flexibudget/includes/Init.php
+
+override_dh_clean:
+	debconf-updatepo
+	dh_clean

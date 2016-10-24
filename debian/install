@@ -1,0 +1,15 @@
+src/*.php		usr/share/flexibudget
+src/*.ico		usr/share/flexibudget
+src/css/*.css           usr/share/flexibudget/css
+#src/css/images/*	usr/share/flexibudget/css/images
+#src/css/msdropdown/*	usr/share/flexibudget/css/msdropdown
+src/js/*.js		usr/share/flexibudget/js
+#src/js/msdropdown/*.js	usr/share/flexibudget/js/msdropdown
+#src/img/*		usr/share/flexibudget/img
+src/images/*		usr/share/flexibudget/images
+src/includes/*.php	usr/share/flexibudget/includes
+src/classes/*.php		usr/share/flexibudget/classes
+debian/conf/flexibudget.conf	etc/apache2/conf-available
+debian/conf/flexibudget.service etc/avahi/services
+README.md               usr/share/doc/flexibudget/
+
