@@ -12,8 +12,8 @@
 
 }
 
-.jumbotron  {  filter: alpha(opacity=80); /* 50 ze 100 = 50% průhlednost */
-               opacity: 0.8; /* 0.5 z 1 = 50% průhlednost */  }
+.well, .jumbotron  {  filter: alpha(opacity=90); /* 50 ze 100 = 50% průhlednost */
+               opacity: 0.9; /* 0.5 z 1 = 50% průhlednost */  }
 
 .navbar-nav > li > a {
     padding-top: 10px;
@@ -122,3 +122,24 @@ body { background-image: linear-gradient(top, rgba(255,255,255,.5), rgba(255,255
     -webkit-box-shadow: 0 60px 50px -30px rgba(255, 255, 255, .5) inset;
     box-shadow: 0 60px 50px -30px rgba(255, 255, 255, .5) inset;	
 }	
+
+.flexigrid div.fbutton .csvexport {
+    background: url(../images/csv.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .pdfexport {
+    background: url(../images/pdf.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .add {
+    background: url(../images/add.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .delete {
+    background: url(../images/close.png) no-repeat center left;
+}
+
+.flexigrid div.fbutton .edit {
+    background: url(../images/edit.png) no-repeat center left;
+}
+

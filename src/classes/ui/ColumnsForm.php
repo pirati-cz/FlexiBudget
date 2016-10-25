@@ -99,7 +99,7 @@ class ColumnsForm extends \Ease\TWB\Form
      */
     public function addSubmitSave()
     {
-        $this->savers->addItem(new EaseTWSubmitButton(_('Uložit'), 'default'),
+        $this->savers->addItem(new EaseTWSubmitButton(_('Save'), 'default'),
             ['style' => 'text-align: right']);
     }
 
@@ -109,7 +109,7 @@ class ColumnsForm extends \Ease\TWB\Form
     public function addSubmitSaveAndList()
     {
         $this->savers->addItem(new \Ease\Html\InputSubmitTag('gotolist',
-            _('Uložit a zpět na přehled'), ['class' => 'btn btn-info']));
+            _('Save & Back to list'), ['class' => 'btn btn-info']));
     }
 
     /**
@@ -121,7 +121,7 @@ class ColumnsForm extends \Ease\TWB\Form
             _('Save and next'), ['class' => 'btn btn-success']));
     }
 
-     public function finalize()
+    public function finalize()
     {
         $recordID = $this->engine->getMyKey();
         $this->addItem(new \Ease\Html\InputHiddenTag('class',
@@ -136,4 +136,5 @@ class ColumnsForm extends \Ease\TWB\Form
 
         return parent::finalize();
     }
+
 }

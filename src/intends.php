@@ -12,13 +12,10 @@ require_once 'includes/Init.php';
 
 $oPage->onlyForLogged();
 
-$oPage->addItem(new ui\PageTop(_('FlexiBudget')));
+$oPage->addItem(new ui\PageTop(_('Intends')));
 
-$flexiBees = new FlexiBees();
-
-$mainPageMenu = new ui\MainPageMenu();
-$mainPageMenu->addMenuItem('images/intend.svg', _('Intend'), 'intends.php');
-$oPage->container->addItem($mainPageMenu);
+$oPage->addItem(new \Ease\TWB\Container(new ui\DataGrid(_('Intends'),
+    new Intend())));
 
 $oPage->addItem(new ui\PageBottom());
 

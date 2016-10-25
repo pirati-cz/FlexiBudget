@@ -63,10 +63,6 @@ define('DB_TYPE', 'pgsql');
 //Mailing
 
 /**
- * Default mail sender
- */
-define('EMAIL_FROM', 'flexibudget@localhost');
-/**
  * Where send info about new sign ups
  */
 define('SEND_INFO_TO', 'root@localhost');
