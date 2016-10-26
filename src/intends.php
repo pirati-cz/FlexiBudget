@@ -1,6 +1,6 @@
 <?php
 /**
- * FlexiBudget - Hlavní strana.
+ * FlexiBudget - Intends listing.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  2016 Vitex Software

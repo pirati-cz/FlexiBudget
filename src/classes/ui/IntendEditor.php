@@ -23,16 +23,25 @@ class IntendEditor extends \Ease\TWB\Form
     public function __construct($intend)
     {
         $this->intend = $intend;
+        $this->setTagID();
         parent::__construct('intend', null, 'post');
-        $this->addItem($intend->inputWidget('name'));
-        $this->addItem($intend->inputWidget('description'));
-        $this->addItem($intend->inputWidget('limit'));
-        $this->addItem($intend->inputWidget('approval_at'));
+        $this->addItem($intend->inputWidget('name',
+                ['minlength' => 5, 'maxlength' => 45, 'class' => 'required']));
+        $this->addItem($intend->inputWidget('description',
+                ['minlength' => 5, 'maxlength' => 45, 'class' => 'required']));
+        $this->addItem($intend->inputWidget('limit', ['class' => 'required']));
+        $this->addItem($intend->inputWidget('approval_at',
+                ['class' => 'required']));
         $id           = $intend->getMyKey();
         if (!is_null($id)) {
             $this->addItem(new \Ease\Html\InputHiddenTag('id', $id));
         }
         $this->addItem(new \Ease\TWB\SubmitButton(_('Save'), 'success'));
+        $this->addItem(new \Ease\Html\JavaScript('$("#'.$this->getTagID().'").validate();'));
     }
 
+    function finalize()
+    {
+        $this->includeJavaScript('js/jquery.validate.js');
+    }
 }

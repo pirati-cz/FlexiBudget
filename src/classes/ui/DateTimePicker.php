@@ -16,10 +16,14 @@ namespace FlexiBudget\ui;
 class DateTimePicker extends \Ease\Html\Div
 {
 
-    public function __construct($name, $value = null, $properties = null)
+    public function __construct($name, $value = null, $properties = [])
     {
+        $addClass = '';
+        if (array_key_exists('class', $properties)) {
+            $addClass = ' '.$properties['class'];
+        }
         parent::__construct(new \Ease\Html\InputTextTag($name, $value,
-            ['class' => 'form-control']), $properties);
+            ['class' => 'form-control'.$addClass]), $properties);
         $this->addItem(new \Ease\Html\Span(new \Ease\TWB\GlyphIcon('calendar'),
             ['class' => 'input-group-addon']));
     }

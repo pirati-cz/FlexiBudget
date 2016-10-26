@@ -55,12 +55,18 @@ class MainMenu extends \Ease\Html\Div
 
         $userID = \Ease\Shared::user()->getUserID();
         if ($userID) { //Authenticated user
-            $nav->addDropDownMenu('<img width=30 src=images/flexibee-logo.png> '._('FlexiBee instances'),
-                array_merge([
-                'flexibee.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('New Instance'),
-//                'flexibees.php' => \Ease\TWB\Part::GlyphIcon('list').'&nbsp;'._('Instance list'),
-                '' => '',
-                    ], $this->getMenuList(new \FlexiBudget\FlexiBees(), 'name'))
+//            $nav->addDropDownMenu('<img width=30 src=images/flexibee-logo.png> '._('FlexiBee instances'),
+//                array_merge([
+//                'flexibee.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('New Instance'),
+////                'flexibees.php' => \Ease\TWB\Part::GlyphIcon('list').'&nbsp;'._('Instance list'),
+//                '' => '',
+//                    ], $this->getMenuList(new \FlexiBudget\FlexiBees(), 'name'))
+//            );
+            $nav->addDropDownMenu('<img width=30 src=images/intend.svg> '._('Intend'),
+                array(
+                'intend.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('New Intend'),
+                'intends.php' => \Ease\TWB\Part::GlyphIcon('list').'&nbsp;'._('Intend listing')
+                )
             );
 
 
@@ -79,10 +85,10 @@ class MainMenu extends \Ease\Html\Div
 //                'rspcntrcts.php' => \Ease\TWB\Part::GlyphIcon('user').'&nbsp;'._('Respondenti'),
 //                ))
 //            );
-            $nav->addDropDownMenu('<img width=30 src=images/users_150.png> '._('Uživatelé'),
+            $nav->addDropDownMenu('<img width=30 src=images/users_150.png> '._('Users'),
                 array_merge([
-                'createaccount.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('Nový uživatel'),
-                'users.php' => \Ease\TWB\Part::GlyphIcon('list').'&nbsp;'._('Přehled uživatelů'),
+                'createaccount.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('New users'),
+                'users.php' => \Ease\TWB\Part::GlyphIcon('list').'&nbsp;'._('User listing'),
                 '' => '',
                     ], $this->getMenuList(\Ease\Shared::user(), 'user'))
             );

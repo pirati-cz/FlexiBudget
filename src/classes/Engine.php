@@ -197,14 +197,16 @@ class Engine extends \Ease\Brick
     }
 
     /**
-     * 
-     * @param type $columnName
+     * Add input widget for one column
+     *
+     * @param string $columnName
+     * @param array $properties Forced input properties
      * @return \Ease\TWB\FormGroup
      */
-    public function inputWidget($columnName)
+    public function inputWidget($columnName, $properties = [])
     {
         $value           = $this->getDataValue($columnName);
-        $inputProperties = $this->columns[$columnName];
+        $inputProperties = array_merge($this->columns[$columnName], $properties);
         $type            = $inputProperties['type'];
         switch ($inputProperties['type']) {
             case 'numeric':
@@ -223,6 +225,7 @@ class Engine extends \Ease\Brick
                 break;
             case 'date':
                 $inputProperties['data-format'] = 'YYYY-MM-DD+01:00';
+                $inputProperties['type']        = 'date';
                 $widget                         = new ui\DateTimePicker($columnName,
                     $value, $inputProperties);
                 break;
@@ -250,4 +253,22 @@ class Engine extends \Ease\Brick
             $widget, $this->getDataValue($columnName), $helptext);
     }
 
+    /**
+     * Delete record
+     */
+    public function delete()
+    {
+        $result = $this->deleteFromSQL();
+        if ($result === true) {
+            $this->addStatusMessage(_('Record was deleted'), 'success');
+        } else {
+            $this->addStatusMessage(_('Record was not deleted'), 'error');
+        }
+        return $result;
+    }
+
+    public function getName()
+    {
+        return $this->getDataValue($this->nameColumn);
+    }
 }
