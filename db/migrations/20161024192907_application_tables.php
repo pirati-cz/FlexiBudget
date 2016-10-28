@@ -36,8 +36,8 @@ class ApplicationTables extends AbstractMigration
             ->create();
 
 
-        // Migration for table BudgerRecord
-        $table = $this->table('BudgerRecord');
+        // Migration for table BudgetRecord
+        $table = $this->table('BudgetRecord');
         $table
             ->addColumn('name', 'string', array('null' => true, 'limit' => 45))
             ->addColumn('number', 'string', array('null' => true, 'limit' => 45))

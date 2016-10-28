@@ -69,6 +69,13 @@ class MainMenu extends \Ease\Html\Div
                 )
             );
 
+            $nav->addDropDownMenu('<img width=30 src=images/budget.svg> '._('Budget'),
+                array(
+                'budget.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('New Budget'),
+                'budgets.php' => \Ease\TWB\Part::GlyphIcon('list').'&nbsp;'._('Budget listing')
+                )
+            );
+
 
 
 //            $nav->addDropDownMenu('<img width=30 src=images/profits_150.png> '._('Importy'),
