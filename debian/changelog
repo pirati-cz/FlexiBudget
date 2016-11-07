@@ -1,5 +1,7 @@
 flexibudget (0.0-1) UNRELEASED; urgency=medium
 
   * Initial release.
+  * Request: "choose invoice or create new one" menu
+  * Request: "choose invoice or create new one" menu
 
- -- Vítězslav Dvořák <info@vitexsoftware.cz>  Tue, 13 Oct 2016 19:08:49 +0200
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Mon, 07 Nov 2016 22:48:13 +0100

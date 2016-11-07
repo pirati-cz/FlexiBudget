@@ -15,27 +15,6 @@ if ! dbc_go flexibudget $@ ; then
 	echo 'Automatic configuration using dbconfig-common failed!'
 fi
 
-#Přepíše hodnotu klíče v konfiguráku TakPre
-function replace {
-    cfg="/usr/share/flexibudget/includes/config.php"
-    sed -i "/${1}'/c\define('${1}', '${2}');" $cfg
-}
-
-replace "DB_SERVER" `read_lmsconfig "host"`
-replace "DB_SERVER_USERNAME" `read_lmsconfig "user"`
-replace "DB_SERVER_PASSWORD" `read_lmsconfig "password"`
-replace "DB_DATABASE" `read_lmsconfig "database"`
-
-# Check their answer.
-db_get flexibudget/LMS_DIRECTORY
-if [ "$RET" = "false" ]; then
-    # Poor misguided one..
-    db_input critical flexibudget/LMS_DIRECTORY || true
-    db_go
-fi
-replace "LMS_DIRECTORY" $RET
-
-
 db_get flexibudget/FLEXIBEE_URL
 if [ "$RET" = "false" ]; then
     # Poor misguided one..
