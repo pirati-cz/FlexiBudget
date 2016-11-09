@@ -20,3 +20,27 @@ db_go
 db_input medium flexibudget/FLEXIBEE_COMPANY || true
 db_go
 
+# DATABASE TYPE
+db_input high flexibudget/DATABASE_TYPE || true
+db_go
+
+# DATABASE HOST
+db_input high flexibudget/DATABASE_HOST || true
+db_go
+
+# DATABASE PORT
+db_input high flexibudget/DATABASE_PORT || true
+db_go
+
+# DATABASE USER
+db_input high flexibudget/DATABASE_USER || true
+db_go
+
+# DATABASE PASSWORD
+db_input high flexibudget/DATABASE_PASSWORD || true
+db_go
+
+# DATABASE NAME
+db_input high flexibudget/DATABASE_NAME || true
+db_go
+
