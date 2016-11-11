@@ -11,11 +11,6 @@ function replace {
     sed -i "/${1}'/c\define('${1}', '${2}');" $cfg
 }
 
-replace "DB_SERVER" $RET
-replace "DB_SERVER_USERNAME" $RET
-replace "DB_SERVER_PASSWORD" $RET
-replace "DB_DATABASE" $RET
-
 listOfConfigs="FLEXIBEE_URL
 FLEXIBEE_LOGIN
 FLEXIBEE_PASSWORD

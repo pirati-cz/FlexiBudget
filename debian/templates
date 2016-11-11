@@ -1,22 +1,22 @@
-Template: flexplorer/FLEXIBEE_URL
+Template: flexibudget/FLEXIBEE_URL
 Type: string
 _Default: https://demo.flexibee.eu
 _Description: FlexiBee API URL:
  URL with protocol, hostname and optional port ( https://localhost:5434 )
 
-Template: flexplorer/FLEXIBEE_LOGIN
+Template: flexibudget/FLEXIBEE_LOGIN
 Type: string
 _Default: winstrom
 _Description: FlexiBee API Username:
  User with prermisson to use REST API
 
-Template: flexplorer/FLEXIBEE_PASSWORD
+Template: flexibudget/FLEXIBEE_PASSWORD
 Type: string
 _Default: winstrom
 _Description: FlexiBee API password:
  Password for user with prermisson to use REST API
 
-Template: flexplorer/FLEXIBEE_COMPANY
+Template: flexibudget/FLEXIBEE_COMPANY
 Type: string
 _Default: demo
 _Description: Selected company:
