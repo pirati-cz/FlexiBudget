@@ -7,7 +7,7 @@ set -e
 
 #Replace Key Value in Config File
 function replace {
-    cfg="/usr/share/flexubudget/includes/config.php"
+    cfg="/usr/share/flexibudget/includes/config.php"
     sed -i "/${1}'/c\define('${1}', '${2}');" $cfg
 }
 
