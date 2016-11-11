@@ -2,3 +2,9 @@
 /build-stamp
 /testing/PHPUnit/build/
 /vendor/
+/debian/flexibudget/
+/debian/debhelper-build-stamp
+/debian/flexibudget.debhelper.log
+/debian/flexibudget.postrm.debhelper
+/debian/flexibudget.substvars
+/debian/lastversion

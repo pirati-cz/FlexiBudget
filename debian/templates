@@ -21,3 +21,41 @@ Type: string
 _Default: demo
 _Description: Selected company:
  First company opened by default
+
+
+Template: flexibudget/DATABASE_TYPE
+Type: select
+Choices: mysql, postgresql, sqlite
+_Default: mysql
+_Description: Type of used database:
+ You can use databases supported by PHP PDO
+
+Template: flexibudget/DATABASE_HOST
+Type: string
+_Default: localhost
+_Description: Where get database:
+ Use local database in most cases
+
+Template: flexibudget/DATABASE_PORT
+Type: string
+_Default: 3306
+_Description: database port:
+ 3306 for MySQL, 5435 for PostgreSQL
+
+Template: flexibudget/DATABASE_USER
+Type: string
+_Default: flexibudget
+_Description: Database user name:
+ may bee default in most cases
+
+Template: flexibudget/DATABASE_PASSWORD
+Type: string
+_Default: flexibudget
+_Description: Database password we use:
+ Please use save pasword in production enviroment
+
+Template: flexibudget/DATABASE_NAME
+Type: string
+_Default: flexibudget
+_Description: Database schema name:
+ may bee default in most cases

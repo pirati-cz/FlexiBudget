@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: flexplorer\n"
-"Report-Msgid-Bugs-To: flexplorer@packages.debian.org\n"
-"POT-Creation-Date: 2016-09-26 01:50+0200\n"
-"PO-Revision-Date: 2016-09-22 16:34+0100\n"
-"Last-Translator: Vítězslav Dvořák <vitex@arachne.cz>\n"
+"Report-Msgid-Bugs-To: flexibudget@packages.debian.org\n"
+"POT-Creation-Date: 2016-11-11 20:16+0100\n"
+"PO-Revision-Date: 2016-11-11 20:24+0100\n"
+"Last-Translator: Vítězslav Dvořák <info@vitexsoftware.cz>\n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
@@ -88,6 +88,102 @@ msgstr "Předvolená společnost:"
 #: ../templates:4002
 msgid "First company opened by default"
 msgstr "Výchozí zvolená společnost"
+
+#. Type: select
+#. Default
+#: ../templates:5001
+msgid "mysql"
+msgstr "mysql"
+
+#. Type: select
+#. Description
+#: ../templates:5002
+msgid "Type of used database:"
+msgstr "Typ použité databáze"
+
+#. Type: select
+#. Description
+#: ../templates:5002
+msgid "You can use databases supported by PHP PDO"
+msgstr "Je možené použít všechny databáze podporované v PHP PDO"
+
+#. Type: string
+#. Default
+#: ../templates:6001
+msgid "localhost"
+msgstr "localhost"
+
+#. Type: string
+#. Description
+#: ../templates:6002
+msgid "Where get database:"
+msgstr "Kde vzít databázi:"
+
+#. Type: string
+#. Description
+#: ../templates:6002
+msgid "Use local database in most cases"
+msgstr "Ve většině případů se použije místní databáze"
+
+#. Type: string
+#. Default
+#: ../templates:7001
+msgid "3306"
+msgstr "3306"
+
+#. Type: string
+#. Description
+#: ../templates:7002
+msgid "database port:"
+msgstr "port databáze:"
+
+#. Type: string
+#. Description
+#: ../templates:7002
+msgid "3306 for MySQL, 5435 for PostgreSQL"
+msgstr "3306 pro MySQL, 5435 pro PostgreSQL"
+
+#. Type: string
+#. Default
+#. Type: string
+#. Default
+#. Type: string
+#. Default
+#: ../templates:8001 ../templates:9001 ../templates:10001
+msgid "flexibudget"
+msgstr "flexibudget"
+
+#. Type: string
+#. Description
+#: ../templates:8002
+msgid "Database user name:"
+msgstr "Jméno databázového uživatele:"
+
+#. Type: string
+#. Description
+#. Type: string
+#. Description
+#: ../templates:8002 ../templates:10002
+msgid "may bee default in most cases"
+msgstr "Ve většině případu ponechte výchozí hodnotu"
+
+#. Type: string
+#. Description
+#: ../templates:9002
+msgid "Database password we use:"
+msgstr "Heslo k použité databázi:"
+
+#. Type: string
+#. Description
+#: ../templates:9002
+msgid "Please use save pasword in production enviroment"
+msgstr "Prosím použijte uložení hesla v produkčním prostředí"
+
+#. Type: string
+#. Description
+#: ../templates:10002
+msgid "Database schema name:"
+msgstr "Jméno databázového schématu"
 
 #~ msgid "winstorm"
 #~ msgstr "winstorm"

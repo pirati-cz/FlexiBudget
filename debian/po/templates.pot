@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: flexplorer\n"
-"Report-Msgid-Bugs-To: flexplorer@packages.debian.org\n"
-"POT-Creation-Date: 2016-09-26 01:50+0200\n"
+"Project-Id-Version: flexibudget\n"
+"Report-Msgid-Bugs-To: flexibudget@packages.debian.org\n"
+"POT-Creation-Date: 2016-11-11 20:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,4 +84,100 @@ msgstr ""
 #. Description
 #: ../templates:4002
 msgid "First company opened by default"
+msgstr ""
+
+#. Type: select
+#. Default
+#: ../templates:5001
+msgid "mysql"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../templates:5002
+msgid "Type of used database:"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../templates:5002
+msgid "You can use databases supported by PHP PDO"
+msgstr ""
+
+#. Type: string
+#. Default
+#: ../templates:6001
+msgid "localhost"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:6002
+msgid "Where get database:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:6002
+msgid "Use local database in most cases"
+msgstr ""
+
+#. Type: string
+#. Default
+#: ../templates:7001
+msgid "3306"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:7002
+msgid "database port:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:7002
+msgid "3306 for MySQL, 5435 for PostgreSQL"
+msgstr ""
+
+#. Type: string
+#. Default
+#. Type: string
+#. Default
+#. Type: string
+#. Default
+#: ../templates:8001 ../templates:9001 ../templates:10001
+msgid "flexibudget"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:8002
+msgid "Database user name:"
+msgstr ""
+
+#. Type: string
+#. Description
+#. Type: string
+#. Description
+#: ../templates:8002 ../templates:10002
+msgid "may bee default in most cases"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:9002
+msgid "Database password we use:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:9002
+msgid "Please use save pasword in production enviroment"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:10002
+msgid "Database schema name:"
 msgstr ""
