@@ -22,8 +22,10 @@ DATABASE_USER
 DATABASE_PASSWORD
 DATABASE_NAME"
 
-for keyword in "$listOfConfigs"
-do
+IFS='                                                                                                                                                        
+'                                                                                                                                                            
+for keyword in $listOfConfigs                                                                                                                                
+do                                                                                                                                                           
   db_get "flexibudget/$keyword"
   if [ "$RET" = "false" ]; then
     db_input critical "flexibudget/$keyword" || true
