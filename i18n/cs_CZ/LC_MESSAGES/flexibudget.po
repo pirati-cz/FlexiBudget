@@ -1,0 +1,655 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FlexiBudget\n"
+"POT-Creation-Date: 2016-11-11 21:53+0100\n"
+"PO-Revision-Date: 2016-11-11 21:54+0100\n"
+"Last-Translator: Vítězslav Dvořák <info@vitexsoftware.cz>\n"
+"Language-Team: VitexSoftware <info@vitexsoftware.cz>\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-Basepath: ../../\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ../src\n"
+"X-Poedit-SearchPathExcluded-0: ../vendor\n"
+
+#: ../src/about.php:15
+msgid "About application"
+msgstr ""
+
+#: ../src/about.php:17
+msgid "Used Libraries"
+msgstr ""
+
+#: ../src/budget.php:31
+msgid "Budget was not saved"
+msgstr ""
+
+#: ../src/budget.php:33
+msgid "Budget was saved"
+msgstr ""
+
+#: ../src/budget.php:40 ../src/budget.php:67 ../src/classes/ui/MainMenu.php:72
+#: ../src/index.php:23 ../src/login.php:57
+msgid "Budget"
+msgstr ""
+
+#: ../src/budget.php:50 ../src/intend.php:50 ../src/user.php:38
+msgid "Really delete ?"
+msgstr ""
+
+#: ../src/budget.php:53 ../src/classes/ui/TWBSwitch.php:36
+#: ../src/intend.php:53 ../src/user.php:41
+msgid "No"
+msgstr ""
+
+#: ../src/budget.php:55 ../src/classes/ui/TWBSwitch.php:33
+#: ../src/intend.php:55 ../src/user.php:43
+msgid "Yes"
+msgstr ""
+
+#: ../src/budgets.php:15 ../src/budgets.php:17
+msgid "Budgets"
+msgstr ""
+
+#: ../src/changepassword.php:52
+msgid "User password change"
+msgstr ""
+
+#: ../src/changepassword.php:60
+msgid "Password was changed"
+msgstr ""
+
+#: ../src/changepassword.php:63
+msgid "Changed monitoring password"
+msgstr ""
+
+#: ../src/changepassword.php:64
+#, php-format
+msgid "Dear user %s, your monitoring password was changed to"
+msgstr ""
+
+#: ../src/changepassword.php:66 ../src/classes/ui/BootstrapMenu.php:51
+#: ../src/createaccount.php:148 ../src/login.php:65
+#: ../src/passwordrecovery.php:48
+msgid "Password"
+msgstr ""
+
+#: ../src/changepassword.php:73
+msgid "Current password"
+msgstr ""
+
+#: ../src/changepassword.php:77
+msgid "New Password"
+msgstr ""
+
+#: ../src/changepassword.php:81
+msgid "Password confirm"
+msgstr ""
+
+#: ../src/changepassword.php:85
+msgid "Change password"
+msgstr ""
+
+#: ../src/changepassword.php:89 ../src/classes/ui/BootstrapMenu.php:70
+msgid "Password change"
+msgstr ""
+
+#: ../src/classes/Budget.php:49 ../src/classes/Intend.php:49
+msgid "Name"
+msgstr ""
+
+#: ../src/classes/Budget.php:51 ../src/classes/Intend.php:51
+msgid "Approval At"
+msgstr ""
+
+#: ../src/classes/DataSource.php:120
+msgid "Deleted"
+msgstr ""
+
+#: ../src/classes/DataSource.php:127
+msgid "Record was added"
+msgstr ""
+
+#: ../src/classes/DataSource.php:130
+msgid "Record was not added"
+msgstr ""
+
+#: ../src/classes/DataSource.php:138
+msgid "Record was updated"
+msgstr ""
+
+#: ../src/classes/DataSource.php:141
+msgid "Record was not updated"
+msgstr ""
+
+#: ../src/classes/Engine.php:138
+#, php-format
+msgid "Unserialization error %s #%s "
+msgstr ""
+
+#: ../src/classes/Engine.php:242
+#, php-format
+msgid "Unknown type of data %s"
+msgstr ""
+
+#: ../src/classes/Engine.php:263
+msgid "Record was deleted"
+msgstr ""
+
+#: ../src/classes/Engine.php:265
+msgid "Record was not deleted"
+msgstr ""
+
+#: ../src/classes/FlexiBees.php:95
+#, php-format
+msgid ""
+"Succesfully obtained organisation identification number #%d from FlexiBee %s"
+msgstr ""
+
+#: ../src/classes/FlexiBees.php:98
+#, php-format
+msgid "Cannot obtain organisation identification number for FlexiBee %s"
+msgstr ""
+
+#: ../src/classes/Intend.php:48
+msgid "Limit"
+msgstr ""
+
+#: ../src/classes/Intend.php:50 ../src/classes/ui/InvoiceForm.php:67
+msgid "Description"
+msgstr ""
+
+#: ../src/classes/ui/BootstrapMenu.php:31 ../src/index.php:15
+msgid "FlexiBudget"
+msgstr ""
+
+#: ../src/classes/ui/BootstrapMenu.php:39
+msgid "About"
+msgstr ""
+
+#: ../src/classes/ui/BootstrapMenu.php:47
+msgid "Sign in"
+msgstr ""
+
+#: ../src/classes/ui/BootstrapMenu.php:50
+msgid "login"
+msgstr ""
+
+#: ../src/classes/ui/BootstrapMenu.php:53
+msgid "Remember Me"
+msgstr ""
+
+#: ../src/classes/ui/BootstrapMenu.php:54 ../src/login.php:40
+#: ../src/login.php:54
+msgid "Sign In"
+msgstr ""
+
+#: ../src/classes/ui/BootstrapMenu.php:62 ../src/settings.php:15
+msgid "Settings"
+msgstr ""
+
+#: ../src/classes/ui/BootstrapMenu.php:71
+msgid "About FlexiBudget"
+msgstr ""
+
+#: ../src/classes/ui/BootstrapMenu.php:73 ../src/logout.php:20
+msgid "Sign Off"
+msgstr ""
+
+#: ../src/classes/ui/BootstrapMenu.php:88
+msgid "Click to hide messages"
+msgstr ""
+
+#: ../src/classes/ui/BudgetEditor.php:39 ../src/classes/ui/ColumnsForm.php:102
+#: ../src/classes/ui/IntendEditor.php:39
+#: ../src/classes/ui/RegisterFlexiBeeForm.php:33
+msgid "Save"
+msgstr ""
+
+#: ../src/classes/ui/ColumnsForm.php:112
+msgid "Save & Back to list"
+msgstr ""
+
+#: ../src/classes/ui/ColumnsForm.php:121
+msgid "Save and next"
+msgstr ""
+
+#: ../src/classes/ui/DataGrid.php:87
+msgid "Add"
+msgstr ""
+
+#: ../src/classes/ui/DataGrid.php:88
+msgid "Edit"
+msgstr ""
+
+#: ../src/classes/ui/DataGrid.php:89
+msgid "Delete"
+msgstr ""
+
+#: ../src/classes/ui/DataGrid.php:97
+msgid "Title missing"
+msgstr ""
+
+#: ../src/classes/ui/DataGrid.php:195 ../src/classes/ui/DataGrid.php:235
+msgid "Please select any rows"
+msgstr ""
+
+#: ../src/classes/ui/FlexiBeeStatus.php:23
+msgid "Chyba komunikace"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:24
+msgid "Invoice"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:24
+#, php-format
+msgid "Invoice #%s"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:39
+msgid "From"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:46
+msgid "To"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:67
+msgid "Service"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:67
+msgid "Hrs/Qty"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:68
+msgid "Rate/Price"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:68 ../src/classes/ui/InvoiceForm.php:91
+msgid "Sub Total"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:92
+msgid "TAX"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:93
+msgid "Total"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:65 ../src/index.php:22 ../src/intend.php:40
+#: ../src/intend.php:67
+msgid "Intend"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:67
+msgid "New Intend"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:68
+msgid "Intend listing"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:74
+msgid "New Budget"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:75
+msgid "Budget listing"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:79
+msgid "Request"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:81
+msgid "Create invoice"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:82
+msgid "Choose invoice"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:101
+msgid "Users"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:103
+msgid "New users"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:104
+msgid "User listing"
+msgstr ""
+
+#: ../src/classes/ui/PageBottom.php:22
+msgid "Podpora"
+msgstr ""
+
+#: ../src/classes/ui/PageBottom.php:34
+msgid "&copy; 2016 Vitex Software"
+msgstr ""
+
+#: ../src/classes/ui/RegisterFlexiBeeForm.php:22
+msgid "FlexiBee instance Name"
+msgstr ""
+
+#: ../src/classes/ui/RegisterFlexiBeeForm.php:24
+msgid "RestAPI endpoint url"
+msgstr ""
+
+#: ../src/classes/ui/RegisterFlexiBeeForm.php:26
+msgid "REST API Username"
+msgstr ""
+
+#: ../src/classes/ui/RegisterFlexiBeeForm.php:28
+msgid "Rest API Password"
+msgstr ""
+
+#: ../src/classes/ui/RegisterFlexiBeeForm.php:30
+msgid "Company Code"
+msgstr ""
+
+#: ../src/classes/ui/RegisterFlexiBeeForm.php:31
+msgid "Read/Write access ?"
+msgstr ""
+
+#: ../src/classes/ui/UserForm.php:27
+msgid "Jméno"
+msgstr ""
+
+#: ../src/classes/ui/UserForm.php:29
+msgid "Příjmení"
+msgstr ""
+
+#: ../src/classes/ui/UserForm.php:31 ../src/passwordrecovery.php:78
+msgid "Email"
+msgstr ""
+
+#: ../src/classes/ui/UserForm.php:33
+msgid "Přihlašovací jméno"
+msgstr ""
+
+#: ../src/classes/ui/UserForm.php:38
+msgid "Uložit"
+msgstr ""
+
+#: ../src/classes/ui/WebPage.php:85
+msgid "Sign in as admin first"
+msgstr ""
+
+#: ../src/createaccount.php:39
+msgid "Mail address is too short"
+msgstr ""
+
+#: ../src/createaccount.php:42
+msgid "invalid mail address"
+msgstr ""
+
+#: ../src/createaccount.php:49
+#, php-format
+msgid "Mail address %s is allready registered"
+msgstr ""
+
+#: ../src/createaccount.php:58
+msgid "password is too short"
+msgstr ""
+
+#: ../src/createaccount.php:61
+msgid "Password control does not match"
+msgstr ""
+
+#: ../src/createaccount.php:71
+#, php-format
+msgid "Username %s is used. Please choose another one"
+msgstr ""
+
+#: ../src/createaccount.php:94
+msgid "Admin account created"
+msgstr ""
+
+#: ../src/createaccount.php:97
+msgid "User account created"
+msgstr ""
+
+#: ../src/createaccount.php:103
+msgid "Sign On info"
+msgstr ""
+
+#: ../src/createaccount.php:111
+#, php-format
+msgid "New Sign On to FlexiBudget: %s"
+msgstr ""
+
+#: ../src/createaccount.php:114
+msgid "New User:\n"
+msgstr ""
+
+#: ../src/createaccount.php:123
+msgid "User create failed"
+msgstr ""
+
+#: ../src/createaccount.php:125
+msgid "Failed registraton"
+msgstr ""
+
+#: ../src/createaccount.php:132 ../src/login.php:74
+msgid "Sign On"
+msgstr ""
+
+#: ../src/createaccount.php:134
+msgid "Singn On"
+msgstr ""
+
+#: ../src/createaccount.php:142
+msgid "Firstname"
+msgstr ""
+
+#: ../src/createaccount.php:144
+msgid "Lastname"
+msgstr ""
+
+#: ../src/createaccount.php:146
+msgid "User name"
+msgstr ""
+
+#: ../src/createaccount.php:150
+msgid "Password confirmation"
+msgstr ""
+
+#: ../src/createaccount.php:152
+msgid "eMail address"
+msgstr ""
+
+#: ../src/createaccount.php:155
+msgid "Register"
+msgstr ""
+
+#: ../src/createaccount.php:156
+msgid "finish registration"
+msgstr ""
+
+#: ../src/createinvoice.php:15
+msgid "Faktura"
+msgstr ""
+
+#: ../src/flexibee.php:15
+msgid "FlexiBee instance"
+msgstr ""
+
+#: ../src/flexibee.php:23
+msgid "Error saving FlexiBee instance"
+msgstr ""
+
+#: ../src/flexibee.php:26
+msgid "FlexiBee instance Saved"
+msgstr ""
+
+#: ../src/flexibee.php:34
+msgid "New FlexiBee instance"
+msgstr ""
+
+#: ../src/index.php:20 ../src/request.php:15
+msgid "Request for payment"
+msgstr ""
+
+#: ../src/intend.php:31
+msgid "Intend was not saved"
+msgstr ""
+
+#: ../src/intend.php:33
+msgid "Intend was saved"
+msgstr ""
+
+#: ../src/intends.php:15 ../src/intends.php:17
+msgid "Intends"
+msgstr ""
+
+#: ../src/login.php:14
+msgid "Cookies required"
+msgstr ""
+
+#: ../src/login.php:30
+msgid "Signed As: "
+msgstr ""
+
+#: ../src/login.php:36
+msgid "Please enter your Login information"
+msgstr ""
+
+#: ../src/login.php:50
+msgid "Welcome to FlexiBudget"
+msgstr ""
+
+#: ../src/login.php:59
+msgid "Singn In"
+msgstr ""
+
+#: ../src/login.php:63 ../src/passwordrecovery.php:47
+msgid "Username"
+msgstr ""
+
+#: ../src/login.php:71 ../src/passwordrecovery.php:73
+msgid "Password Recovery"
+msgstr ""
+
+#: ../src/logout.php:24
+msgid "Good bye"
+msgstr ""
+
+#: ../src/logout.php:29
+msgid ""
+"\n"
+"Thank you for your patronage and look forward to another visit"
+msgstr ""
+
+#: ../src/passwordrecovery.php:41
+#, php-format
+msgid "New password for %s"
+msgstr ""
+
+#: ../src/passwordrecovery.php:45
+msgid "Sign On informations was changed"
+msgstr ""
+
+#: ../src/passwordrecovery.php:52
+#, php-format
+msgid "Your new password was sent to %s"
+msgstr ""
+
+#: ../src/passwordrecovery.php:56
+#, php-format
+msgid "unknow email address %s"
+msgstr ""
+
+#: ../src/passwordrecovery.php:60
+msgid "Please enter your email."
+msgstr ""
+
+#: ../src/passwordrecovery.php:63
+msgid "Lost password recovery"
+msgstr ""
+
+#: ../src/passwordrecovery.php:67
+msgid "Tip"
+msgstr ""
+
+#: ../src/passwordrecovery.php:69
+msgid ""
+"Forgot your password? Enter your e-mail address you entered during the "
+"registration and we will send you a new one."
+msgstr ""
+
+#: ../src/passwordrecovery.php:77
+msgid "Sent New Password"
+msgstr ""
+
+#: ../src/passwordrecovery.php:91
+msgid "Continue"
+msgstr ""
+
+#: ../src/request.php:20
+msgid "Create new invoice"
+msgstr ""
+
+#: ../src/request.php:23
+msgid "Choose existing invoice"
+msgstr ""
+
+#: ../src/rights.php:15 ../src/settings.php:20
+msgid "Oprávnění"
+msgstr ""
+
+#: ../src/settings.php:18
+msgid "Změna hesla"
+msgstr ""
+
+#: ../src/settings.php:25
+msgid "Init FlexiBee"
+msgstr ""
+
+#: ../src/template.php:15
+msgid "Vitex Software"
+msgstr ""
+
+#: ../src/transaction.php:29
+msgid "Transactiona"
+msgstr ""
+
+#: ../src/transaction.php:38
+msgid "Opravdu smazat ?"
+msgstr ""
+
+#: ../src/transaction.php:39
+msgid "Ne"
+msgstr ""
+
+#: ../src/transaction.php:40
+msgid "Ano"
+msgstr ""
+
+#: ../src/transactions.php:17
+msgid "Přehled transakcí"
+msgstr ""
+
+#: ../src/transactions.php:19
+msgid "Transakce"
+msgstr ""
+
+#: ../src/user.php:29
+msgid "User"
+msgstr ""
+
+#: ../src/users.php:17
+msgid "Přehled uživatelů"
+msgstr ""
+
+#: ../src/users.php:19
+msgid "Uživatelé"
+msgstr ""

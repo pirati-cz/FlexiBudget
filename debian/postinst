@@ -11,6 +11,12 @@ function replace {
     sed -i "/${1}'/c\define('${1}', '${2}');" $cfg
 }
 
+#Replace Key Value in PhinX Config File
+function replaceYML {
+    cfg="/var/lib/flexibudget/phinx.yml"
+    sed -i "/${1}'/c\        ${1}: ${2}" $cfg
+}
+
 listOfConfigs="FLEXIBEE_URL
 FLEXIBEE_LOGIN
 FLEXIBEE_PASSWORD
@@ -53,6 +59,28 @@ if [ -f /etc/init.d/avahi ] ; then
         /etc/init.d/avahi reload 3>/dev/null || true
     fi
 fi
+
+
+cd /usr/share/flexibudget
+if [ -f composer.lock ] ; then
+    rm -f composer.lock
+fi
+composer --no-dev -o install
+
+db_get "flexibudget/DATABASE_TYPE"
+replaceYML "adapter" $RET
+db_get "flexibudget/DATABASE_HOST"
+replaceYML "host" $RET
+db_get "flexibudget/DATABASE_PORT"
+replaceYML "port" $RET
+db_get "flexibudget/DATABASE_USER"
+replaceYML "user" $RET
+db_get "flexibudget/DATABASE_PASSWORD"
+replaceYML "pass" $RET
+db_get "flexibudget/DATABASE_NAME"
+replaceYML "name" $RET
+
+phinx -n -c /var/lib/flexibudget/phinx.yml migrate
 
 #DEBHELPER#
 

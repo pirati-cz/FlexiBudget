@@ -1,0 +1,743 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FlexiBudget\n"
+"POT-Creation-Date: 2016-11-11 21:50+0100\n"
+"PO-Revision-Date: 2016-11-11 21:51+0100\n"
+"Last-Translator: Vítězslav Dvořák <info@vitexsoftware.cz>\n"
+"Language-Team: VitexSoftware <info@vitexsoftware.cz>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-Basepath: ../../\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ../src\n"
+"X-Poedit-SearchPathExcluded-0: ../vendor\n"
+
+#: ../src/about.php:15
+#, fuzzy
+msgid "About application"
+msgstr "About application"
+
+#: ../src/about.php:17
+#, fuzzy
+msgid "Used Libraries"
+msgstr "Used Libraries"
+
+#: ../src/budget.php:31
+#, fuzzy
+msgid "Budget was not saved"
+msgstr "Record was saved"
+
+#: ../src/budget.php:33
+#, fuzzy
+msgid "Budget was saved"
+msgstr "Record was saved"
+
+#: ../src/budget.php:40 ../src/budget.php:67 ../src/classes/ui/MainMenu.php:72
+#: ../src/index.php:23 ../src/login.php:57
+msgid "Budget"
+msgstr ""
+
+#: ../src/budget.php:50 ../src/intend.php:50 ../src/user.php:38
+#, fuzzy
+msgid "Really delete ?"
+msgstr "Delete"
+
+#: ../src/budget.php:53 ../src/classes/ui/TWBSwitch.php:36
+#: ../src/intend.php:53 ../src/user.php:41
+msgid "No"
+msgstr ""
+
+#: ../src/budget.php:55 ../src/classes/ui/TWBSwitch.php:33
+#: ../src/intend.php:55 ../src/user.php:43
+#, fuzzy
+msgid "Yes"
+msgstr "Yes"
+
+#: ../src/budgets.php:15 ../src/budgets.php:17
+msgid "Budgets"
+msgstr ""
+
+#: ../src/changepassword.php:52
+#, fuzzy
+msgid "User password change"
+msgstr "User's password"
+
+#: ../src/changepassword.php:60
+#, fuzzy
+msgid "Password was changed"
+msgstr "Password"
+
+#: ../src/changepassword.php:63
+#, fuzzy
+msgid "Changed monitoring password"
+msgstr "Password"
+
+#: ../src/changepassword.php:64
+#, php-format
+msgid "Dear user %s, your monitoring password was changed to"
+msgstr ""
+
+#: ../src/changepassword.php:66 ../src/classes/ui/BootstrapMenu.php:51
+#: ../src/createaccount.php:148 ../src/login.php:65
+#: ../src/passwordrecovery.php:48
+#, fuzzy
+msgid "Password"
+msgstr "Password"
+
+#: ../src/changepassword.php:73
+#, fuzzy
+msgid "Current password"
+msgstr "Password"
+
+#: ../src/changepassword.php:77
+#, fuzzy
+msgid "New Password"
+msgstr "New"
+
+#: ../src/changepassword.php:81
+msgid "Password confirm"
+msgstr ""
+
+#: ../src/changepassword.php:85
+#, fuzzy
+msgid "Change password"
+msgstr "Build change"
+
+#: ../src/changepassword.php:89 ../src/classes/ui/BootstrapMenu.php:70
+#, fuzzy
+msgid "Password change"
+msgstr "Build change"
+
+#: ../src/classes/Budget.php:49 ../src/classes/Intend.php:49
+#, fuzzy
+msgid "Name"
+msgstr "localized name"
+
+#: ../src/classes/Budget.php:51 ../src/classes/Intend.php:51
+msgid "Approval At"
+msgstr ""
+
+#: ../src/classes/DataSource.php:120
+#, fuzzy
+msgid "Deleted"
+msgstr "Deleted"
+
+#: ../src/classes/DataSource.php:127
+#, fuzzy
+msgid "Record was added"
+msgstr "Record was added"
+
+#: ../src/classes/DataSource.php:130
+#, fuzzy
+msgid "Record was not added"
+msgstr "Record was added"
+
+#: ../src/classes/DataSource.php:138
+#, fuzzy
+msgid "Record was updated"
+msgstr "Record was updated"
+
+#: ../src/classes/DataSource.php:141
+#, fuzzy
+msgid "Record was not updated"
+msgstr "Record was updated"
+
+#: ../src/classes/Engine.php:138
+#, fuzzy, php-format
+msgid "Unserialization error %s #%s "
+msgstr "Unserialization error %s #%s "
+
+#: ../src/classes/Engine.php:242
+#, fuzzy, php-format
+msgid "Unknown type of data %s"
+msgstr "Unknown type of data %s"
+
+#: ../src/classes/Engine.php:263
+#, fuzzy
+msgid "Record was deleted"
+msgstr "Record was deleted"
+
+#: ../src/classes/Engine.php:265
+#, fuzzy
+msgid "Record was not deleted"
+msgstr "Record was deleted"
+
+#: ../src/classes/FlexiBees.php:95
+#, php-format
+msgid ""
+"Succesfully obtained organisation identification number #%d from FlexiBee %s"
+msgstr ""
+
+#: ../src/classes/FlexiBees.php:98
+#, php-format
+msgid "Cannot obtain organisation identification number for FlexiBee %s"
+msgstr ""
+
+#: ../src/classes/Intend.php:48
+msgid "Limit"
+msgstr ""
+
+#: ../src/classes/Intend.php:50 ../src/classes/ui/InvoiceForm.php:67
+msgid "Description"
+msgstr ""
+
+#: ../src/classes/ui/BootstrapMenu.php:31 ../src/index.php:15
+#, fuzzy
+msgid "FlexiBudget"
+msgstr "flexibudget"
+
+#: ../src/classes/ui/BootstrapMenu.php:39
+#, fuzzy
+msgid "About"
+msgstr "About"
+
+#: ../src/classes/ui/BootstrapMenu.php:47
+#, fuzzy
+msgid "Sign in"
+msgstr "Sign in"
+
+#: ../src/classes/ui/BootstrapMenu.php:50
+#, fuzzy
+msgid "login"
+msgstr "login"
+
+#: ../src/classes/ui/BootstrapMenu.php:53
+#, fuzzy
+msgid "Remember Me"
+msgstr "Remeber me"
+
+#: ../src/classes/ui/BootstrapMenu.php:54 ../src/login.php:40
+#: ../src/login.php:54
+#, fuzzy
+msgid "Sign In"
+msgstr "Sign in"
+
+#: ../src/classes/ui/BootstrapMenu.php:62 ../src/settings.php:15
+#, fuzzy
+msgid "Settings"
+msgstr "Settings"
+
+#: ../src/classes/ui/BootstrapMenu.php:71
+#, fuzzy
+msgid "About FlexiBudget"
+msgstr "About"
+
+#: ../src/classes/ui/BootstrapMenu.php:73 ../src/logout.php:20
+#, fuzzy
+msgid "Sign Off"
+msgstr "Sign off"
+
+#: ../src/classes/ui/BootstrapMenu.php:88
+#, fuzzy
+msgid "Click to hide messages"
+msgstr "Click to hide messages"
+
+#: ../src/classes/ui/BudgetEditor.php:39 ../src/classes/ui/ColumnsForm.php:102
+#: ../src/classes/ui/IntendEditor.php:39
+#: ../src/classes/ui/RegisterFlexiBeeForm.php:33
+#, fuzzy
+msgid "Save"
+msgstr "Save"
+
+#: ../src/classes/ui/ColumnsForm.php:112
+#, fuzzy
+msgid "Save & Back to list"
+msgstr "Save"
+
+#: ../src/classes/ui/ColumnsForm.php:121
+#, fuzzy
+msgid "Save and next"
+msgstr "Save and next"
+
+#: ../src/classes/ui/DataGrid.php:87
+#, fuzzy
+msgid "Add"
+msgstr "Add"
+
+#: ../src/classes/ui/DataGrid.php:88
+#, fuzzy
+msgid "Edit"
+msgstr "Edit"
+
+#: ../src/classes/ui/DataGrid.php:89
+#, fuzzy
+msgid "Delete"
+msgstr "Delete"
+
+#: ../src/classes/ui/DataGrid.php:97
+#, fuzzy
+msgid "Title missing"
+msgstr "Title missing"
+
+#: ../src/classes/ui/DataGrid.php:195 ../src/classes/ui/DataGrid.php:235
+#, fuzzy
+msgid "Please select any rows"
+msgstr "Please mark some rows"
+
+#: ../src/classes/ui/FlexiBeeStatus.php:23
+msgid "Chyba komunikace"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:24
+msgid "Invoice"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:24
+#, fuzzy, php-format
+msgid "Invoice #%s"
+msgstr "Unserialization error %s #%s "
+
+#: ../src/classes/ui/InvoiceForm.php:39
+#, fuzzy
+msgid "From"
+msgstr "From Year"
+
+#: ../src/classes/ui/InvoiceForm.php:46
+msgid "To"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:67
+msgid "Service"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:67
+msgid "Hrs/Qty"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:68
+msgid "Rate/Price"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:68 ../src/classes/ui/InvoiceForm.php:91
+msgid "Sub Total"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:92
+msgid "TAX"
+msgstr ""
+
+#: ../src/classes/ui/InvoiceForm.php:93
+msgid "Total"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:65 ../src/index.php:22 ../src/intend.php:40
+#: ../src/intend.php:67
+msgid "Intend"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:67
+#, fuzzy
+msgid "New Intend"
+msgstr "New"
+
+#: ../src/classes/ui/MainMenu.php:68
+#, fuzzy
+msgid "Intend listing"
+msgstr "Listing"
+
+#: ../src/classes/ui/MainMenu.php:74
+#, fuzzy
+msgid "New Budget"
+msgstr "New"
+
+#: ../src/classes/ui/MainMenu.php:75
+#, fuzzy
+msgid "Budget listing"
+msgstr "Listing"
+
+#: ../src/classes/ui/MainMenu.php:79
+#, fuzzy
+msgid "Request"
+msgstr "Request"
+
+#: ../src/classes/ui/MainMenu.php:81
+msgid "Create invoice"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:82
+#, fuzzy
+msgid "Choose invoice"
+msgstr "Choose Registered"
+
+#: ../src/classes/ui/MainMenu.php:101
+msgid "Users"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:103
+#, fuzzy
+msgid "New users"
+msgstr "New"
+
+#: ../src/classes/ui/MainMenu.php:104
+#, fuzzy
+msgid "User listing"
+msgstr "Listing"
+
+#: ../src/classes/ui/PageBottom.php:22
+msgid "Podpora"
+msgstr ""
+
+#: ../src/classes/ui/PageBottom.php:34
+#, fuzzy
+msgid "&copy; 2016 Vitex Software"
+msgstr "&copy; 2016 Vítězslav \"Vitex\" Dvořák"
+
+#: ../src/classes/ui/RegisterFlexiBeeForm.php:22
+#, fuzzy
+msgid "FlexiBee instance Name"
+msgstr "FlexiBee"
+
+#: ../src/classes/ui/RegisterFlexiBeeForm.php:24
+#, fuzzy
+msgid "RestAPI endpoint url"
+msgstr "URL"
+
+#: ../src/classes/ui/RegisterFlexiBeeForm.php:26
+#, fuzzy
+msgid "REST API Username"
+msgstr "FlexiBee API Username:"
+
+#: ../src/classes/ui/RegisterFlexiBeeForm.php:28
+msgid "Rest API Password"
+msgstr ""
+
+#: ../src/classes/ui/RegisterFlexiBeeForm.php:30
+#, fuzzy
+msgid "Company Code"
+msgstr "Security Code"
+
+#: ../src/classes/ui/RegisterFlexiBeeForm.php:31
+#, fuzzy
+msgid "Read/Write access ?"
+msgstr "Read Only"
+
+#: ../src/classes/ui/UserForm.php:27
+msgid "Jméno"
+msgstr ""
+
+#: ../src/classes/ui/UserForm.php:29
+msgid "Příjmení"
+msgstr ""
+
+#: ../src/classes/ui/UserForm.php:31 ../src/passwordrecovery.php:78
+msgid "Email"
+msgstr ""
+
+#: ../src/classes/ui/UserForm.php:33
+msgid "Přihlašovací jméno"
+msgstr ""
+
+#: ../src/classes/ui/UserForm.php:38
+msgid "Uložit"
+msgstr ""
+
+#: ../src/classes/ui/WebPage.php:85
+#, fuzzy
+msgid "Sign in as admin first"
+msgstr "Please sign in as admin first"
+
+#: ../src/createaccount.php:39
+msgid "Mail address is too short"
+msgstr ""
+
+#: ../src/createaccount.php:42
+msgid "invalid mail address"
+msgstr ""
+
+#: ../src/createaccount.php:49
+#, php-format
+msgid "Mail address %s is allready registered"
+msgstr ""
+
+#: ../src/createaccount.php:58
+#, fuzzy
+msgid "password is too short"
+msgstr "Password"
+
+#: ../src/createaccount.php:61
+msgid "Password control does not match"
+msgstr ""
+
+#: ../src/createaccount.php:71
+#, php-format
+msgid "Username %s is used. Please choose another one"
+msgstr ""
+
+#: ../src/createaccount.php:94
+#, fuzzy
+msgid "Admin account created"
+msgstr "Please sign in as admin first"
+
+#: ../src/createaccount.php:97
+#, fuzzy
+msgid "User account created"
+msgstr "User Query"
+
+#: ../src/createaccount.php:103
+#, fuzzy
+msgid "Sign On info"
+msgstr "Info"
+
+#: ../src/createaccount.php:111
+#, php-format
+msgid "New Sign On to FlexiBudget: %s"
+msgstr ""
+
+#: ../src/createaccount.php:114
+#, fuzzy
+msgid "New User:\n"
+msgstr "New"
+
+#: ../src/createaccount.php:123
+#, fuzzy
+msgid "User create failed"
+msgstr "Login Failed"
+
+#: ../src/createaccount.php:125
+#, fuzzy
+msgid "Failed registraton"
+msgstr "Login Failed"
+
+#: ../src/createaccount.php:132 ../src/login.php:74
+#, fuzzy
+msgid "Sign On"
+msgstr "Sign in"
+
+#: ../src/createaccount.php:134
+msgid "Singn On"
+msgstr ""
+
+#: ../src/createaccount.php:142
+msgid "Firstname"
+msgstr ""
+
+#: ../src/createaccount.php:144
+msgid "Lastname"
+msgstr ""
+
+#: ../src/createaccount.php:146
+#, fuzzy
+msgid "User name"
+msgstr "User name"
+
+#: ../src/createaccount.php:150
+#, fuzzy
+msgid "Password confirmation"
+msgstr "Password"
+
+#: ../src/createaccount.php:152
+msgid "eMail address"
+msgstr ""
+
+#: ../src/createaccount.php:155
+msgid "Register"
+msgstr ""
+
+#: ../src/createaccount.php:156
+msgid "finish registration"
+msgstr ""
+
+#: ../src/createinvoice.php:15
+msgid "Faktura"
+msgstr ""
+
+#: ../src/flexibee.php:15
+#, fuzzy
+msgid "FlexiBee instance"
+msgstr "FlexiBee"
+
+#: ../src/flexibee.php:23
+msgid "Error saving FlexiBee instance"
+msgstr ""
+
+#: ../src/flexibee.php:26
+#, fuzzy
+msgid "FlexiBee instance Saved"
+msgstr "Record was saved"
+
+#: ../src/flexibee.php:34
+#, fuzzy
+msgid "New FlexiBee instance"
+msgstr "New"
+
+#: ../src/index.php:20 ../src/request.php:15
+#, fuzzy
+msgid "Request for payment"
+msgstr "Request"
+
+#: ../src/intend.php:31
+#, fuzzy
+msgid "Intend was not saved"
+msgstr "Record was saved"
+
+#: ../src/intend.php:33
+#, fuzzy
+msgid "Intend was saved"
+msgstr "Record was saved"
+
+#: ../src/intends.php:15 ../src/intends.php:17
+msgid "Intends"
+msgstr ""
+
+#: ../src/login.php:14
+#, fuzzy
+msgid "Cookies required"
+msgstr "Required"
+
+#: ../src/login.php:30
+#, fuzzy
+msgid "Signed As: "
+msgstr "Signed in as: "
+
+#: ../src/login.php:36
+#, fuzzy
+msgid "Please enter your Login information"
+msgstr "Please confirm your login credentials"
+
+#: ../src/login.php:50
+#, fuzzy
+msgid "Welcome to FlexiBudget"
+msgstr "Welcome"
+
+#: ../src/login.php:59
+msgid "Singn In"
+msgstr ""
+
+#: ../src/login.php:63 ../src/passwordrecovery.php:47
+#, fuzzy
+msgid "Username"
+msgstr "FlexiBee API Username:"
+
+#: ../src/login.php:71 ../src/passwordrecovery.php:73
+#, fuzzy
+msgid "Password Recovery"
+msgstr "Password"
+
+#: ../src/logout.php:24
+msgid "Good bye"
+msgstr ""
+
+#: ../src/logout.php:29
+#, fuzzy
+msgid ""
+"\n"
+"Thank you for your patronage and look forward to another visit"
+msgstr "Thank you for your patronage and look forward to another visit"
+
+#: ../src/passwordrecovery.php:41
+#, fuzzy, php-format
+msgid "New password for %s"
+msgstr "New"
+
+#: ../src/passwordrecovery.php:45
+#, fuzzy
+msgid "Sign On informations was changed"
+msgstr "Sign in"
+
+#: ../src/passwordrecovery.php:52
+#, php-format
+msgid "Your new password was sent to %s"
+msgstr ""
+
+#: ../src/passwordrecovery.php:56
+#, php-format
+msgid "unknow email address %s"
+msgstr ""
+
+#: ../src/passwordrecovery.php:60
+#, fuzzy
+msgid "Please enter your email."
+msgstr "Please confirm your login credentials"
+
+#: ../src/passwordrecovery.php:63
+#, fuzzy
+msgid "Lost password recovery"
+msgstr "Password"
+
+#: ../src/passwordrecovery.php:67
+msgid "Tip"
+msgstr ""
+
+#: ../src/passwordrecovery.php:69
+msgid ""
+"Forgot your password? Enter your e-mail address you entered during the "
+"registration and we will send you a new one."
+msgstr ""
+
+#: ../src/passwordrecovery.php:77
+#, fuzzy
+msgid "Sent New Password"
+msgstr "New"
+
+#: ../src/passwordrecovery.php:91
+msgid "Continue"
+msgstr ""
+
+#: ../src/request.php:20
+#, fuzzy
+msgid "Create new invoice"
+msgstr "New"
+
+#: ../src/request.php:23
+#, fuzzy
+msgid "Choose existing invoice"
+msgstr "Choose Registered"
+
+#: ../src/rights.php:15 ../src/settings.php:20
+msgid "Oprávnění"
+msgstr ""
+
+#: ../src/settings.php:18
+msgid "Změna hesla"
+msgstr ""
+
+#: ../src/settings.php:25
+#, fuzzy
+msgid "Init FlexiBee"
+msgstr "FlexiBee"
+
+#: ../src/template.php:15
+#, fuzzy
+msgid "Vitex Software"
+msgstr "Vitex Software"
+
+#: ../src/transaction.php:29
+msgid "Transactiona"
+msgstr ""
+
+#: ../src/transaction.php:38
+msgid "Opravdu smazat ?"
+msgstr ""
+
+#: ../src/transaction.php:39
+msgid "Ne"
+msgstr ""
+
+#: ../src/transaction.php:40
+msgid "Ano"
+msgstr ""
+
+#: ../src/transactions.php:17
+msgid "Přehled transakcí"
+msgstr ""
+
+#: ../src/transactions.php:19
+msgid "Transakce"
+msgstr ""
+
+#: ../src/user.php:29
+#, fuzzy
+msgid "User"
+msgstr "User Query"
+
+#: ../src/users.php:17
+msgid "Přehled uživatelů"
+msgstr ""
+
+#: ../src/users.php:19
+msgid "Uživatelé"
+msgstr ""

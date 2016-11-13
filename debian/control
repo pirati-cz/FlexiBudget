@@ -8,6 +8,7 @@ Homepage: https://www.vitexsoftware.cz/redmine/projects/flexibudget
 
 Package: flexibudget
 Depends: ${misc:Depends},ease-framework,libjs-font-awesome,php5-curl,libjs-fuelux
+Pre-Depends: php-phinx
 Architecture: all
 Section: web
 Priority: optional

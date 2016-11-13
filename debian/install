@@ -13,3 +13,18 @@ debian/conf/flexibudget.conf	etc/apache2/conf-available
 debian/conf/flexibudget.service etc/avahi/services
 README.md               usr/share/doc/flexibudget/
 
+db/migrations/*         var/lib/flexibudget/db/migrations/
+phinx.yml               var/lib/flexibudget/
+
+debian/conf/flexibudget.conf	etc/apache2/conf-available/
+debian/conf/flexibudget.service  etc/avahi/services/
+debian/conf/composer.json       usr/share/flexibudget/
+debian/conf/flexibudget.desktop  etc/flexibudget/
+
+i18n/cs_CZ/LC_MESSAGES/*.mo     usr/share/locale/cs_CZ/LC_MESSAGES
+i18n/en_US/LC_MESSAGES/*.mo     usr/share/locale/en_US/LC_MESSAGES
+
+debian/icons/16/flexibudget.png  usr/share/icons/hicolor/16x16/apps
+debian/icons/32/flexibudget.png  usr/share/icons/hicolor/32x32/apps
+debian/icons/48/flexibudget.png  usr/share/icons/hicolor/48x48/apps
+debian/icons/256/flexibudget.png usr/share/icons/hicolor/256x256/apps
