@@ -9,6 +9,7 @@ src/js/*.js		usr/share/flexibudget/js
 src/images/*		usr/share/flexibudget/images
 src/includes/*.php	usr/share/flexibudget/includes
 src/classes/*.php		usr/share/flexibudget/classes
+src/classes/ui/*.php		usr/share/flexibudget/classes/ui
 debian/conf/flexibudget.conf	etc/apache2/conf-available
 debian/conf/flexibudget.service etc/avahi/services
 README.md               usr/share/doc/flexibudget/

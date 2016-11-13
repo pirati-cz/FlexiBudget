@@ -1,4 +1,4 @@
-flexibudget (0.0-4) UNRELEASED; urgency=medium
+flexibudget (0.0-12) UNRELEASED; urgency=medium
 
   * Initial release.
   * Request: "choose invoice or create new one" menu
@@ -6,5 +6,13 @@ flexibudget (0.0-4) UNRELEASED; urgency=medium
   * Debian Package enhancements
   * Debian Package enhancements
   * Debian Package enhancements
+  * Debian Package now can migrate database changes using phix
+  * Debian Package now can migrate database changes using phix
+  * Debian Package now can migrate database changes using phix
+  * Debian Package now can migrate database changes using phix
+  * Debian Package now can migrate database changes using phix
+  * Debian Package now can migrate database changes using phix
+  * Debian Package now can migrate database changes using phix
+  * Debian Package now can migrate database changes using phix
 
- -- Vítězslav Dvořák <info@vitexsoftware.cz>  Sun, 13 Nov 2016 14:27:06 +0100
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Sun, 13 Nov 2016 15:18:17 +0100

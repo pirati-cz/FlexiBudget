@@ -21,8 +21,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Flexibudget\\": "classes/",
-            "Flexibudget\\ui\\": "classes/ui/"
+            "FlexiBudget\\": "classes/",
+            "FlexiBudget\\ui\\": "classes/ui/"
         }
     },
     "repositories": [

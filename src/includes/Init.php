@@ -29,12 +29,12 @@ foreach ($langs as $code => $lang) {
     }
 }
 setlocale(LC_ALL, $locale);
-bind_textdomain_codeset('systemsn', 'UTF-8');
+bind_textdomain_codeset('flexibudget', 'UTF-8');
 putenv("LC_ALL=$locale");
 if (file_exists('../i18n')) {
-    bindtextdomain('systemsn', '../i18n');
+    bindtextdomain('flexibudget', '../i18n');
 }
-textdomain('systemsn');
+textdomain('flexibudget');
 
 /*
   if (file_exists(LMS_DIRECTORY . 'lib/LMSDB.php')) {
