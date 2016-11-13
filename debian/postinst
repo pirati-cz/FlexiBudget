@@ -80,7 +80,7 @@ replaceYML "pass" $RET
 db_get "flexibudget/DATABASE_NAME"
 replaceYML "name" $RET
 
-phinx -n -c /var/lib/flexibudget/phinx.yml migrate
+phinx -n -c/var/lib/flexibudget/phinx.yml migrate
 
 #DEBHELPER#
 

@@ -1,7 +1,10 @@
-flexibudget (0.0-1) UNRELEASED; urgency=medium
+flexibudget (0.0-4) UNRELEASED; urgency=medium
 
   * Initial release.
   * Request: "choose invoice or create new one" menu
   * Request: "choose invoice or create new one" menu
+  * Debian Package enhancements
+  * Debian Package enhancements
+  * Debian Package enhancements
 
- -- Vítězslav Dvořák <info@vitexsoftware.cz>  Mon, 07 Nov 2016 22:48:13 +0100
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Sun, 13 Nov 2016 14:27:06 +0100
