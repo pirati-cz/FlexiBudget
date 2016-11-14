@@ -1,6 +1,6 @@
 <?php
 /**
- * FlexiBudget - SQL DataGrid.
+ * FlexiBudget - FlexiBee DataGrid.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  2016 Vitex Software
@@ -9,11 +9,11 @@
 namespace FlexiBudget\ui;
 
 /**
- * Description of DBFDataGrid
+ * Description of DataGrid
  *
  * @author vitex
  */
-class DataGrid extends \Ease\Html\TableTag
+class FlexiDataGrid extends \Ease\Html\TableTag
 {
     /**
      * Extra filtr výsledků
@@ -22,13 +22,13 @@ class DataGrid extends \Ease\Html\TableTag
     public $select;
 
     /**
-     * Výchozí nastavení sloupečků
+     * Default column settings
      * @var array
      */
     public $defaultColProp = ['sortable' => true];
 
     /**
-     * Nastavení
+     * Options
      * @var array
      */
     public $options       = [
@@ -45,17 +45,17 @@ class DataGrid extends \Ease\Html\TableTag
         'showTableToggleBtn' => true,
         'add' => [],
         'edit' => [],
-        'buttons' => [
-            ['name' => 'CSV Export', 'bclass' => 'csvexport']
+//        'buttons' => [
+//            ['name' => 'CSV Export', 'bclass' => 'csvexport']
 //        , array('name' => 'PDF Export', 'bclass' => 'pdfexport')
-        ]
+//        ]
     ];
     public $addFormItems  = [['name' => 'action', 'value' => 'add', 'type' => 'hidden']];
     public $editFormItems = [['name' => 'action', 'value' => 'edit', 'type' => 'hidden']];
 
     /**
      * Objekt jehož data jsou zobrazována
-     * @var \FlexiBudget\Engine
+     * @var \Flexplorer\DataSource
      */
     public $dataSource = null;
 
@@ -72,15 +72,17 @@ class DataGrid extends \Ease\Html\TableTag
      * @param string $datasource URL
      * @param array $properties vlastnosti elementu
      */
-    function __construct($name, $datasource, $properties = [])
+    public function __construct($name, $datasource, $properties = null)
     {
         $this->dataSource       = $datasource;
         $this->options['title'] = $name;
         $this->setTagID();
 
-        $this->options['url']      = 'datasource.php?class='.urlencode(get_class($datasource));
+        $this->options['url']      = 'datasource.php?evidence='.urlencode($datasource->getEvidence()).'&class='.urlencode(get_class($datasource));
         $this->options['sortname'] = $datasource->getMyKeyColumn();
-        parent::__construct(null, $properties);
+        $dataurl                   = null;
+
+        parent::__construct($dataurl, $properties);
         \Ease\JQuery\Part::jQueryze($this);
         \Ease\Shared::webPage()->includeJavaScript('js/flexigrid.js');
         \Ease\Shared::webPage()->includeCSS('css/flexigrid.css');
@@ -88,32 +90,44 @@ class DataGrid extends \Ease\Html\TableTag
         $this->setUpColumns();
     }
 
-    function setUpButtons()
+
+    /**
+     * Set up DataGrid buttons
+     */
+    public function setUpButtons()
     {
-        $this->addAddButton(_('Add'));
-        $this->addEditButton(_('Edit'));
-        $this->addDeleteButton(_('Delete'));
+        $this->addSelectAllButton(_('Select All'));
     }
 
-    function setUpColumns()
+    /**
+     * Nastaví vlastností sloupečků datagridu
+     */
+    public function setUpColumns()
     {
-        foreach ($this->dataSource->columns as $columnName => $columnProperties) {
-            $type = strtoupper($columnProperties['type']);
-            if (!isset($this->dataSource->columns[$columnName]['title']) || !strlen(trim($this->dataSource->columns[$columnName]['title']))) {
-                $this->addStatusMessage(_('Title missing').' '.$this->dataSource->keyword.': '.$columnName,
-                    'warning');
-                $this->dataSource->columns[$columnName]['title'] = $columnName;
-            }
-            if (strstr($type, 'VARCHAR') || strstr($type, 'STRING') || strstr($type,
-                    'TEXT') || strstr($type, 'SELECT') || strstr($type,
-                    'PLATFORM') || strstr($type, 'IDLIST') || strstr($type,
-                    'BOOL') || strstr($type, 'DATE')) {
-                $this->setColumn($columnName,
-                    $this->dataSource->columns[$columnName]['title'], true);
+        $this->dataSource->keywordsInfo = $this->dataSource->evidenceStructure;
+        foreach ($this->dataSource->keywordsInfo as $keyword => $properties) {
+//            if (is_array($this->dataSource->showOnlyColumns) && !array_search($keyword,
+//                    $this->dataSource->showOnlyColumns)) {
+//                continue;
+//            }
+            $colProperties = [];
+            $type          = $properties['type'];
+            if ($properties['isSortable'] == 'true') {
+                $colProperties['sortable'] = 'true';
             } else {
-                $this->setColumn($columnName,
-                    $this->dataSource->columns[$columnName]['title'], false);
+                $colProperties['sortable'] = 'false';
             }
+
+
+            if (!isset($this->dataSource->keywordsInfo[$keyword]['title']) || !strlen(trim($this->dataSource->keywordsInfo[$keyword]['title']))) {
+                $this->addStatusMessage(_('Title missing').' '.$this->dataSource->keyword.': '.$keyword,
+                    'warning');
+                $this->dataSource->keywordsInfo[$keyword]['title'] = $keyword;
+            }
+
+            $this->setColumn($keyword,
+                $this->dataSource->keywordsInfo[$keyword]['title'], true,
+                $colProperties);
         }
     }
 
@@ -123,7 +137,7 @@ class DataGrid extends \Ease\Html\TableTag
      * @param string $title Popisek tlačítka
      * @param string $class CSS třída tlačítka
      */
-    function addButton($title, $class, $onpress = null)
+    public function addButton($title, $class, $onpress = null)
     {
         if ($onpress) {
             $this->options['buttons'][] = ['name' => $title, 'bclass' => $class,
@@ -139,26 +153,31 @@ class DataGrid extends \Ease\Html\TableTag
      * @param string $title  Nadpis gridu
      * @param string $target Url
      */
-    function addAddButton($title, $target = null)
+    public function addAddButton($title, $target = null)
     {
         $show = false;
         if (is_null($target)) {
             $target = $this->options['url'];
         }
         $this->addButton($title, 'add', 'addRecord');
+
+        $this->addCSS('.flexigrid div.fbutton .add {
+background: url(images/add.png) no-repeat center left;
+}');
+
         $this->addJavaScript('function addRecord(com, grid) {
-              $(location).attr(\'href\',\''.$this->dataSource->keyword.'.php\');
+              $(location).attr(\'href\',\'editor.php?evidence='.$this->dataSource->getEvidence().'\');
             }
         ', null, true);
     }
 
     /**
-     * Vloží editační tlačítko
+     * Vloží tlačítko výběru všech zobrazených záznamů
      *
      * @param type $title
      * @param type $target
      */
-    function addSelectAllButton($title, $target = null)
+    public function addSelectAllButton($title, $target = null)
     {
         $this->addButton($title, 'selectAll', 'selectAll');
         $this->addJavaScript('function selectAll(com, grid) {
@@ -174,9 +193,15 @@ class DataGrid extends \Ease\Html\TableTag
      * @param type $title
      * @param type $target
      */
-    function addEditButton($title, $target = null)
+    public function addEditButton($title, $target = null)
     {
         $this->addButton($title, 'edit', 'editRecord');
+
+        $this->addCss('.flexigrid div.fbutton .edit {
+background: url(images/edit.png) no-repeat center left;
+}
+');
+
         $this->addJavaScript('function editRecord(com, grid) {
 
         var numItems = $(\'.trSelected\').length
@@ -185,20 +210,94 @@ class DataGrid extends \Ease\Html\TableTag
                 $(\'.trSelected\', grid).each(function() {
                     var id = $(this).attr(\'id\');
                     id = id.substring(id.lastIndexOf(\'row\')+3);
-                    $(location).attr(\'href\',\''.$this->dataSource->keyword.'.php?'.$this->dataSource->getMyKeyColumn().'=\' +id);
+                    $(location).attr(\'href\',\'editor.php?evidence='.$this->dataSource->getEvidence().'&'.$this->dataSource->getMyKeyColumn().'=\' +id);
                 });
 
             } else {
                 $(\'.trSelected\', grid).each(function() {
                     var id = $(this).attr(\'id\');
                     id = id.substring(id.lastIndexOf(\'row\')+3);
-                    var url =\''.$this->dataSource->keyword.'.php?'.$this->dataSource->getMyKeyColumn().'=\' +id;
+                    var url =\'editor.php?evidence='.$this->dataSource->getEvidence().'&'.$this->dataSource->getMyKeyColumn().'=\' +id;
                     var win = window.open(url, \'_blank\');
                     win.focus();
                 });
             }
         } else {
-            alert("'._('Please select any rows').'");
+            alert("'._('Please mark some rows').'");
+        }
+
+            }
+        ', null, true);
+    }
+
+    public function addXmlButton($title, $target = null)
+    {
+        $this->addButton($title, 'xml', 'xmlRecord');
+
+        $this->addCss('.flexigrid div.fbutton .xml {
+background: url(images/xml.svg) no-repeat center left;
+}
+');
+
+        $this->addJavaScript('function xmlRecord(com, grid) {
+
+        var numItems = $(\'.trSelected\').length
+        if(numItems){
+            if(numItems == 1) {
+                $(\'.trSelected\', grid).each(function() {
+                    var id = $(this).attr(\'id\');
+                    id = id.substring(id.lastIndexOf(\'row\')+3);
+                    $(location).attr(\'href\',\'query.php?format=xml&show=result&evidence='.$this->dataSource->getEvidence().'&'.$this->dataSource->getMyKeyColumn().'=\' +id);
+                });
+
+            } else {
+                var ids = [];
+                $(\'.trSelected\', grid).each(function() {
+                    var id = $(this).attr(\'id\');
+                    id = id.substring(id.lastIndexOf(\'row\')+3);
+                    ids.push( id );
+                });
+                $(location).attr(\'href\',\'query.php?format=xml&show=result&evidence='.$this->dataSource->getEvidence().'&'.$this->dataSource->getMyKeyColumn().'=\' + ids.join());
+            }
+        } else {
+            alert("'._('Please mark some rows').'");
+        }
+
+            }
+        ', null, true);
+    }
+
+    public function addJsonButton($title, $target = null)
+    {
+        $this->addButton($title, 'json', 'jsonRecord');
+
+        $this->addCss('.flexigrid div.fbutton .json {
+background: url(images/json.svg) no-repeat center left;
+}
+');
+
+        $this->addJavaScript('function jsonRecord(com, grid) {
+
+        var numItems = $(\'.trSelected\').length
+        if(numItems){
+            if(numItems == 1) {
+                $(\'.trSelected\', grid).each(function() {
+                    var id = $(this).attr(\'id\');
+                    id = id.substring(id.lastIndexOf(\'row\')+3);
+                    $(location).attr(\'href\',\'query.php?format=json&show=result&evidence='.$this->dataSource->getEvidence().'&'.$this->dataSource->getMyKeyColumn().'=\' +id);
+                });
+
+            } else {
+                var ids = [];
+                $(\'.trSelected\', grid).each(function() {
+                    var id = $(this).attr(\'id\');
+                    id = id.substring(id.lastIndexOf(\'row\')+3);
+                    ids.push( id );
+                });
+                $(location).attr(\'href\',\'query.php?format=json&show=result&evidence='.$this->dataSource->getEvidence().'&'.$this->dataSource->getMyKeyColumn().'=\' + ids.join());
+            }
+        } else {
+            alert("'._('Please mark some rows').'");
         }
 
             }
@@ -211,12 +310,17 @@ class DataGrid extends \Ease\Html\TableTag
      * @param string $title  popisek tlačítka
      * @param string $target výkonný skript
      */
-    function addDeleteButton($title, $target = null)
+    public function addDeleteButton($title, $target = null)
     {
         if (is_null($target)) {
             $target = $this->options['url'];
         }
         $this->addButton($title, 'delete', 'deleteRecord');
+
+        $this->addCss('.flexigrid div.fbutton .delete {
+background: url(images/delete.png) no-repeat center left;
+}');
+
         $this->addJavaScript('function deleteRecord(com, grid) {
 
         var numItems = $(\'.trSelected\').length
@@ -225,22 +329,21 @@ class DataGrid extends \Ease\Html\TableTag
                 $(\'.trSelected\', grid).each(function() {
                     var id = $(this).attr(\'id\');
                     id = id.substring(id.lastIndexOf(\'row\')+3);
-                    $(location).attr(\'href\',\''.$this->dataSource->keyword.'.php?action=delete&'.$this->dataSource->getMyKeyColumn().'=\' +id);
+                    $(location).attr(\'href\',\'delete.php?evidence='.$this->dataSource->getEvidence().'&action=delete&'.$this->dataSource->getMyKeyColumn().'=\' +id);
                 });
 
             } else {
                 $(\'.trSelected\', grid).each(function() {
                     var id = $(this).attr(\'id\');
                     id = id.substring(id.lastIndexOf(\'row\')+3);
-                    var url =\''.$this->dataSource->keyword.'.php?action=delete&'.$this->dataSource->getMyKeyColumn().'=\' +id;
+                    var url =\'delete.php?evidence='.$this->dataSource->getEvidence().'&action=delete&'.$this->dataSource->getMyKeyColumn().'=\' +id;
                     var win = window.open(url, \'_blank\');
                     win.focus();
                 });
             }
         } else {
-            alert("'._('Please select any rows').'");
+            alert("'._('Please mark some rows').'");
         }
-
 
             }
         ', null, true);
@@ -254,7 +357,8 @@ class DataGrid extends \Ease\Html\TableTag
      * @param boolean $search           nabídnout pro sloupec vyhledávání
      * @param array   $columnProperties další vlastnosti v poli
      */
-    function setColumn($name, $title, $search = false, $columnProperties = null)
+    public function setColumn($name, $title, $search = false,
+                              $columnProperties = null)
     {
         if (!isset($this->options['colModel'])) {
             $this->options['colModel'] = [];
@@ -298,7 +402,7 @@ class DataGrid extends \Ease\Html\TableTag
     /**
      * Vložení skriptu
      */
-    function finalize()
+    public function finalize()
     {
         $grid_id = $this->getTagID();
         if ($this->getTagProperty('columnsAutoSize')) {
@@ -317,7 +421,7 @@ class DataGrid extends \Ease\Html\TableTag
             });';
             $grid_js .='
             //Keep track of all grid elements and current sizes
-            function addGrid($table, grid) {
+            public function addGrid($table, grid) {
                 var $grid = $table.closest(\'.flexigrid\');
                 var data = {$table:$table, $grid:$grid, grid:grid, width:$grid.width()};
                 grids.push(data);
@@ -325,7 +429,7 @@ class DataGrid extends \Ease\Html\TableTag
             }';
             $grid_js .='
             //Make all cols with auto size fill remaining width..
-            function sizeGrid(data) {
+            public function sizeGrid(data) {
                 //Auto size the middle col.
                 var totalWidth = data.$grid.outerWidth()-15; //15 padding - not found where this is set
 
@@ -356,11 +460,11 @@ class DataGrid extends \Ease\Html\TableTag
             $this->options['qtype'] = key($this->select);
         }
 
-        if ($this->dblclk2edit === true) {
+        if ($this->dblclk2edit) {
             $this->options['onDoubleClick'] = 'function(g) {
                     var id = $(g).attr(\'id\');
                     id = id.substring(id.lastIndexOf(\'row\')+3);
-                    $(location).attr(\'href\',\''.$this->dataSource->keyword.'.php?'.$this->dataSource->getMyKeyColumn().'=\' +id);
+                    $(location).attr(\'href\',\'editor.php?evidence='.$this->dataSource->getEvidence().'&'.$this->dataSource->getMyKeyColumn().'=\' +id);
 
             }';
         }
@@ -369,5 +473,4 @@ class DataGrid extends \Ease\Html\TableTag
             .'$(\'#'.$grid_id.'\').flexigrid({ '.\Ease\JQuery\Part::partPropertiesToString($this->options).' }); '.$grid_js,
             null, true);
     }
-
 }

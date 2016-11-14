@@ -26,7 +26,7 @@ class TWBSwitch extends \Ease\Html\CheckboxTag
      * @param array  $properties parametry tagu
      */
     public function __construct($name, $checked = false, $value = null,
-                                $properties = null)
+                                $properties = [])
     {
         parent::__construct($name, $checked, $value, $properties);
         if (!isset($properties['onText'])) {

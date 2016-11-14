@@ -3,10 +3,10 @@
 namespace FlexiBudget;
 
 /**
- * FlexiBudget - Hlavní strana.
+ * FlexiBudget - Settings Page.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2015 Vitex Software
+ * @copyright  2016 Vitex Software
  */
 require_once 'includes/Init.php';
 
@@ -15,7 +15,7 @@ $oPage->onlyForLogged();
 $oPage->addItem(new ui\PageTop(_('Settings')));
 
 $oPage->container->addItem(new \Ease\TWB\LinkButton('changepassword.php',
-    _('Změna hesla'), 'warning'));
+    _('Password Change'), 'warning'));
 $oPage->container->addItem(new \Ease\TWB\LinkButton('rights.php',
     _('Oprávnění'), 'warning'));
 

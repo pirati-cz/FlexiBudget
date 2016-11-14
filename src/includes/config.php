@@ -17,21 +17,21 @@ define('EMAIL_FROM', 'flexibudget@localhost');
 /*
  * URL Flexibee API
  */
-define('DEFAULT_FLEXIBEE_URL', 'https://demo.flexibee.eu');
+define('FLEXIBEE_URL', 'https://localhost:5434');
 /*
  * Uživatel FlexiBee API
  */
-define('DEFAULT_FLEXIBEE_LOGIN', 'winstrom');
+define('FLEXIBEE_LOGIN', 'admin');
 /*
  * Heslo FlexiBee API
  */
 
-define('DEFAULT_FLEXIBEE_PASSWORD', 'winstrom');
+define('FLEXIBEE_PASSWORD', 'admin123');
 /*
  * Společnost v FlexiBee
  */
 
-define('DEFAULT_FLEXIBEE_COMPANY', 'demo');
+define('FLEXIBEE_COMPANY', 'ceska_piratska_strana');
 
 //Database
 

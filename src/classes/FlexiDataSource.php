@@ -1,16 +1,21 @@
 <?php
+/**
+ * Flexplorer - data source class.
+ *
+ * @author     Vítězslav Dvořák <vitex@arachne.cz>
+ * @copyright  2016 Vitex Software
+ */
 
 namespace FlexiBudget;
 
 define('K_PATH_IMAGES', dirname(__DIR__).'/img/');
-#require_once 'tcpdf/tcpdf.php';
 
 /**
  * Description of DataSource
  *
  * @author vitex
  */
-class DataSource extends \Ease\Brick
+class FlexiDataSource extends \Ease\Brick
 {
     public $charset   = 'WINDOWS-1250//TRANSLIT';
     public $incharset = 'UTF-8';
@@ -68,10 +73,13 @@ class DataSource extends \Ease\Brick
     public function __construct($handledObejct, $fallBackUrl = null)
     {
         $this->handledObejct = $handledObejct;
+        $this->keyword       = $handledObejct->evidence;
+        $this->keywordsInfo  = $handledObejct->getColumnsInfo();
+
         parent::__construct();
         $this->setBackUrl($fallBackUrl);
-        $this->webPage       = \Ease\Shared::webPage();
-        $this->title         = $this->webPage->getRequestValue('title');
+        $this->webPage = \Ease\Shared::webPage();
+        $this->title   = $this->webPage->getRequestValue('title');
         if ($this->title) {
             $this->filename = preg_replace("/[^0-9^a-z^A-Z^_^.]/", "",
                 str_replace(' ', '_', $this->title));
@@ -88,13 +96,22 @@ class DataSource extends \Ease\Brick
         $this->ajaxify();
     }
 
+    /**
+     * Vrací název použité evidence
+     * @return string
+     */
+    public function getEvidence()
+    {
+        return $this->handledObejct->getEvidence();
+    }
+
     public function setOrder($order)
     {
         $this->order = $order;
     }
 
     /**
-     * Nastaví URL pro znovuzobrazení stránky.
+     * Nastaví URL pro znovuzobrazení stránky
      *
      * @param type $url
      */
@@ -151,67 +168,57 @@ class DataSource extends \Ease\Brick
             if ($this->fallBackUrl) {
                 $this->webPage->redirect(\Ease\Page::arrayToUrlParams($this->fallBackData,
                         $this->fallBackUrl));
-                exit();
             }
         }
     }
 
     /**
-     * Vrací celkový počet výsledků dotazu bez stránkování.
+     * Vrací celkový počet výsledků dotazu bez stránkování
      *
      * @param string $queryRaw
      * @return int
      */
-    public function getTotal($queryRaw)
+    public function getTotal()
     {
-        $pattern     = '/SELECT(.*)FROM(.*)/i';
-        $replacement = 'SELECT COUNT(*) FROM $2';
-        $queryRaw    = preg_replace($pattern, $replacement, $queryRaw);
-        return $this->handledObejct->dblink->queryToValue($queryRaw);
-    }
-
-    function getListingQueryWhere()
-    {
-        $where = '';
-        $query = isset($_REQUEST['query']) ? $_REQUEST['query'] : false;
-        $qtype = isset($_REQUEST['qtype']) ? $_REQUEST['qtype'] : false;
-        if ($query && $qtype) {
-            $cc    = $this->handledObejct->dblink->getColumnComma();
-            $where = ' WHERE '.$cc.$this->handledObejct->dblink->EaseAddSlashes($_REQUEST['qtype']).$cc." LIKE  '%".$this->handledObejct->dblink->addSlashes($_REQUEST['query'])."%'";
-        }
-        return $where;
+        return $this->handledObejct->rowCount;
     }
 
     /**
      *
      * @param string $queryRaw
-     * @param string $transform html|csv|none
+     * @param string $transform html|none
      * @return array
      */
     public function getListing($queryRaw, $transform = 'html')
     {
-        $page      = isset($_REQUEST['page']) ? $_REQUEST['page'] : 1;
-        $rp        = isset($_REQUEST['rp']) ? $_REQUEST['rp'] : 10;
-        $sortname  = isset($_REQUEST['sortname']) ? $_REQUEST['sortname'] : $this->handledObejct->getmyKeyColumn();
-        $sortorder = isset($_REQUEST['sortorder']) ? $_REQUEST['sortorder'] : 'desc';
-        $where     = $this->getWhere();
-        $sort      = " ORDER BY $sortname $sortorder";
-        $start     = (($page - 1) * $rp);
+        $page                        = isset($_REQUEST['page']) ? $_REQUEST['page']
+                : 1;
+        $rp                          = isset($_REQUEST['rp']) ? $_REQUEST['rp'] : 10;
+        $sortname                    = isset($_REQUEST['sortname']) ? $_REQUEST['sortname']
+                : $this->handledObejct->getmyKeyColumn();
+        $sortorder                   = isset($_REQUEST['sortorder']) ? $_REQUEST['sortorder']
+                : 'desc';
+        $conditions                  = $this->getWhere();
+        $conditions['add-row-count'] = 'true';
 
-        $limit = " OFFSET $start LIMIT $rp";
+        $start = (($page - 1) * $rp);
 
-        $query = "$queryRaw $where $sort $limit";
+        $conditions['limit']  = $rp;
+        $conditions['start']  = $start;
+        $conditions['sort']   = $sortname;
+        $conditions['dir']    = strtoupper($sortorder);
+        $conditions['detail'] = 'full';
+
+        $query = null;
 
         switch ($transform) {
-            case 'csv':
-                $resultRaw = $this->handledObejct->csvizeData($this->handledObejct->dblink->queryToArray($query));
-                break;
             case 'html':
-                $resultRaw = $this->handledObejct->htmlizeData($this->handledObejct->dblink->queryToArray($query));
+                $resultRaw = $this->handledObejct->htmlizeData($this->handledObejct->getFlexiData($query,
+                        $conditions));
                 break;
 
             default:
-                $resultRaw = $this->handledObejct->dblink->queryToArray($query);
+                $resultRaw = $this->handledObejct->getFlexiData($query);
                 break;
         }
 
@@ -237,29 +244,36 @@ class DataSource extends \Ease\Brick
     {
         $rows = $this->webPage->getRequestValue('rows');
         if ($rows) {
-            header("Content-type: application/json");
             if ($rows[strlen($rows) - 1] == ',') {
                 $rows = substr($rows, 0, -1);
             }
             if ($this->order) {
-                $order = ' ORDER BY '.$this->order;
+                $order = ''.$this->order; //Sort
             } else {
                 $order = '';
             }
-            $cc           = $this->handledObejct->dblink->getColumnComma();
-            $transactions = $this->handledObejct->dblink->queryToArray($queryRaw.' WHERE '.$cc.$this->handledObejct->myKeyColumn.$cc.' IN('.$rows.')'.$order,
+            $transactions = $this->handledObejct->dblink->queryToArray($queryRaw.' WHERE `'.$this->handledObejct->myKeyColumn.'` IN('.$rows.')'.$order,
                 $this->handledObejct->getmyKeyColumn());
             $total        = count(explode(',', $rows));
         } else {
-            $total        = $this->getTotal($queryRaw.$this->getWhere());
             $transactions = $this->getListing($queryRaw, 'html');
+            $total        = $this->getTotal();
         }
         $page     = isset($_REQUEST['page']) ? $_REQUEST['page'] : 1;
         $jsonData = ['page' => $page, 'total' => $total, 'rows' => []];
         if (count($transactions)) {
             foreach ($transactions AS $row) {
+                if (array_key_exists('id', $row)) {
+                    $id = $row['id'];
+                } else {
+                    $id = current($row);
+                }
+
+                if (is_array($id)) {
+                    $id = current($id);
+                }
                 $entry              = [
-                    'id' => current($row),
+                    'id' => $id,
                     'cell' => $row
                 ];
                 $jsonData['rows'][] = $entry;
@@ -291,68 +305,6 @@ class DataSource extends \Ease\Brick
         $this->getPDFFile($transactions, array_values($this->columns));
     }
 
-    public function getCSVFromArray($array, $header = null)
-    {
-        if (is_null($header)) {
-            $header = array_values($this->columns);
-        }
-
-        $output = '';
-        for ($i = -1; $i < count($array); $i++) {
-            if ($i == -1 && is_array($header)) {
-                $row = $header;
-            } elseif ($i == -1) {
-                continue;
-            } else {
-                $row = $array[$i];
-            }
-            $row_array = [];
-            foreach ($row as $cell) {
-                $row_array[] = $this->getCSVCell($cell);
-//        $output .= $this->getCSVCell($cell);
-            }
-            $output .= join(';', $row_array)."\n";
-        }
-        if (strtoupper($this->charset) != strtoupper($this->incharset)) {
-            $output = iconv($this->incharset, $this->charset, $output);
-        }
-        return $output;
-    }
-
-    public function getCSVFile($array, $header = null)
-    {
-// Output
-        header("Content-type: text/x-csv");
-//header("Content-type: text/csv");
-//header("Content-type: application/csv");
-        header("Cache-Control: maxage=3600");
-        header("Pragma: public");
-        header("Content-Disposition: attachment; filename = ".$this->filename.".csv");
-        echo $this->getCSVFromArray($array, $header);
-    }
-
-    /**
-     * Vrací buňku CSV
-     *
-     * @param int|string $cell
-     * @return string
-     */
-    public function getCSVCell($cell)
-    {
-        if ($cell == '') {
-            return '';
-        }
-        $cell = preg_replace('/\<br(\s*)?\/?\>/i', "\r", $cell);
-        $cell = preg_replace('/"/ms', '\"', $cell);
-        if (preg_match('/;/ms', $cell)) {
-            $cell = '"'.addslashes($cell).'"';
-        }
-        if (is_numeric($cell)) {
-            $cell = str_replace('.', ',', $cell);
-        }
-        return $cell;
-    }
-
     /**
      * Vypíše výsledek SQL dotazu v požadovaném tvaru
      *
@@ -361,19 +313,11 @@ class DataSource extends \Ease\Brick
     public function output($queryRaw = null)
     {
         if (is_null($queryRaw)) {
-            $cc       = $this->handledObejct->dblink->getColumnComma();
-            $queryRaw = 'SELECT * FROM '.$cc.$this->handledObejct->getMyTable().$cc;
+            $queryRaw = '?add-row-count=true';
         }
         switch (\Ease\Shared::webPage()->getRequestValue('export')) {
-            case 'csv':
-                $this->getCsv($queryRaw);
-                break;
-            case 'pdf':
-                $this->getPdf($queryRaw);
-                break;
-
             default:
-                // header("Content-type: application/json");
+                header("Content-type: application/json");
 
                 echo $this->getJson($queryRaw);
                 break;
@@ -391,7 +335,7 @@ class DataSource extends \Ease\Brick
         $this->filename .= $title;
 
 // pdf object
-        $this->pdf = new TCPDF($orientation);
+        $this->pdf = new \TCPDF($orientation);
 
 // set document information
         $this->pdf->SetCreator(PDF_CREATOR);
@@ -401,9 +345,7 @@ class DataSource extends \Ease\Brick
         $this->pdf->SetKeywords($title);
 
 // set default header data
-        $this->pdf->SetHeaderData('logo.png', 45, $title,
-            "DB Finance s.r.o - nezávislý investiční zprostředkovatel a pojišťovací makléř\n"
-            ."✉ dbfinance@dbfinance.cz ☎ 222 541 990 – 995 ⌨ www.dbfinance.cz ");
+        $this->pdf->SetHeaderData('flexplorer-logo.png', 45, $title, "Flexprer");
 // set header and footer fonts
         $this->pdf->setHeaderFont(['dejavusans', '', 8]);
         $this->pdf->setFooterFont([PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA]);
@@ -538,7 +480,13 @@ class DataSource extends \Ease\Brick
      */
     public function getWhere()
     {
-        return $this->getListingQueryWhere();
+        $where = [];
+        $query = isset($_REQUEST['query']) ? $_REQUEST['query'] : false;
+        $qtype = isset($_REQUEST['qtype']) ? $_REQUEST['qtype'] : false;
+        if (($qtype != 'id') && ($query != '')) {
+            $where = [$qtype => $query];
+        }
+        return $where;
     }
 
 }

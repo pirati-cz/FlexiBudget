@@ -25,7 +25,7 @@ class BootstrapMenu extends \Ease\TWB\Navbar
      * @param array  $properties
      */
     public function __construct($name = null, $content = null,
-                                $properties = null)
+                                $properties = [])
     {
         parent::__construct('Menu',
             new \Ease\Html\ImgTag('images/poklad.svg', _('FlexiBudget'),

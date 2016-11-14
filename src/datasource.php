@@ -12,8 +12,13 @@ require_once 'includes/Init.php';
 
 $oPage->onlyForLogged();
 
-$class = $oPage->getRequestValue('class');
+$class    = $oPage->getRequestValue('class');
+$evidence = $oPage->getRequestValue('evidence');
 if ($class) {
-    $source = new DataSource(new $class());
+    if (current(class_parents($class)) == 'FlexiBudget\Flexplorer') {
+        $source = new FlexiDataSource(new $class());
+    } else {
+        $source = new DataSource(new $class());
+    }
     $source->output();
 }

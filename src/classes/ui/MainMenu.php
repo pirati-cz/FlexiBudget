@@ -79,7 +79,8 @@ class MainMenu extends \Ease\Html\Div
             $nav->addDropDownMenu('<img width=30 src=images/request.svg> '._('Request'),
                 array(
                 'createinvoice.php' => '<img width=30 src=images/createinvoice.svg>&nbsp;'._('Create invoice'),
-                'chooseinvoice.php' => '<img width=30 src=images/chooseinvoice.svg>&nbsp;'._('Choose invoice')
+                'chooseinvoice.php' => '<img width=30 src=images/chooseinvoice.svg>&nbsp;'._('Choose invoice'),
+                'invoices.php' => '<img width=30 src=images/invoices.svg>&nbsp;'._('Invoices list')
                 )
             );
 
