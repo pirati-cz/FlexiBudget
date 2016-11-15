@@ -73,11 +73,11 @@ class ApplicationTables extends AbstractMigration
             ->addColumn('approval_at', 'date', array('null' => true))
             ->addColumn('paid_at', 'date', array('null' => true))
             ->addColumn('user_id', 'integer', array('limit' => 11))
-            ->addColumn('BudgerRecord_id', 'integer', array('limit' => 11))
+            ->addColumn('BudgetRecord_id', 'integer', array('limit' => 11))
             ->addColumn('Intend_id', 'integer', array('limit' => 11))
             ->addForeignKey('user_id', 'user', 'id',
                 array('delete' => 'NO_ACTION', 'update' => 'NO_ACTION'))
-            ->addForeignKey('BudgerRecord_id', 'BudgerRecord', 'id',
+            ->addForeignKey('BudgetRecord_id', 'BudgetRecord', 'id',
                 array('delete' => 'NO_ACTION', 'update' => 'NO_ACTION'))
             ->addForeignKey('Intend_id', 'Intend', 'id',
                 array('delete' => 'NO_ACTION', 'update' => 'NO_ACTION'))
