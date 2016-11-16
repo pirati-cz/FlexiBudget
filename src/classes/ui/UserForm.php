@@ -33,9 +33,8 @@ class UserForm extends \Ease\TWB\Form
             $user->getDataValue('login')), _('Přihlašovací jméno'));
 
         $this->addItem(new \Ease\Html\InputHiddenTag('class', get_class($user)));
-//        $this->addItem(new \Ease\Html\InputHiddenTag('enquiry_id', $user->getDataValue('enquiry_id')));
 
-        $this->addItem(new \Ease\Html\Div(new EaseTWSubmitButton(_('Uložit'),
+        $this->addItem(new \Ease\Html\Div(new \Ease\TWB\SubmitButton(_('Uložit'),
             'success'), ['style' => 'text-align: right']));
 
         if (!is_null($userID)) {

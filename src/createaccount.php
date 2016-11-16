@@ -43,7 +43,7 @@ if ($oPage->isPosted()) {
         } else {
             $testuser = new \Ease\User();
             $testuser->setmyKeyColumn('email');
-            $testuser->loadFromSQL($oPage->EaseAddSlashes($emailAddress));
+            $testuser->loadFromSQL(addslashes($emailAddress));
             if ($testuser->getUserName()) {
                 $error = true;
                 $oUser->addStatusMessage(sprintf(_('Mail address %s is allready registered'),
@@ -63,7 +63,7 @@ if ($oPage->isPosted()) {
 
     $testuser = new \Ease\User();
     $testuser->setmyKeyColumn('login');
-    $testuser->loadFromSQL($oPage->EaseAddSlashes($login));
+    $testuser->loadFromSQL(AddSlashes($login));
     $testuser->resetObjectIdentity();
 
     if ($testuser->getMyKey()) {

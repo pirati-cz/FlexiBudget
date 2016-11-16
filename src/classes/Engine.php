@@ -271,4 +271,33 @@ class Engine extends \Ease\Brick
     {
         return $this->getDataValue($this->nameColumn);
     }
+
+    static function &doThings($oPage)
+    {
+        $engine = null;
+        $class = $oPage->getRequestValue('class');
+        if ($class) {
+            require_once 'classes/' . $class . '.php';
+            $engine = new $class;
+            $key = $oPage->getRequestValue($engine->myKeyColumn);
+            if ($key) {
+                $engine->setMyKey((int) $key);
+            }
+
+            if ($oPage->isPosted()) {
+                $engine->takeData($_POST);
+                if ($engine->saveToSQL()) {
+                    $engine->addStatusMessage('ok', 'success');
+                } else {
+                    $engine->addStatusMessage(':(', 'warning');
+                }
+            } else {
+                $engine->loadFromMySQL();
+            }
+        }
+
+        return $engine;
+    }
+
+
 }

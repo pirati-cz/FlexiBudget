@@ -13,17 +13,11 @@ namespace FlexiBudget;
  */
 class User extends \Ease\User
 {
-    public $useKeywords  = [
-        'login' => 'STRING',
-        'firstname' => 'STRING',
-        'lastname' => 'STRING',
-        'email' => 'STRING',
-    ];
-    public $keywordsInfo = [
-        'login' => [],
-        'firstname' => [],
-        'lastname' => [],
-        'email' => [],
+    public $columns = [
+        'login' => ['type' => 'string'],
+        'firstname' => ['type' => 'string'],
+        'lastname' => ['type' => 'string'],
+        'email' => ['type' => 'string']
     ];
 
     /**
@@ -112,4 +106,25 @@ class User extends \Ease\User
     {
         return $this->getDataValue('email');
     }
+
+    public function htmlizeData($data)
+    {
+        return $data;
+    }
+
+    /**
+     * Místní nabídka uživatele.
+     *
+     * @return \\Ease\TWB\ButtonDropdown
+     */
+    public function operationsMenu()
+    {
+        $id = $this->getMyKey();
+        $menu[] = new \Ease\Html\ATag($this->keyword.'.php?action=delete&'.$this->myKeyColumn.'='.$id, \Ease\TWB\Part::glyphIcon('remove').' '._('Smazat'));
+        $menu[] = new \Ease\Html\ATag($this->keyword.'.php?'.$this->myKeyColumn.'='.$id, \Ease\TWB\Part::glyphIcon('edit').' '._('Upravit'));
+
+        return new \Ease\TWB\ButtonDropdown(\Ease\TWB\Part::glyphIcon('cog'), 'warning', '', $menu);
+    }
+
+
 }

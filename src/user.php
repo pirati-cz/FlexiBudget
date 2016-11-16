@@ -51,7 +51,8 @@ switch ($oPage->getRequestValue('action')) {
         $operationsMenu->setTagCss(['float' => 'right']);
         $operationsMenu->dropdown->addTagClass('pull-right');
 
-        $oPage->container->addItem(new \Ease\TWB\Panel(['<strong>'.$user->getUserName().'</strong>', $operationsMenu], 'info', new UserForm($user)));
+        $oPage->container->addItem(new \Ease\TWB\Panel(['<strong>'.$user->getUserName().'</strong>',
+            $operationsMenu], 'info', new ui\UserForm($user)));
         break;
 }
 
