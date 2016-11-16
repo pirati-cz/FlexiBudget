@@ -17,6 +17,11 @@ class UserForm extends \Ease\TWB\Form
      */
     public $user = null;
 
+    /**
+     * User Properties edit form
+     *
+     * @param \FlexiBudget\User $user
+     */
     public function __construct($user)
     {
         $userID     = $user->getMyKey();
