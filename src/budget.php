@@ -64,8 +64,20 @@ switch ($oPage->getRequestValue('action')) {
 //        $operationsMenu->setTagCss(['float' => 'right']);
 //        $operationsMenu->dropdown->addTagClass('pull-right');
 //
-        $oPage->container->addItem(new \Ease\TWB\Panel(_('Budget').' '.$budget->getRecordName(),
+
+
+        $budgetTabs = new \Ease\TWB\Tabs('budgetTabs');
+        $budgetTabs->addTab(_('Budget'), new ui\SubjectShow($budget));
+
+        $budgetTabs->addTab(_('Votes'), new ui\VotingShow($budget));
+
+        $budgetTabs->addTab(_('Edit'),
+            new \Ease\TWB\Panel(_('Budget').' '.$budget->getRecordName(),
             'warning', new ui\BudgetEditor($budget)));
+
+        $oPage->container->addItem($budgetTabs);
+
+
         break;
 }
 

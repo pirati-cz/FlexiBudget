@@ -3,11 +3,12 @@
 namespace FlexiBudget;
 
 /**
- * Description of intend
+ * FlexiBudget - Intend Class.
  *
- * @author vitex
+ * @author     Vítězslav Dvořák <vitex@arachne.cz>
+ * @copyright  2016 Vitex Software
  */
-class Intend extends Engine
+class Intend extends VoteSubject
 {
     /**
      * Agenda keyword

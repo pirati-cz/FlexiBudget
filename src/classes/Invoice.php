@@ -2,9 +2,10 @@
 namespace FlexiBudget;
 
 /**
- * Description of Invoice
+ * FlexiBudget - Invoice Data Class.
  *
- * @author vitex
+ * @author     Vítězslav Dvořák <vitex@arachne.cz>
+ * @copyright  2016 Vitex Software
  */
 class Invoice extends Flexplorer
 {

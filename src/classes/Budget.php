@@ -3,11 +3,12 @@
 namespace FlexiBudget;
 
 /**
- * Description of budget
+ * FlexiBudget - Budget Class.
  *
- * @author vitex
+ * @author     Vítězslav Dvořák <vitex@arachne.cz>
+ * @copyright  2016 Vitex Software
  */
-class Budget extends Engine
+class Budget extends VoteSubject
 {
     /**
      * Agenda keyword

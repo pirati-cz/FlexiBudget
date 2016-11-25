@@ -64,10 +64,22 @@ switch ($oPage->getRequestValue('action')) {
 //        $operationsMenu->setTagCss(['float' => 'right']);
 //        $operationsMenu->dropdown->addTagClass('pull-right');
 //
-        $oPage->container->addItem(new \Ease\TWB\Panel(_('Intend').' '.$intend->getRecordName(),
+
+        $intendTabs = new \Ease\TWB\Tabs('intendTabs');
+        $intendTabs->addTab(_('Intend'), new ui\SubjectShow($intend));
+
+        $intendTabs->addTab(_('Votes'), new ui\VotingShow($intend));
+
+        $intendTabs->addTab(_('Edit'),
+            new \Ease\TWB\Panel(_('Intend').' '.$intend->getRecordName(),
             'warning', new ui\IntendEditor($intend)));
+
+        $oPage->container->addItem($intendTabs);
+
+
         break;
 }
+
 
 
 

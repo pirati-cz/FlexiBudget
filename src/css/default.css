@@ -143,3 +143,6 @@ body { background-image: linear-gradient(top, rgba(255,255,255,.5), rgba(255,255
     background: url(../images/edit.png) no-repeat center left;
 }
 
+.heading { 
+    font-size: 30px; background: lightblue; 
+}

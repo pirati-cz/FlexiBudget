@@ -3,9 +3,10 @@
 namespace FlexiBudget;
 
 /**
- * Description of Engine
+ * FlexiBudget - Engine.
  *
- * @author vitex
+ * @author     Vítězslav Dvořák <vitex@arachne.cz>
+ * @copyright  2016 Vitex Software
  */
 class Engine extends \Ease\Brick
 {

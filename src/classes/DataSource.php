@@ -6,9 +6,10 @@ define('K_PATH_IMAGES', dirname(__DIR__).'/img/');
 #require_once 'tcpdf/tcpdf.php';
 
 /**
- * Description of DataSource
+ * FlexiBudget - DataSource for DataGrid.
  *
- * @author vitex
+ * @author     Vítězslav Dvořák <vitex@arachne.cz>
+ * @copyright  2016 Vitex Software
  */
 class DataSource extends \Ease\Brick
 {

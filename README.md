@@ -24,4 +24,8 @@ Database Init
     \q
     vendor/bin/phinx migrate
 
+Konfigurace
+-----------
+
+dpkg-reconfigure flexibudget
 

@@ -125,8 +125,7 @@ class MainMenu extends \Ease\Html\Div
 
         \Ease\JQuery\Part::jQueryze($this);
         \Ease\Shared::webPage()->addCss('.dropdown-menu { overflow-y: auto } ');
-        \Ease\Shared::webPage()->addJavaScript("$('.dropdown-menu').css('max-height',$(window).height()-100);",
-            null, true);
+        \Ease\Shared::webPage()->addJavaScript("$('.dropdown-menu').css('max-height',$(window).height()-100);");
         $this->includeJavaScript('js/slideupmessages.js');
     }
 }
