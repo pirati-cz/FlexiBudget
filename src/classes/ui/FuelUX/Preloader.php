@@ -1,16 +1,21 @@
 <?php
 /**
- * FlexiBudget - Formulář příjm/výdaje pokladny.
+ * FlexiBudget - FuelUX Preloader.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  2015 Vitex Software
  */
 
-namespace FlexiBudget\ui;
+namespace FlexiBudget\ui\FuelUX;
 
-class FXPreloader extends \Ease\Html\Div
+class Preloader extends \Ease\Html\Div
 {
 
+    /**
+     * FuelUX Preloader
+     *
+     * @param sring $id custom ID
+     */
     public function __construct($id = null)
     {
         parent::__construct(null,
@@ -19,6 +24,7 @@ class FXPreloader extends \Ease\Html\Div
 
     public function finalize()
     {
+        \Ease\Shared::webPage()->body->addTagClass('fuelux');
         \Ease\Shared::webPage()->includeCss('twitter-bootstrap/css/fuelux.css',
             true);
         \Ease\Shared::webPage()->includeJavascript('/javascript/twitter-bootstrap/fuelux.js');

@@ -74,7 +74,7 @@ switch ($oPage->getRequestValue('action')) {
             new \Ease\TWB\Panel(_('Intend').' '.$intend->getRecordName(),
             'warning', new ui\IntendEditor($intend)));
 
-        $oPage->container->addItem($intendTabs);
+        $oPage->container->addItem(new \Ease\TWB\Well($intendTabs));
 
 
         break;

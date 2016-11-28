@@ -38,7 +38,7 @@ if ($emailTo) {
         $controlUser->passwordChange($newPassword);
 
         $email = $oPage->addItem(new \Ease\Mailer($userEmail,
-            'Icinga Editor -'.sprintf(_('New password for %s'),
+            constant('LOG_NAME').' - '.sprintf(_('New password for %s'),
                 $_SERVER['SERVER_NAME'])));
 
         $email->setMailHeaders(['From' => constant('EMAIL_FROM')]);
@@ -74,10 +74,9 @@ if (!$success) {
 
     $loginPanel = new \Ease\TWB\Panel(new \Ease\TWB\Container($titlerow),
         'success', null,
-        new \Ease\TWB\SubmitButton(_('Sent New Password'), 'success'));
+        new \Ease\TWB\SubmitButton(_('Send New Password'), 'success'));
     $loginPanel->addItem(new \Ease\TWB\FormGroup(_('Email'),
-    new \Ease\Html\InputTextTag('Email', $emailTo,
-    ['type' => 'email'])));
+        new \Ease\Html\InputTextTag('Email', $emailTo, ['type' => 'email'])));
     $loginPanel->body->setTagProperties(['style' => 'margin: 20px']);
 
     $mailForm = $oPage->columnII->addItem(new \Ease\TWB\Form('PasswordRecovery'));
@@ -86,12 +85,13 @@ if (!$success) {
     if ($oPage->isPosted()) {
         $mailForm->fillUp($_POST);
     }
+
+    $oPage->addItem(new ui\PageBottom());
+
+    $oPage->draw();
 } else {
     $oPage->columnII->addItem(new \Ease\TWB\LinkButton('login.php',
         _('Continue')));
     $oPage->redirect('login.php');
 }
 
-$oPage->addItem(new ui\PageBottom());
-
-$oPage->draw();

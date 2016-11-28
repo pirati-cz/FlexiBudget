@@ -10,6 +10,7 @@ namespace FlexiBudget;
  */
 class VoteSubject extends Engine
 {
+
     /**
      * Give you TwitterBootstrap Staus depends on intend voting status
      *
@@ -55,5 +56,31 @@ class VoteSubject extends Engine
             $status = _('Need vote');
         }
         return $status;
+    }
+
+    /**
+     * Accept Vote
+     *
+     * @param boolean $vote true: yes; false: no; null;
+     * @return boolean
+     */
+    public function saveVote($vote)
+    {
+        if ($vote == 1) {
+            $vote = true;
+        } elseif ($vote === '') {
+            $vote = null;
+        } else {
+            $vote = false;
+        }
+
+        $record = ['subject' => get_class($this),
+            'subject_id' => $this->getMyKey(),
+            'user_id' => \Ease\Shared::user()->getMyKey(),
+            'vote' => $vote,
+            'when' => 'NOW()'];
+        $this->dblink->myTable = 'Voting';
+        $result = $this->dblink->arrayToInsert($record);
+        return $result;
     }
 }

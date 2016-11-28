@@ -23,6 +23,10 @@ Database Init
     CREATE DATABASE flexibudget OWNER flexibudget;
     \q
     vendor/bin/phinx migrate
+    
+Testovací data:
+
+    vendor/bin/phinx seed:run -v
 
 Konfigurace
 -----------

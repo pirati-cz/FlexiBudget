@@ -20,6 +20,7 @@ class SubjectShow extends \Ease\TWB\Panel
         $footer = new \Ease\TWB\Label($subject->getTwbStatus(),
             $subject->getStatusString());
         parent::__construct($subject->getName(), $subject->getTwbStatus(),
-            $subject->getDataValue('description'), $footer);
+            $subject->getDataValue('description'),
+            [$footer, new VoteForm($subject)]);
     }
 }

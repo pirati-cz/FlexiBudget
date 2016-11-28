@@ -19,6 +19,7 @@
         "psr-4": {
             "FlexiBudget\\": "src/classes/",
             "FlexiBudget\\ui\\": "src/classes/ui/",
+            "FlexiBudget\\ui\\FuelUX\\": "src/classes/ui/FuelUX/",
             "FlexiBudget\\Engine\\": "src/classes/engine",
             "Test\\FlexiBudget\\": "testing/PHPUnit/src/classes/",
             "Test\\FlexiBudget\\ui\\": "testing/PHPUnit/src/classes/ui/",
@@ -28,6 +29,7 @@
     "require-dev": {
         "phpunit/php-token-stream": "~1.2",
         "robmorgan/phinx": "dev-master",
+        "fzaninotto/faker": "^1.6",
         "phpunit/phpunit": "5.3.*",
         "phpunit/phpunit-skeleton-generator": "*"
     }

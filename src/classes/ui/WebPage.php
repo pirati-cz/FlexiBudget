@@ -64,7 +64,7 @@ class WebPage extends \Ease\TWB\WebPage
      */
     function addPageColumns()
     {
-        $row = $this->container->addItem(new \Ease\Html\Div(null,
+        $row             = $this->container->addItem(new \Ease\Html\Div(null,
             ['class' => 'row']));
         $this->columnI   = $row->addItem(new \Ease\Html\Div(null,
             ['class' => 'col-md-4']));
@@ -98,4 +98,25 @@ class WebPage extends \Ease\TWB\WebPage
     {
         return parent::onlyForLogged($loginPage.'?backurl='.urlencode($_SERVER['REQUEST_URI']));
     }
+
+//    public function draw()
+//    {
+//        ob_start();
+//        parent::draw();
+//        $html = ob_get_clean();
+//
+//// Specify configuration
+//        $config = array(
+//            'indent' => true,
+//            'output-xhtml' => true,
+//            'wrap' => 200);
+//
+//// Tidy
+//        $tidy = new \tidy;
+//        $tidy->parseString($html, $config, 'utf8');
+//        $tidy->cleanRepair();
+//
+//// Output
+//        echo $tidy;
+//    }
 }
