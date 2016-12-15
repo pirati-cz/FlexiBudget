@@ -1,4 +1,5 @@
 <?php
+
 namespace FlexiBudget\ui;
 
 /**
@@ -17,10 +18,8 @@ class SubjectShow extends \Ease\TWB\Panel
      */
     public function __construct($subject)
     {
-        $footer = new \Ease\TWB\Label($subject->getTwbStatus(),
-            $subject->getStatusString());
-        parent::__construct($subject->getName(), $subject->getTwbStatus(),
-            $subject->getDataValue('description'),
-            [$footer, new VoteForm($subject)]);
+        parent::__construct($subject->getName(),
+            \FlexiBudget\VoteSubject::getTwbStatus($subject->getVotingStatus()),
+            $subject->getDataValue('description'), $subject->getVoteBlock());
     }
 }

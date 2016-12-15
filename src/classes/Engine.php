@@ -278,7 +278,6 @@ class Engine extends \Ease\Brick
         $engine = null;
         $class = $oPage->getRequestValue('class');
         if ($class) {
-            require_once 'classes/' . $class . '.php';
             $engine = new $class;
             $key = $oPage->getRequestValue($engine->myKeyColumn);
             if ($key) {

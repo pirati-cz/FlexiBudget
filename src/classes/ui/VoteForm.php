@@ -27,6 +27,7 @@ class VoteForm extends \Ease\TWB\Form
         $this->addItem(new VoteOptions());
         $this->addItem(new \Ease\Html\InputHiddenTag('subject',
             get_class($subject)));
+        $this->addItem(new \Ease\Html\InputHiddenTag('action', 'vote'));
         $this->addItem(new \Ease\Html\InputHiddenTag('id', $subject->getMyKey()));
         $this->addItem(new \Ease\TWB\SubmitButton(_('Vote'), 'success'));
     }

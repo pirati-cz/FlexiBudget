@@ -17,8 +17,9 @@ class VotingShow extends \Ease\TWB\Panel
      */
     public function __construct($subject)
     {
-        $footer = new \Ease\TWB\Label($subject->getTwbStatus(),
-            $subject->getStatusString());
+        $status = $subject->getVotingStatus();
+        $footer = new \Ease\TWB\Label(\FlexiBudget\VoteSubject::getTwbStatus($status),
+            \FlexiBudget\VoteSubject::getStatusString($status));
 
         parent::__construct(_('Voting Results'), 'info', null, $footer);
         $headRow = new \Ease\TWB\Row();
@@ -26,8 +27,32 @@ class VotingShow extends \Ease\TWB\Panel
             ['class' => 'heading']);
         $headRow->addColumn(3, _('Yes'), 'md', ['class' => 'heading']);
         $headRow->addColumn(3, _('No'), 'md', ['class' => 'heading']);
-        $headRow->addColumn(3, _('Deny to vote'), 'md', ['class' => 'heading']);
-
+        $headRow->addColumn(3, _('Abstain to vote'), 'md',
+            ['class' => 'heading']);
         $this->addItem($headRow);
+
+        $votes   = ['needvote' => [], 'accepted' => [], 'denyed' => [], 'abstain' => []];
+        $results = $subject->getVotingResults();
+        foreach ($results as $result) {
+            $votes[$result['vote']][] = $result;
+        }
+
+        $resultsRow = new \Ease\TWB\Row();
+        $headRow->addColumn(3, self::showVoters($votes['needvote']));
+        $headRow->addColumn(3, self::showVoters($votes['accepted']));
+        $headRow->addColumn(3, self::showVoters($votes['denyed']));
+        $headRow->addColumn(3, self::showVoters($votes['abstain']));
+
+        $this->addItem($resultsRow);
+    }
+
+    static function showVoters($voters)
+    {
+        $userBlock = [];
+        foreach ($voters as $voter) {
+            $userBlock[$voter['login']][] = new \Ease\Html\ImgTag(\Ease\User::getGravatar($voter['email']));
+            $userBlock[$voter['login']][] = new \Ease\Html\Div($voter['login']);
+        }
+        return $userBlock;
     }
 }

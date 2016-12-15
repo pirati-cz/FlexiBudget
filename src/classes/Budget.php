@@ -8,7 +8,7 @@ namespace FlexiBudget;
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  2016 Vitex Software
  */
-class Budget extends VoteSubject
+class Budget extends Engine
 {
     /**
      * Agenda keyword
