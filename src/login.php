@@ -43,11 +43,12 @@ $loginFace = new \Ease\Html\Div(null, ['id' => 'LoginFace']);
 
 $oPage->container->addItem($loginFace);
 
-$loginRow = new \Ease\TWB\Row();
+$loginRow   = new \Ease\TWB\Row();
 $infoColumn = $loginRow->addItem(new \Ease\TWB\Col(4));
 
 $infoBlock = $infoColumn->addItem(new \Ease\TWB\Well(new \Ease\Html\ImgTag('images/password.png')));
 $infoBlock->addItem(_('Welcome to FlexiBudget'));
+$infoBlock->addItem(new ui\OpenIDLoginForm());
 
 $loginColumn = $loginRow->addItem(new \Ease\TWB\Col(4));
 
@@ -65,15 +66,18 @@ $loginPanel->addItem(new \Ease\TWB\FormGroup(_('Username'),
 $loginPanel->addItem(new \Ease\TWB\FormGroup(_('Password'),
     new \Ease\Html\InputPasswordTag('password')));
 $loginPanel->body->setTagProperties(['style' => 'margin: 20px']);
-$loginColumn->addItem($loginPanel);
+$loginColumn->addItem(new \Ease\TWB\Form('Login', null, 'POST', $loginPanel));
 
-$passRecoveryColumn = $loginRow->addItem(new \Ease\TWB\Col(4, new \Ease\TWB\LinkButton('passwordrecovery.php', '<i class="fa fa-key"></i>
+$passRecoveryColumn = $loginRow->addItem(new \Ease\TWB\Col(4,
+    new \Ease\TWB\LinkButton('passwordrecovery.php',
+    '<i class="fa fa-key"></i>
 '._('Password Recovery'), 'warning')));
 
-$passRecoveryColumn->additem(new \Ease\TWB\LinkButton('createaccount.php', '<i class="fa fa-user"></i>
+$passRecoveryColumn->additem(new \Ease\TWB\LinkButton('createaccount.php',
+    '<i class="fa fa-user"></i>
 '._('Sign On'), 'success'));
 
-$oPage->container->addItem(new \Ease\TWB\Form('Login', null, 'POST', $loginRow));
+$oPage->container->addItem($loginRow);
 
 $oPage->addItem(new ui\PageBottom());
 

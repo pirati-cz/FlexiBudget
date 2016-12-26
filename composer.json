@@ -13,7 +13,8 @@
         "php": ">= 5.5.9",
         "spoje.net/flexipeehp": "dev-master",
         "vitexsoftware/ease-framework": "dev-master",
-        "league/commonmark": "^0.15.0"
+        "league/commonmark": "^0.15.0",
+        "openid/php-openid": "^2.3"
     },
     "autoload": {
         "psr-4": {

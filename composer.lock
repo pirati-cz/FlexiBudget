@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b122dbf342c9168660decefd21d9e879",
-    "content-hash": "8f37042a4cf06dae1ede26819465c6f1",
+    "hash": "92e26d05dbc5815f00e9de4392da91e3",
+    "content-hash": "f1e8a4126225525dc1d58918daaa2d41",
     "packages": [
         {
             "name": "league/commonmark",
@@ -75,6 +75,55 @@
                 "parser"
             ],
             "time": "2016-11-22 17:30:29"
+        },
+        {
+            "name": "openid/php-openid",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/openid/php-openid.git",
+                "reference": "924f9aa42453cd0f9dba72587b4e2cdf7f4de874"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/openid/php-openid/zipball/924f9aa42453cd0f9dba72587b4e2cdf7f4de874",
+                "reference": "924f9aa42453cd0f9dba72587b4e2cdf7f4de874",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "ext-gmp": "*",
+                "php": ">=4.3"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Auth"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "."
+            ],
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "JanRain Inc.",
+                    "homepage": "http://www.openidenabled.com"
+                }
+            ],
+            "description": "OpenID library for PHP5",
+            "homepage": "http://github.com/openid/php-openid",
+            "keywords": [
+                "Authentication",
+                "OpenId",
+                "auth",
+                "yadis"
+            ],
+            "time": "2015-07-30 18:07:43"
         },
         {
             "name": "pear/console_getopt",
@@ -336,7 +385,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spoje-NET/FlexiPeeHP/zipball/04cf6102383c14a9a2b8dae5592669b3bf633a30",
+                "url": "https://api.github.com/repos/Spoje-NET/FlexiPeeHP/zipball/094ea11a75d6f0d74015b39adc2441cc3ac5f67e",
                 "reference": "04cf6102383c14a9a2b8dae5592669b3bf633a30",
                 "shasum": ""
             },
@@ -381,7 +430,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/VitexSoftware/EaseFramework/zipball/e36dbfbb9c6d98655835ce72fa06e5500d6aa36f",
+                "url": "https://api.github.com/repos/VitexSoftware/EaseFramework/zipball/3054f30507716366cde0d02f81c32fe48e401ebb",
                 "reference": "e36dbfbb9c6d98655835ce72fa06e5500d6aa36f",
                 "shasum": ""
             },
