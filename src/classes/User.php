@@ -14,6 +14,7 @@ namespace FlexiBudget;
 class User extends \Ease\User
 {
     public $columns = [
+        'icon' => ['type' => 'image'],
         'login' => ['type' => 'string'],
         'firstname' => ['type' => 'string'],
         'lastname' => ['type' => 'string'],
@@ -69,11 +70,11 @@ class User extends \Ease\User
      */
     public function getIcon()
     {
-        $Icon = $this->GetSettingValue('icon');
-        if (is_null($Icon)) {
+        $icon = $this->getDataValue('icon');
+        if (is_null($icon)) {
             return parent::getIcon();
         } else {
-            return $Icon;
+            return $icon;
         }
     }
 
@@ -107,8 +108,42 @@ class User extends \Ease\User
         return $this->getDataValue('email');
     }
 
+    /**
+     * Vrací všechny záznamy jako html
+     *
+     * @param array $data
+     * @return array
+     */
     public function htmlizeData($data)
     {
+        if (is_array($data) && count($data)) {
+            foreach ($data as $rowId => $row) {
+                $htmlized = $this->htmlizeRow($row);
+                if (is_array($htmlized)) {
+                    foreach ($htmlized as $key => $value) {
+                        if (!is_null($value)) {
+                            $data[$rowId][$key] = $value;
+                        } else {
+                            if (!isset($data[$rowId][$key])) {
+                                $data[$rowId][$key] = $value;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return $data;
+    }
+
+    /**
+     * Prepare Row Data to show as html
+     * 
+     * @param array $data
+     * @return \Ease\Html\ImgTag
+     */
+    public function htmlizeRow($data)
+    {
+        $data['icon'] = '<img src="'.$data['icon'].'" class="list-icon" alt="'.$data['login'].'" title="'.$data['firstname'].' '.$data['lastname'].'">';
         return $data;
     }
 
@@ -119,12 +154,33 @@ class User extends \Ease\User
      */
     public function operationsMenu()
     {
-        $id = $this->getMyKey();
-        $menu[] = new \Ease\Html\ATag($this->keyword.'.php?action=delete&'.$this->myKeyColumn.'='.$id, \Ease\TWB\Part::glyphIcon('remove').' '._('Smazat'));
-        $menu[] = new \Ease\Html\ATag($this->keyword.'.php?'.$this->myKeyColumn.'='.$id, \Ease\TWB\Part::glyphIcon('edit').' '._('Upravit'));
+        $id     = $this->getMyKey();
+        $menu[] = new \Ease\Html\ATag($this->keyword.'.php?action=delete&'.$this->myKeyColumn.'='.$id,
+            \Ease\TWB\Part::glyphIcon('remove').' '._('Smazat'));
+        $menu[] = new \Ease\Html\ATag($this->keyword.'.php?'.$this->myKeyColumn.'='.$id,
+            \Ease\TWB\Part::glyphIcon('edit').' '._('Upravit'));
 
-        return new \Ease\TWB\ButtonDropdown(\Ease\TWB\Part::glyphIcon('cog'), 'warning', '', $menu);
+        return new \Ease\TWB\ButtonDropdown(\Ease\TWB\Part::glyphIcon('cog'),
+            'warning', '', $menu);
     }
 
-
+    /**
+     * User Icon linked to User page
+     * 
+     * @param \FlexiBudget\User $user
+     * @param array $properties
+     * @return \Ease\Html\ATag
+     */
+    static public function icoLink($user, $properties = [])
+    {
+        if (is_numeric($user)) {
+            $user = new User((int) $user);
+        }
+        if (!isset($properties['title'])) {
+            $properties['title'] = $user->getUserName();
+        }
+        return new \Ease\Html\ATag('user.php?id='.$user->getId(),
+            new \Ease\Html\ImgTag($user->getIcon(), $user->getUserLogin(),
+            $properties), ['data-name' => $properties['title']]);
+    }
 }

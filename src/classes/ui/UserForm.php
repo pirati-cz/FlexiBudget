@@ -27,16 +27,19 @@ class UserForm extends \Ease\TWB\Form
         $userID     = $user->getMyKey();
         $this->user = $user;
         parent::__construct('user'.$userID);
-
+       
         $this->addInput(new \Ease\Html\InputTag('firstname',
-            $user->getDataValue('firstname')), _('Jméno'));
+            $user->getDataValue('firstname')), _('Firstname'));
         $this->addInput(new \Ease\Html\InputTag('lastname',
-            $user->getDataValue('lastname')), _('Příjmení'));
+            $user->getDataValue('lastname')), _('Lastname'));
         $this->addInput(new \Ease\Html\InputTag('email',
             $user->getDataValue('email')), _('Email'));
         $this->addInput(new \Ease\Html\InputTag('login',
-            $user->getDataValue('login')), _('Přihlašovací jméno'));
+            $user->getDataValue('login')), _('Login Name'));
 
+        $this->addInput(new \Ease\Html\TextareaTag('icon',
+            $user->getDataValue('icon')), _('Icon'));
+        
         $this->addItem(new \Ease\Html\InputHiddenTag('class', get_class($user)));
 
         $this->addItem(new \Ease\Html\Div(new \Ease\TWB\SubmitButton(_('Uložit'),

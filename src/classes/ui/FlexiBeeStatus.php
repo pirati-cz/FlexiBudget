@@ -22,7 +22,7 @@ class FlexiBeeStatus extends \FlexiPeeHP\FlexiBeeRO
                 $fbico.$info['nastaveni'][0]['nazFirmy'], 'success');
         } else {
             $return = new \Ease\TWB\LinkButton(constant('FLEXIBEE_URL').'/c/'.constant('FLEXIBEE_COMPANY'),
-                $fbico._('Chyba komunikace'), 'danger');
+                $fbico._('Communication error'), 'danger');
         }
 
         $return->draw();

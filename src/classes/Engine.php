@@ -53,7 +53,7 @@ class Engine extends \Ease\Brick
     {
         foreach ($data as $columnName => $columnValue) {
             if (!array_key_exists($columnName, $this->columns) && ($columnName != 'id')) {
-                unset($data);
+                unset($data[$columnName]);
             }
         }
         return parent::takeData($data);
@@ -206,7 +206,10 @@ class Engine extends \Ease\Brick
      */
     public function inputWidget($columnName, $properties = [])
     {
-        $value           = $this->getDataValue($columnName);
+        $value = $this->getDataValue($columnName);
+        if (is_null($value) && isset($properties['default'])) {
+            $value = $properties['default'];
+        }
         $inputProperties = array_merge($this->columns[$columnName], $properties);
         $type            = $inputProperties['type'];
         switch ($inputProperties['type']) {
@@ -233,6 +236,14 @@ class Engine extends \Ease\Brick
             case 'datetime':
                 $inputProperties['data-format'] = 'YYYY-MM-DD\'T\'HH:mm:ss.SSS';
                 $widget                         = new ui\DateTimePicker($columnName,
+                    $value, $inputProperties);
+                break;
+            case 'user':
+                $widget                         = new ui\UserSelect($columnName,
+                    $value, $inputProperties);
+                break;
+            case 'goodman':
+                $widget                         = new ui\GoodmanSelect($columnName,
                     $value, $inputProperties);
                 break;
             case 'string':
@@ -276,10 +287,10 @@ class Engine extends \Ease\Brick
     static function &doThings($oPage)
     {
         $engine = null;
-        $class = $oPage->getRequestValue('class');
+        $class  = $oPage->getRequestValue('class');
         if ($class) {
             $engine = new $class;
-            $key = $oPage->getRequestValue($engine->myKeyColumn);
+            $key    = $oPage->getRequestValue($engine->myKeyColumn);
             if ($key) {
                 $engine->setMyKey((int) $key);
             }
@@ -298,6 +309,5 @@ class Engine extends \Ease\Brick
 
         return $engine;
     }
-
 
 }

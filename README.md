@@ -26,7 +26,7 @@ Database Init
     
 Testovací data:
 
-    vendor/bin/phinx seed:run -v
+    vendor/bin/phinx seed:run -v  -s UserSeeder -s BudgetSeeder -s IntendSeeder
 
 Konfigurace
 -----------

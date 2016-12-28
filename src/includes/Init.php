@@ -28,35 +28,24 @@ foreach ($langs as $code => $lang) {
         $locale = $code;
     }
 }
-setlocale(LC_ALL, $locale);
+setlocale(LC_ALL, $locale.'.UTF-8');
 bind_textdomain_codeset('flexibudget', 'UTF-8');
-putenv("LC_ALL=$locale");
+putenv("LC_ALL=$locale.UTF-8");
 if (file_exists('../i18n')) {
     bindtextdomain('flexibudget', '../i18n');
 }
 textdomain('flexibudget');
 
-/*
-  if (file_exists(LMS_DIRECTORY . 'lib/LMSDB.php')) {
-  require_once LMS_DIRECTORY . 'lib/LMSDB.php';
-  } else {
-  die(_('Není definována cesta k LMS. Pomůže: #dpkg-reconfigure flexibudget'));
-  }
-  $DB = DBInit('mysql', DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD, DB_DATABASE);
-  require_once LMS_DIRECTORY . 'lib/Session.class.php';
-  $SESSION = new Session($DB, 9000);
- */
-
 session_start();
 
-/*
- * Objekt uživatele VSUser nebo VSAnonym
- * @global EaseUser
+/**
+ * User Object 
+ * @global User
  */
-$oUser                 = \Ease\Shared::user();
-$oUser->settingsColumn = 'settings';
+$oUser = \Ease\Shared::user();
 
 if (!\Ease\Shared::isCli()) {
     /* @var $oPage \Sys\WebPage */
     $oPage = new ui\WebPage();
 }
+    

@@ -23,15 +23,15 @@ class VotingShow extends \Ease\TWB\Panel
 
         parent::__construct(_('Voting Results'), 'info', null, $footer);
         $headRow = new \Ease\TWB\Row();
-        $headRow->addColumn(3, _('not yet'), 'md',
-            ['class' => 'heading']);
+        $headRow->addColumn(3, _('not yet'), 'md', ['class' => 'heading']);
         $headRow->addColumn(3, _('Yes'), 'md', ['class' => 'heading']);
         $headRow->addColumn(3, _('No'), 'md', ['class' => 'heading']);
         $headRow->addColumn(3, _('Abstain to vote'), 'md',
             ['class' => 'heading']);
         $this->addItem($headRow);
 
-        $votes   = ['needvote' => [], 'accepted' => [], 'denyed' => [], 'abstain' => []];
+        $votes   = ['needvote' => [], 'accepted' => [], 'denyed' => [], 'abstain' => [
+            ]];
         $results = $subject->getVotingResults();
         foreach ($results as $result) {
             $votes[$result['vote']][] = $result;
@@ -46,12 +46,20 @@ class VotingShow extends \Ease\TWB\Panel
         $this->addItem($resultsRow);
     }
 
+    /**
+     * Gives you column with voters icons
+     * 
+     * @param array $voters
+     * @return \Ease\Html\Div
+     */
     static function showVoters($voters)
     {
         $userBlock = [];
         foreach ($voters as $voter) {
-            $userBlock[$voter['login']][] = new \Ease\Html\ImgTag(\Ease\User::getGravatar($voter['email']));
-            $userBlock[$voter['login']][] = new \Ease\Html\Div($voter['login']);
+            $userBlock[$voter['login']][] = new \Ease\Html\ATag('user.php?id='.$voter['id'],
+                new \Ease\Html\ImgTag($voter['icon'], $voter['login']));
+            $userBlock[$voter['login']][] = new \Ease\Html\ATag('user.php?id='.$voter['id'],
+                new \Ease\Html\Div($voter['firstname'].' '.$voter['lastname']));
         }
         return $userBlock;
     }

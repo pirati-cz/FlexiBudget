@@ -62,17 +62,18 @@ class MainMenu extends \Ease\Html\Div
 //                '' => '',
 //                    ], $this->getMenuList(new \FlexiBudget\FlexiBees(), 'name'))
 //            );
-            $nav->addDropDownMenu('<img width=30 src=images/intend.svg> '._('Intend'),
-                array(
-                'intend.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('New Intend'),
-                'intends.php' => \Ease\TWB\Part::GlyphIcon('list').'&nbsp;'._('Intend listing')
-                )
-            );
-
+            
             $nav->addDropDownMenu('<img width=30 src=images/budget.svg> '._('Budget'),
                 array(
                 'budget.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('New Budget'),
                 'budgets.php' => \Ease\TWB\Part::GlyphIcon('list').'&nbsp;'._('Budget listing')
+                )
+            );
+
+            $nav->addDropDownMenu('<img width=30 src=images/intend.svg> '._('Intend'),
+                array(
+                'intend.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('New Intend'),
+                'intends.php' => \Ease\TWB\Part::GlyphIcon('list').'&nbsp;'._('Intend listing')
                 )
             );
 
@@ -101,7 +102,7 @@ class MainMenu extends \Ease\Html\Div
 //            );
             $nav->addDropDownMenu('<img width=30 src=images/users_150.png> '._('Users'),
                 array_merge([
-                'createaccount.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('New users'),
+                'createaccount.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('New user'),
                 'users.php' => \Ease\TWB\Part::GlyphIcon('list').'&nbsp;'._('User listing'),
                 '' => '',
                     ], $this->getMenuList(\Ease\Shared::user(), 'user'))

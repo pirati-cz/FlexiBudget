@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexiBudget\n"
-"POT-Creation-Date: 2016-11-11 21:50+0100\n"
-"PO-Revision-Date: 2016-11-11 21:51+0100\n"
-"Last-Translator: Vítězslav Dvořák <info@vitexsoftware.cz>\n"
+"POT-Creation-Date: 2016-12-28 00:25+0100\n"
+"PO-Revision-Date: 2016-12-28 00:26+0100\n"
+"Last-Translator: Vítězslav Dvořák <vitezslav.dvorak@adminit.cz>\n"
 "Language-Team: VitexSoftware <info@vitexsoftware.cz>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
@@ -37,9 +37,9 @@ msgid "Budget was saved"
 msgstr "Record was saved"
 
 #: ../src/budget.php:40 ../src/budget.php:67 ../src/classes/ui/MainMenu.php:72
-#: ../src/index.php:23 ../src/login.php:57
+#: ../src/index.php:23 ../src/login.php:58
 msgid "Budget"
-msgstr ""
+msgstr "Budget"
 
 #: ../src/budget.php:50 ../src/intend.php:50 ../src/user.php:38
 #, fuzzy
@@ -47,11 +47,13 @@ msgid "Really delete ?"
 msgstr "Delete"
 
 #: ../src/budget.php:53 ../src/classes/ui/TWBSwitch.php:36
+#: ../src/classes/ui/VoteOptions.php:30 ../src/classes/ui/VotingShow.php:29
 #: ../src/intend.php:53 ../src/user.php:41
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: ../src/budget.php:55 ../src/classes/ui/TWBSwitch.php:33
+#: ../src/classes/ui/VoteOptions.php:29 ../src/classes/ui/VotingShow.php:28
 #: ../src/intend.php:55 ../src/user.php:43
 #, fuzzy
 msgid "Yes"
@@ -59,7 +61,7 @@ msgstr "Yes"
 
 #: ../src/budgets.php:15 ../src/budgets.php:17
 msgid "Budgets"
-msgstr ""
+msgstr "Budgets"
 
 #: ../src/changepassword.php:52
 #, fuzzy
@@ -79,10 +81,10 @@ msgstr "Password"
 #: ../src/changepassword.php:64
 #, php-format
 msgid "Dear user %s, your monitoring password was changed to"
-msgstr ""
+msgstr "Dear user %s, your monitoring password was changed to"
 
 #: ../src/changepassword.php:66 ../src/classes/ui/BootstrapMenu.php:51
-#: ../src/createaccount.php:148 ../src/login.php:65
+#: ../src/createaccount.php:148 ../src/login.php:66
 #: ../src/passwordrecovery.php:48
 #, fuzzy
 msgid "Password"
@@ -100,7 +102,7 @@ msgstr "New"
 
 #: ../src/changepassword.php:81
 msgid "Password confirm"
-msgstr ""
+msgstr "Password confirm"
 
 #: ../src/changepassword.php:85
 #, fuzzy
@@ -112,56 +114,61 @@ msgstr "Build change"
 msgid "Password change"
 msgstr "Build change"
 
-#: ../src/classes/Budget.php:49 ../src/classes/Intend.php:49
+#: ../src/chooseinvoice.php:15
+#, fuzzy
+msgid "Invoice Chooser"
+msgstr "Unserialization error %s #%s "
+
+#: ../src/classes/Budget.php:50 ../src/classes/Intend.php:50
 #, fuzzy
 msgid "Name"
 msgstr "localized name"
 
-#: ../src/classes/Budget.php:51 ../src/classes/Intend.php:51
+#: ../src/classes/Budget.php:52 ../src/classes/Intend.php:52
 msgid "Approval At"
-msgstr ""
+msgstr "Approval At"
 
-#: ../src/classes/DataSource.php:120
+#: ../src/classes/DataSource.php:121 ../src/classes/FlexiDataSource.php:137
 #, fuzzy
 msgid "Deleted"
 msgstr "Deleted"
 
-#: ../src/classes/DataSource.php:127
+#: ../src/classes/DataSource.php:128 ../src/classes/FlexiDataSource.php:144
 #, fuzzy
 msgid "Record was added"
 msgstr "Record was added"
 
-#: ../src/classes/DataSource.php:130
+#: ../src/classes/DataSource.php:131 ../src/classes/FlexiDataSource.php:147
 #, fuzzy
 msgid "Record was not added"
 msgstr "Record was added"
 
-#: ../src/classes/DataSource.php:138
+#: ../src/classes/DataSource.php:139 ../src/classes/FlexiDataSource.php:155
 #, fuzzy
 msgid "Record was updated"
 msgstr "Record was updated"
 
-#: ../src/classes/DataSource.php:141
+#: ../src/classes/DataSource.php:142 ../src/classes/FlexiDataSource.php:158
 #, fuzzy
-msgid "Record was not updated"
+msgid "Record update failed"
 msgstr "Record was updated"
 
-#: ../src/classes/Engine.php:138
+#: ../src/classes/Engine.php:139 ../src/classes/Flexplorer.php:127
 #, fuzzy, php-format
 msgid "Unserialization error %s #%s "
 msgstr "Unserialization error %s #%s "
 
-#: ../src/classes/Engine.php:242
+#: ../src/classes/Engine.php:243
 #, fuzzy, php-format
 msgid "Unknown type of data %s"
 msgstr "Unknown type of data %s"
 
-#: ../src/classes/Engine.php:263
+#: ../src/classes/Engine.php:264
 #, fuzzy
 msgid "Record was deleted"
 msgstr "Record was deleted"
 
-#: ../src/classes/Engine.php:265
+#: ../src/classes/Engine.php:266
 #, fuzzy
 msgid "Record was not deleted"
 msgstr "Record was deleted"
@@ -171,21 +178,62 @@ msgstr "Record was deleted"
 msgid ""
 "Succesfully obtained organisation identification number #%d from FlexiBee %s"
 msgstr ""
+"Succesfully obtained organisation identification number #%d from FlexiBee %s"
 
 #: ../src/classes/FlexiBees.php:98
 #, php-format
 msgid "Cannot obtain organisation identification number for FlexiBee %s"
-msgstr ""
+msgstr "Cannot obtain organisation identification number for FlexiBee %s"
 
-#: ../src/classes/Intend.php:48
+#: ../src/classes/Flexplorer.php:297
+#, php-format
+msgid "File %s was used"
+msgstr "File %s was used"
+
+#: ../src/classes/Flexplorer.php:306
+#, php-format
+msgid "URL %s was used"
+msgstr "URL %s was used"
+
+#: ../src/classes/Flexplorer.php:309
+#, php-format
+msgid "Error %s obataing %s"
+msgstr "Error %s obataing %s"
+
+#: ../src/classes/Intend.php:49
 msgid "Limit"
-msgstr ""
+msgstr "Limit"
 
-#: ../src/classes/Intend.php:50 ../src/classes/ui/InvoiceForm.php:67
+#: ../src/classes/Intend.php:51 ../src/classes/ui/InvoiceForm.php:67
 msgid "Description"
+msgstr "Description"
+
+#: ../src/classes/User.php:123
+msgid "Smazat"
 msgstr ""
 
-#: ../src/classes/ui/BootstrapMenu.php:31 ../src/index.php:15
+#: ../src/classes/User.php:124
+msgid "Upravit"
+msgstr ""
+
+#: ../src/classes/VoteSubject.php:108
+msgid "Accepted"
+msgstr "Accepted"
+
+#: ../src/classes/VoteSubject.php:109
+msgid "Denied"
+msgstr "Denied"
+
+#: ../src/classes/VoteSubject.php:110
+msgid "Need vote"
+msgstr "Need vote"
+
+#: ../src/classes/VoteSubject.php:111 ../src/classes/ui/VoteOptions.php:28
+msgid "Abstain on resolution"
+msgstr "Abstain on resolution"
+
+#: ../src/classes/ui/BootstrapMenu.php:31 ../src/finish_auth.php:114
+#: ../src/index.php:15
 #, fuzzy
 msgid "FlexiBudget"
 msgstr "flexibudget"
@@ -211,7 +259,7 @@ msgid "Remember Me"
 msgstr "Remeber me"
 
 #: ../src/classes/ui/BootstrapMenu.php:54 ../src/login.php:40
-#: ../src/login.php:54
+#: ../src/login.php:55
 #, fuzzy
 msgid "Sign In"
 msgstr "Sign in"
@@ -253,38 +301,54 @@ msgstr "Save"
 msgid "Save and next"
 msgstr "Save and next"
 
-#: ../src/classes/ui/DataGrid.php:87
+#: ../src/classes/ui/DataGrid.php:93
 #, fuzzy
 msgid "Add"
 msgstr "Add"
 
-#: ../src/classes/ui/DataGrid.php:88
+#: ../src/classes/ui/DataGrid.php:94 ../src/intend.php:73
 #, fuzzy
 msgid "Edit"
 msgstr "Edit"
 
-#: ../src/classes/ui/DataGrid.php:89
+#: ../src/classes/ui/DataGrid.php:95
 #, fuzzy
 msgid "Delete"
 msgstr "Delete"
 
-#: ../src/classes/ui/DataGrid.php:97
+#: ../src/classes/ui/DataGrid.php:103 ../src/classes/ui/FlexiDataGrid.php:123
 #, fuzzy
 msgid "Title missing"
 msgstr "Title missing"
 
-#: ../src/classes/ui/DataGrid.php:195 ../src/classes/ui/DataGrid.php:235
+#: ../src/classes/ui/DataGrid.php:201 ../src/classes/ui/DataGrid.php:241
 #, fuzzy
 msgid "Please select any rows"
 msgstr "Please mark some rows"
 
-#: ../src/classes/ui/FlexiBeeStatus.php:23
-msgid "Chyba komunikace"
-msgstr ""
+#: ../src/classes/ui/FlexiBeeStatus.php:25
+msgid "Communication error"
+msgstr "Communication error"
+
+#: ../src/classes/ui/FlexiDataGrid.php:99
+msgid "Select All"
+msgstr "Select All"
+
+#: ../src/classes/ui/FlexiDataGrid.php:226
+#: ../src/classes/ui/FlexiDataGrid.php:263
+#: ../src/classes/ui/FlexiDataGrid.php:300
+#: ../src/classes/ui/FlexiDataGrid.php:345
+#, fuzzy
+msgid "Please mark some rows"
+msgstr "Please mark some rows"
+
+#: ../src/classes/ui/FuelUX/Selectlist.php:48
+msgid "Toggle Dropdown"
+msgstr "Toggle Dropdown"
 
 #: ../src/classes/ui/InvoiceForm.php:24
 msgid "Invoice"
-msgstr ""
+msgstr "Invoice"
 
 #: ../src/classes/ui/InvoiceForm.php:24
 #, fuzzy, php-format
@@ -325,7 +389,7 @@ msgid "Total"
 msgstr ""
 
 #: ../src/classes/ui/MainMenu.php:65 ../src/index.php:22 ../src/intend.php:40
-#: ../src/intend.php:67
+#: ../src/intend.php:69 ../src/intend.php:74
 msgid "Intend"
 msgstr ""
 
@@ -363,19 +427,36 @@ msgstr ""
 msgid "Choose invoice"
 msgstr "Choose Registered"
 
-#: ../src/classes/ui/MainMenu.php:101
+#: ../src/classes/ui/MainMenu.php:83
+#, fuzzy
+msgid "Invoices list"
+msgstr "Unserialization error %s #%s "
+
+#: ../src/classes/ui/MainMenu.php:102 ../src/users.php:19
 msgid "Users"
 msgstr ""
 
-#: ../src/classes/ui/MainMenu.php:103
+#: ../src/classes/ui/MainMenu.php:104
 #, fuzzy
 msgid "New users"
 msgstr "New"
 
-#: ../src/classes/ui/MainMenu.php:104
+#: ../src/classes/ui/MainMenu.php:105
 #, fuzzy
 msgid "User listing"
 msgstr "Listing"
+
+#: ../src/classes/ui/OpenIDLoginForm.php:21
+msgid "OpenID Provider"
+msgstr ""
+
+#: ../src/classes/ui/OpenIDLoginForm.php:22
+msgid "Please use your OpenID provider"
+msgstr ""
+
+#: ../src/classes/ui/OpenIDLoginForm.php:23
+msgid "Authenticate"
+msgstr ""
 
 #: ../src/classes/ui/PageBottom.php:22
 msgid "Podpora"
@@ -415,24 +496,40 @@ msgstr "Security Code"
 msgid "Read/Write access ?"
 msgstr "Read Only"
 
-#: ../src/classes/ui/UserForm.php:27
+#: ../src/classes/ui/UserForm.php:32
 msgid "Jméno"
 msgstr ""
 
-#: ../src/classes/ui/UserForm.php:29
+#: ../src/classes/ui/UserForm.php:34
 msgid "Příjmení"
 msgstr ""
 
-#: ../src/classes/ui/UserForm.php:31 ../src/passwordrecovery.php:78
+#: ../src/classes/ui/UserForm.php:36 ../src/passwordrecovery.php:78
 msgid "Email"
 msgstr ""
 
-#: ../src/classes/ui/UserForm.php:33
+#: ../src/classes/ui/UserForm.php:38
 msgid "Přihlašovací jméno"
 msgstr ""
 
-#: ../src/classes/ui/UserForm.php:38
+#: ../src/classes/ui/UserForm.php:42
 msgid "Uložit"
+msgstr ""
+
+#: ../src/classes/ui/VoteForm.php:32
+msgid "Vote"
+msgstr ""
+
+#: ../src/classes/ui/VotingShow.php:24
+msgid "Voting Results"
+msgstr ""
+
+#: ../src/classes/ui/VotingShow.php:26
+msgid "not yet"
+msgstr ""
+
+#: ../src/classes/ui/VotingShow.php:30
+msgid "Abstain to vote"
 msgstr ""
 
 #: ../src/classes/ui/WebPage.php:85
@@ -442,7 +539,7 @@ msgstr "Please sign in as admin first"
 
 #: ../src/createaccount.php:39
 msgid "Mail address is too short"
-msgstr ""
+msgstr "Mail address is too short"
 
 #: ../src/createaccount.php:42
 msgid "invalid mail address"
@@ -502,7 +599,7 @@ msgstr "Login Failed"
 msgid "Failed registraton"
 msgstr "Login Failed"
 
-#: ../src/createaccount.php:132 ../src/login.php:74
+#: ../src/createaccount.php:132 ../src/login.php:78
 #, fuzzy
 msgid "Sign On"
 msgstr "Sign in"
@@ -579,9 +676,18 @@ msgstr "Record was saved"
 msgid "Intend was saved"
 msgstr "Record was saved"
 
+#: ../src/intend.php:71
+msgid "Votes"
+msgstr ""
+
 #: ../src/intends.php:15 ../src/intends.php:17
 msgid "Intends"
 msgstr ""
+
+#: ../src/invoices.php:15 ../src/invoices.php:17
+#, fuzzy
+msgid "Invoices"
+msgstr "Unserialization error %s #%s "
 
 #: ../src/login.php:14
 #, fuzzy
@@ -603,16 +709,16 @@ msgstr "Please confirm your login credentials"
 msgid "Welcome to FlexiBudget"
 msgstr "Welcome"
 
-#: ../src/login.php:59
+#: ../src/login.php:60
 msgid "Singn In"
 msgstr ""
 
-#: ../src/login.php:63 ../src/passwordrecovery.php:47
+#: ../src/login.php:64 ../src/passwordrecovery.php:47
 #, fuzzy
 msgid "Username"
 msgstr "FlexiBee API Username:"
 
-#: ../src/login.php:71 ../src/passwordrecovery.php:73
+#: ../src/login.php:74 ../src/passwordrecovery.php:73
 #, fuzzy
 msgid "Password Recovery"
 msgstr "Password"
@@ -667,13 +773,15 @@ msgid ""
 "Forgot your password? Enter your e-mail address you entered during the "
 "registration and we will send you a new one."
 msgstr ""
+"Forgot your password? Enter your e-mail address you entered during the "
+"registration and we will send you a new one."
 
 #: ../src/passwordrecovery.php:77
 #, fuzzy
-msgid "Sent New Password"
+msgid "Send New Password"
 msgstr "New"
 
-#: ../src/passwordrecovery.php:91
+#: ../src/passwordrecovery.php:94
 msgid "Continue"
 msgstr ""
 
@@ -692,8 +800,9 @@ msgid "Oprávnění"
 msgstr ""
 
 #: ../src/settings.php:18
-msgid "Změna hesla"
-msgstr ""
+#, fuzzy
+msgid "Password Change"
+msgstr "Build change"
 
 #: ../src/settings.php:25
 #, fuzzy
@@ -729,15 +838,33 @@ msgstr ""
 msgid "Transakce"
 msgstr ""
 
+#: ../src/try_auth.php:18
+msgid "Expected an OpenID URL"
+msgstr "Expected an OpenID URL"
+
 #: ../src/user.php:29
 #, fuzzy
 msgid "User"
 msgstr "User Query"
 
 #: ../src/users.php:17
-msgid "Přehled uživatelů"
-msgstr ""
+#, fuzzy
+msgid "Users Listing"
+msgstr "Listing"
 
-#: ../src/users.php:19
-msgid "Uživatelé"
-msgstr ""
+#: ../src/vote.php:23
+msgid "Vote accepted"
+msgstr "Vote accepted"
+
+#: ../src/vote.php:25
+#, fuzzy
+msgid "Vote acceptepting failed"
+msgstr "Login Failed"
+
+#: ../src/vote.php:28
+msgid "Voting error"
+msgstr "Voting error"
+
+#, fuzzy
+#~ msgid "Record was not updated"
+#~ msgstr "Record was updated"

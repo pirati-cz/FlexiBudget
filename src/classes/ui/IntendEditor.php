@@ -25,6 +25,12 @@ class IntendEditor extends \Ease\TWB\Form
         $this->intend = $intend;
         $this->setTagID();
         parent::__construct('intend', null, 'post');
+        
+        $creator = \FlexiBudget\User::icoLink($intend->getDataValue('Creator'));
+        $creator->addItem(' '.$creator->getTagProperty('data-name'));
+        $this->addItem($creator);
+        
+        
         $this->addItem($intend->inputWidget('name',
                 ['minlength' => 5, 'maxlength' => 45, 'class' => 'required']));
         $this->addItem($intend->inputWidget('description',

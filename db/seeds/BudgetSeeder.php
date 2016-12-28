@@ -15,13 +15,13 @@ class BudgetSeeder extends AbstractSeed
     public function run()
     {
         $table = $this->table('Budget');
-        $table->insert(['name' => 'Budget 1']);
-        $table->insert(['name' => 'Budget 2']);
-        $table->insert(['name' => 'Budget 3']);
-        $table->insert(['name' => 'Budget 4']);
-        $table->insert(['name' => 'Budget 5']);
-        $table->insert(['name' => 'Budget 6']);
-        $table->insert(['name' => 'Budget 7']);
+        $table->insert(['Name' => 'Budget 1','Year'=>2016,'Created'=>'NOW()','Creator'=>2,'Goodman'=>'2']);
+        $table->insert(['Name' => 'Budget 2','Year'=>2016,'Created'=>'NOW()','Creator'=>3,'Goodman'=>'4']);
+        $table->insert(['Name' => 'Budget 3','Year'=>2016,'Created'=>'NOW()','Creator'=>2,'Goodman'=>'3']);
+        $table->insert(['Name' => 'Budget 4','Year'=>2016,'Created'=>'NOW()','Creator'=>3,'Goodman'=>'5']);
+        $table->insert(['Name' => 'Budget 5','Year'=>2016,'Created'=>'NOW()','Creator'=>2,'Goodman'=>'2']);
+        $table->insert(['Name' => 'Budget 6','Year'=>2016,'Created'=>'NOW()','Creator'=>3,'Goodman'=>'5']);
+        $table->insert(['Name' => 'Budget 7','Year'=>2017,'Creator'=>2,'Goodman'=>'8']);
         $table->saveData();
     }
 }

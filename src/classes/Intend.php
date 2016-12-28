@@ -33,11 +33,15 @@ class Intend extends VoteSubject
      * @var type
      */
     public $columns = [
-        'limit' => ['type' => 'decimal'],
-        'name' => ['type' => 'string'],
-        'description' => ['type' => 'string', 'limit' => 45],
+        'Limit' => ['type' => 'decimal'],
+        'Name' => ['type' => 'string'],
+        'Description' => ['type' => 'string', 'limit' => 45],
+        'Creator' => ['type' => 'user'],
+        'Goodman' => ['type' => 'goodman'],
         'approval_at' => ['type' => 'date'],
-        'limit' => ['type' => 'decimal'],
+        'Begin' => ['type' => 'date'],
+        'End' => ['type' => 'date'],
+        'AcceptURL' => ['type' => 'string'],
     ];
 
     /**
@@ -46,11 +50,37 @@ class Intend extends VoteSubject
      */
     public function __construct($init = null)
     {
-        $this->columns['limit']['title']       = _('Limit');
-        $this->columns['name']['title']        = _('Name');
-        $this->columns['description']['title'] = _('Description');
+        $this->columns['Limit']['title']       = _('Limit');
+        $this->columns['Name']['title']        = _('Name');
+        $this->columns['Description']['title'] = _('Description');
         $this->columns['approval_at']['title'] = _('Approval At');
+        $this->columns['Goodman']['title']     = _('Goodman');
+        $this->columns['Creator']['title']     = _('Creator');
+        $this->columns['Creator']['default']   = \Ease\Shared::user()->getUserID();
+        $this->columns['Begin']['title']       = _('Valid From');
+        $this->columns['End']['title']         = _('Valit To');
+        $this->columns['AcceptURL']['title']   = _('Accept URL');
+
         parent::__construct($init);
     }
 
+    /**
+     * Prepare row to show as html
+     * 
+     * @param array $row
+     * @return array
+     */
+    public function htmlizeRow($row)
+    {
+        $creator        = User::icoLink($row['Creator'],
+                ['class' => 'list-icon']);
+        $creator->addItem(' '.$creator->getTagProperty('data-name'));
+        $row['Creator'] = (string) $creator;
+        $goodman        = User::icoLink($row['Goodman'],
+                ['class' => 'list-icon']);
+        $goodman->addItem(' '.$goodman->getTagProperty('data-name'));
+        $row['Goodman'] = (string) $goodman;
+        $row['AcceptURL'] = '<a href="'.$row['AcceptURL'].'">'.$row['AcceptURL'].'</a>';
+        return parent::htmlizeRow($row);
+    }
 }

@@ -7,46 +7,33 @@ class ApplicationTables extends AbstractMigration
 
     /**
      * Change Method.
-     *
-     * Write your reversible migrations using this method.
-     *
-     * More information on writing migrations is available here:
-     * http://docs.phinx.org/en/latest/migrations.html#the-abstractmigration-class
-     *
-     * The following commands can be used in this method and Phinx will
-     * automatically reverse them when rolling back:
-     *
-     *    createTable
-     *    renameTable
-     *    addColumn
-     *    renameColumn
-     *    addIndex
-     *    addForeignKey
-     *
-     * Remember to call "create()" or "update()" and NOT "save()" when working
-     * with the Table class.
      */
     public function change()
     {
         // Migration for table Budget
         $table = $this->table('Budget');
         $table
-            ->addColumn('name', 'string', ['null' => true, 'limit' => 45])
+            ->addColumn('Name', 'string', ['null' => true, 'limit' => 45])
             ->addColumn('approval_at', 'date', ['null' => true])
+            ->addColumn('Year', 'integer', ['limit' => 4])
+            ->addColumn('Created', 'timestamp', array('default' => 'CURRENT_TIMESTAMP'))
+            ->addColumn('Creator', 'integer', ['limit' => 11])
+            ->addColumn('Goodman', 'integer', ['limit' => 11])
+            ->addForeignKey('Creator', 'user', 'id',
+                ['delete' => 'NO_ACTION', 'update' => 'NO_ACTION'])
+            ->addForeignKey('Goodman', 'user', 'id',
+                ['delete' => 'NO_ACTION', 'update' => 'NO_ACTION'])
             ->create();
 
 
         // Migration for table BudgetRecord
         $table = $this->table('BudgetRecord');
         $table
-            ->addColumn('name', 'string', ['null' => true, 'limit' => 45])
-            ->addColumn('number', 'string', ['null' => true, 'limit' => 45])
-            ->addColumn('limit', 'decimal', ['null' => true])
+            ->addColumn('Name', 'string', ['null' => true, 'limit' => 45])
+            ->addColumn('Number', 'string', ['null' => true, 'limit' => 45])
+            ->addColumn('Limit', 'decimal', ['null' => true])
             ->addColumn('Budget_id', 'integer', ['limit' => 11])
-            ->addColumn('user_id', 'integer', ['limit' => 11])
             ->addForeignKey('Budget_id', 'Budget', 'id',
-                ['delete' => 'NO_ACTION', 'update' => 'NO_ACTION'])
-            ->addForeignKey('user_id', 'user', 'id',
                 ['delete' => 'NO_ACTION', 'update' => 'NO_ACTION'])
             ->create();
 
@@ -54,10 +41,21 @@ class ApplicationTables extends AbstractMigration
         // Migration for table Intend
         $table = $this->table('Intend');
         $table
-            ->addColumn('limit', 'decimal', ['null' => true])
-            ->addColumn('name', 'string', ['null' => true, 'limit' => 45])
-            ->addColumn('description', 'string', ['null' => true, 'limit' => 45])
+            ->addColumn('Limit', 'decimal', ['null' => true])
+            ->addColumn('Name', 'string', ['null' => true, 'limit' => 45])
+            ->addColumn('Description', 'string', ['null' => true, 'limit' => 45])
+            ->addColumn('Begin', 'date', ['null' => true])
+            ->addColumn('End', 'date', ['null' => true])
+            ->addColumn('AcceptURL', 'string', ['null' => true, 'limit' => 256])
             ->addColumn('approval_at', 'date', ['null' => true])
+            ->addColumn('Created', 'timestamp', array('default' => 'CURRENT_TIMESTAMP'))
+            ->addColumn('Creator', 'integer', ['limit' => 11])
+            ->addColumn('Goodman', 'integer', ['limit' => 11])
+            ->addForeignKey('Creator', 'user', 'id',
+                ['delete' => 'NO_ACTION', 'update' => 'NO_ACTION'])
+            ->addForeignKey('Goodman', 'user', 'id',
+                ['delete' => 'NO_ACTION', 'update' => 'NO_ACTION'])
+//            ->addIndex(['Name', 'Description'], ['unique' => true])            
             ->create();
 
 

@@ -157,7 +157,7 @@ class VoteSubject extends Engine
     public function getAllVoters()
     {
         $user = new \FlexiBudget\User();
-        return $user->getColumnsFromSQL(['id', 'email', 'login', 'lastname', 'firstname'],
+        return $user->getColumnsFromSQL(['id', 'email', 'login','icon', 'lastname', 'firstname'],
                 null, 'login', 'id');
     }
 

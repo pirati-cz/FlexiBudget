@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FlexiBudget\n"
-"POT-Creation-Date: 2016-11-11 21:53+0100\n"
-"PO-Revision-Date: 2016-11-11 21:54+0100\n"
-"Last-Translator: Vítězslav Dvořák <info@vitexsoftware.cz>\n"
+"POT-Creation-Date: 2016-12-28 05:27+0100\n"
+"PO-Revision-Date: 2016-12-28 05:27+0100\n"
+"Last-Translator: Vítězslav Dvořák <vitezslav.dvorak@adminit.cz>\n"
 "Language-Team: VitexSoftware <info@vitexsoftware.cz>\n"
 "Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
@@ -18,50 +18,52 @@ msgstr ""
 
 #: ../src/about.php:15
 msgid "About application"
-msgstr ""
+msgstr "O Aplikaci"
 
 #: ../src/about.php:17
 msgid "Used Libraries"
-msgstr ""
+msgstr "Použité knihovny"
 
 #: ../src/budget.php:31
 msgid "Budget was not saved"
-msgstr ""
+msgstr "Rozpočet nebyl uložen"
 
 #: ../src/budget.php:33
 msgid "Budget was saved"
-msgstr ""
+msgstr "Rozpočet byl uložen"
 
-#: ../src/budget.php:40 ../src/budget.php:67 ../src/classes/ui/MainMenu.php:72
-#: ../src/index.php:23 ../src/login.php:57
+#: ../src/budget.php:40 ../src/budget.php:67 ../src/classes/ui/MainMenu.php:66
+#: ../src/index.php:21 ../src/login.php:58
 msgid "Budget"
-msgstr ""
+msgstr "Rozpočet"
 
 #: ../src/budget.php:50 ../src/intend.php:50 ../src/user.php:38
 msgid "Really delete ?"
-msgstr ""
+msgstr "Opravdu smazat ?"
 
 #: ../src/budget.php:53 ../src/classes/ui/TWBSwitch.php:36
+#: ../src/classes/ui/VoteOptions.php:30 ../src/classes/ui/VotingShow.php:28
 #: ../src/intend.php:53 ../src/user.php:41
 msgid "No"
-msgstr ""
+msgstr "Ne"
 
 #: ../src/budget.php:55 ../src/classes/ui/TWBSwitch.php:33
+#: ../src/classes/ui/VoteOptions.php:29 ../src/classes/ui/VotingShow.php:27
 #: ../src/intend.php:55 ../src/user.php:43
 msgid "Yes"
-msgstr ""
+msgstr "Ano"
 
 #: ../src/budgets.php:15 ../src/budgets.php:17
 msgid "Budgets"
-msgstr ""
+msgstr "Rozpočty"
 
 #: ../src/changepassword.php:52
 msgid "User password change"
-msgstr ""
+msgstr "Změna uživatelského jména"
 
 #: ../src/changepassword.php:60
 msgid "Password was changed"
-msgstr ""
+msgstr "Heslo bylo změněno"
 
 #: ../src/changepassword.php:63
 msgid "Changed monitoring password"
@@ -73,14 +75,14 @@ msgid "Dear user %s, your monitoring password was changed to"
 msgstr ""
 
 #: ../src/changepassword.php:66 ../src/classes/ui/BootstrapMenu.php:51
-#: ../src/createaccount.php:148 ../src/login.php:65
+#: ../src/createaccount.php:148 ../src/login.php:66
 #: ../src/passwordrecovery.php:48
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 #: ../src/changepassword.php:73
 msgid "Current password"
-msgstr ""
+msgstr "Stávající heslo"
 
 #: ../src/changepassword.php:77
 msgid "New Password"
@@ -88,7 +90,7 @@ msgstr ""
 
 #: ../src/changepassword.php:81
 msgid "Password confirm"
-msgstr ""
+msgstr "Potvrzení hesla"
 
 #: ../src/changepassword.php:85
 msgid "Change password"
@@ -98,49 +100,65 @@ msgstr ""
 msgid "Password change"
 msgstr ""
 
-#: ../src/classes/Budget.php:49 ../src/classes/Intend.php:49
-msgid "Name"
+#: ../src/chooseinvoice.php:15
+msgid "Invoice Chooser"
 msgstr ""
 
-#: ../src/classes/Budget.php:51 ../src/classes/Intend.php:51
+#: ../src/classes/Budget.php:60 ../src/classes/Intend.php:54
+msgid "Name"
+msgstr "Jméno"
+
+#: ../src/classes/Budget.php:61
+msgid "Year"
+msgstr "Rok"
+
+#: ../src/classes/Budget.php:62 ../src/classes/Intend.php:57
+msgid "Goodman"
+msgstr "Hospodář"
+
+#: ../src/classes/Budget.php:63 ../src/classes/Intend.php:58
+msgid "Creator"
+msgstr "Autor"
+
+#: ../src/classes/Budget.php:66 ../src/classes/Intend.php:56
 msgid "Approval At"
 msgstr ""
 
-#: ../src/classes/DataSource.php:120
+#: ../src/classes/DataSource.php:121 ../src/classes/FlexiDataSource.php:137
 msgid "Deleted"
 msgstr ""
 
-#: ../src/classes/DataSource.php:127
+#: ../src/classes/DataSource.php:128 ../src/classes/FlexiDataSource.php:144
 msgid "Record was added"
 msgstr ""
 
-#: ../src/classes/DataSource.php:130
+#: ../src/classes/DataSource.php:131 ../src/classes/FlexiDataSource.php:147
 msgid "Record was not added"
 msgstr ""
 
-#: ../src/classes/DataSource.php:138
+#: ../src/classes/DataSource.php:139 ../src/classes/FlexiDataSource.php:155
 msgid "Record was updated"
 msgstr ""
 
-#: ../src/classes/DataSource.php:141
-msgid "Record was not updated"
+#: ../src/classes/DataSource.php:142 ../src/classes/FlexiDataSource.php:158
+msgid "Record update failed"
 msgstr ""
 
-#: ../src/classes/Engine.php:138
+#: ../src/classes/Engine.php:139 ../src/classes/Flexplorer.php:127
 #, php-format
 msgid "Unserialization error %s #%s "
 msgstr ""
 
-#: ../src/classes/Engine.php:242
+#: ../src/classes/Engine.php:254
 #, php-format
 msgid "Unknown type of data %s"
 msgstr ""
 
-#: ../src/classes/Engine.php:263
+#: ../src/classes/Engine.php:275
 msgid "Record was deleted"
 msgstr ""
 
-#: ../src/classes/Engine.php:265
+#: ../src/classes/Engine.php:277
 msgid "Record was not deleted"
 msgstr ""
 
@@ -155,15 +173,68 @@ msgstr ""
 msgid "Cannot obtain organisation identification number for FlexiBee %s"
 msgstr ""
 
-#: ../src/classes/Intend.php:48
+#: ../src/classes/Flexplorer.php:297
+#, php-format
+msgid "File %s was used"
+msgstr ""
+
+#: ../src/classes/Flexplorer.php:306
+#, php-format
+msgid "URL %s was used"
+msgstr ""
+
+#: ../src/classes/Flexplorer.php:309
+#, php-format
+msgid "Error %s obataing %s"
+msgstr ""
+
+#: ../src/classes/Intend.php:53
 msgid "Limit"
 msgstr ""
 
-#: ../src/classes/Intend.php:50 ../src/classes/ui/InvoiceForm.php:67
+#: ../src/classes/Intend.php:55 ../src/classes/ui/InvoiceForm.php:67
 msgid "Description"
+msgstr "Popisek"
+
+#: ../src/classes/Intend.php:60
+msgid "Valid From"
 msgstr ""
 
-#: ../src/classes/ui/BootstrapMenu.php:31 ../src/index.php:15
+#: ../src/classes/Intend.php:61
+msgid "Valit To"
+msgstr ""
+
+#: ../src/classes/Intend.php:62
+#, fuzzy
+msgid "Accept URL"
+msgstr "Pro"
+
+#: ../src/classes/User.php:159
+msgid "Smazat"
+msgstr ""
+
+#: ../src/classes/User.php:161
+msgid "Upravit"
+msgstr ""
+
+#: ../src/classes/VoteSubject.php:108
+msgid "Accepted"
+msgstr "Pro"
+
+#: ../src/classes/VoteSubject.php:109
+msgid "Denied"
+msgstr "Proti"
+
+#: ../src/classes/VoteSubject.php:110
+msgid "Need vote"
+msgstr "Zatím nevoleno"
+
+#: ../src/classes/VoteSubject.php:111 ../src/classes/ui/VoteOptions.php:28
+msgid "Abstain on resolution"
+msgstr "Zdržel/a se"
+
+#: ../src/classes/ui/BootstrapMenu.php:31 ../src/finish_auth.php:114
+#: ../src/index.php:15
 msgid "FlexiBudget"
 msgstr ""
 
@@ -184,13 +255,13 @@ msgid "Remember Me"
 msgstr ""
 
 #: ../src/classes/ui/BootstrapMenu.php:54 ../src/login.php:40
-#: ../src/login.php:54
+#: ../src/login.php:55
 msgid "Sign In"
 msgstr ""
 
 #: ../src/classes/ui/BootstrapMenu.php:62 ../src/settings.php:15
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 #: ../src/classes/ui/BootstrapMenu.php:71
 msgid "About FlexiBudget"
@@ -204,8 +275,8 @@ msgstr ""
 msgid "Click to hide messages"
 msgstr ""
 
-#: ../src/classes/ui/BudgetEditor.php:39 ../src/classes/ui/ColumnsForm.php:102
-#: ../src/classes/ui/IntendEditor.php:39
+#: ../src/classes/ui/BudgetEditor.php:49 ../src/classes/ui/ColumnsForm.php:102
+#: ../src/classes/ui/IntendEditor.php:45
 #: ../src/classes/ui/RegisterFlexiBeeForm.php:33
 msgid "Save"
 msgstr ""
@@ -218,28 +289,43 @@ msgstr ""
 msgid "Save and next"
 msgstr ""
 
-#: ../src/classes/ui/DataGrid.php:87
+#: ../src/classes/ui/DataGrid.php:93
 msgid "Add"
-msgstr ""
+msgstr "Přidat"
 
-#: ../src/classes/ui/DataGrid.php:88
+#: ../src/classes/ui/DataGrid.php:94 ../src/intend.php:73
 msgid "Edit"
-msgstr ""
+msgstr "Upravit"
 
-#: ../src/classes/ui/DataGrid.php:89
+#: ../src/classes/ui/DataGrid.php:95
 msgid "Delete"
-msgstr ""
+msgstr "Smazt"
 
-#: ../src/classes/ui/DataGrid.php:97
+#: ../src/classes/ui/DataGrid.php:103 ../src/classes/ui/FlexiDataGrid.php:123
 msgid "Title missing"
-msgstr ""
+msgstr "Chybějící titulek"
 
-#: ../src/classes/ui/DataGrid.php:195 ../src/classes/ui/DataGrid.php:235
+#: ../src/classes/ui/DataGrid.php:201 ../src/classes/ui/DataGrid.php:241
 msgid "Please select any rows"
 msgstr ""
 
-#: ../src/classes/ui/FlexiBeeStatus.php:23
-msgid "Chyba komunikace"
+#: ../src/classes/ui/FlexiBeeStatus.php:25
+msgid "Communication error"
+msgstr ""
+
+#: ../src/classes/ui/FlexiDataGrid.php:99
+msgid "Select All"
+msgstr ""
+
+#: ../src/classes/ui/FlexiDataGrid.php:226
+#: ../src/classes/ui/FlexiDataGrid.php:263
+#: ../src/classes/ui/FlexiDataGrid.php:300
+#: ../src/classes/ui/FlexiDataGrid.php:345
+msgid "Please mark some rows"
+msgstr ""
+
+#: ../src/classes/ui/FuelUX/Selectlist.php:48
+msgid "Toggle Dropdown"
 msgstr ""
 
 #: ../src/classes/ui/InvoiceForm.php:24
@@ -283,49 +369,65 @@ msgstr ""
 msgid "Total"
 msgstr ""
 
-#: ../src/classes/ui/MainMenu.php:65 ../src/index.php:22 ../src/intend.php:40
-#: ../src/intend.php:67
-msgid "Intend"
-msgstr ""
-
-#: ../src/classes/ui/MainMenu.php:67
-msgid "New Intend"
-msgstr ""
-
 #: ../src/classes/ui/MainMenu.php:68
-msgid "Intend listing"
-msgstr ""
-
-#: ../src/classes/ui/MainMenu.php:74
 msgid "New Budget"
-msgstr ""
+msgstr "Nový rozpočet"
+
+#: ../src/classes/ui/MainMenu.php:69
+msgid "Budget listing"
+msgstr "Přehled rozpočtů"
+
+#: ../src/classes/ui/MainMenu.php:73 ../src/index.php:25 ../src/intend.php:40
+#: ../src/intend.php:69 ../src/intend.php:74
+msgid "Intend"
+msgstr "Záměr"
 
 #: ../src/classes/ui/MainMenu.php:75
-msgid "Budget listing"
-msgstr ""
+msgid "New Intend"
+msgstr "Nový záměr"
 
-#: ../src/classes/ui/MainMenu.php:79
+#: ../src/classes/ui/MainMenu.php:76
+msgid "Intend listing"
+msgstr "Přehled záměrů"
+
+#: ../src/classes/ui/MainMenu.php:80
 msgid "Request"
-msgstr ""
+msgstr "Požadavek"
 
-#: ../src/classes/ui/MainMenu.php:81
+#: ../src/classes/ui/MainMenu.php:82
 msgid "Create invoice"
 msgstr ""
 
-#: ../src/classes/ui/MainMenu.php:82
+#: ../src/classes/ui/MainMenu.php:83
 msgid "Choose invoice"
 msgstr ""
 
-#: ../src/classes/ui/MainMenu.php:101
+#: ../src/classes/ui/MainMenu.php:84
+msgid "Invoices list"
+msgstr ""
+
+#: ../src/classes/ui/MainMenu.php:103 ../src/users.php:19
 msgid "Users"
 msgstr ""
 
-#: ../src/classes/ui/MainMenu.php:103
+#: ../src/classes/ui/MainMenu.php:105
 msgid "New users"
 msgstr ""
 
-#: ../src/classes/ui/MainMenu.php:104
+#: ../src/classes/ui/MainMenu.php:106
 msgid "User listing"
+msgstr "Přehled uživatelů"
+
+#: ../src/classes/ui/OpenIDLoginForm.php:21
+msgid "OpenID Provider"
+msgstr ""
+
+#: ../src/classes/ui/OpenIDLoginForm.php:22
+msgid "Please use your OpenID provider"
+msgstr ""
+
+#: ../src/classes/ui/OpenIDLoginForm.php:23
+msgid "Authenticate"
 msgstr ""
 
 #: ../src/classes/ui/PageBottom.php:22
@@ -360,24 +462,44 @@ msgstr ""
 msgid "Read/Write access ?"
 msgstr ""
 
-#: ../src/classes/ui/UserForm.php:27
-msgid "Jméno"
-msgstr ""
+#: ../src/classes/ui/UserForm.php:32 ../src/createaccount.php:142
+msgid "Firstname"
+msgstr "Jméno"
 
-#: ../src/classes/ui/UserForm.php:29
-msgid "Příjmení"
-msgstr ""
+#: ../src/classes/ui/UserForm.php:34 ../src/createaccount.php:144
+msgid "Lastname"
+msgstr "Příjmení"
 
-#: ../src/classes/ui/UserForm.php:31 ../src/passwordrecovery.php:78
+#: ../src/classes/ui/UserForm.php:36 ../src/passwordrecovery.php:78
 msgid "Email"
 msgstr ""
 
-#: ../src/classes/ui/UserForm.php:33
-msgid "Přihlašovací jméno"
+#: ../src/classes/ui/UserForm.php:38
+msgid "Login Name"
 msgstr ""
 
-#: ../src/classes/ui/UserForm.php:38
+#: ../src/classes/ui/UserForm.php:41
+msgid "Icon"
+msgstr ""
+
+#: ../src/classes/ui/UserForm.php:45
 msgid "Uložit"
+msgstr ""
+
+#: ../src/classes/ui/VoteForm.php:32
+msgid "Vote"
+msgstr "Volba"
+
+#: ../src/classes/ui/VotingShow.php:24
+msgid "Voting Results"
+msgstr "Výsledky"
+
+#: ../src/classes/ui/VotingShow.php:26
+msgid "not yet"
+msgstr "zatím nehlasováno"
+
+#: ../src/classes/ui/VotingShow.php:29
+msgid "Abstain to vote"
 msgstr ""
 
 #: ../src/classes/ui/WebPage.php:85
@@ -439,7 +561,7 @@ msgstr ""
 msgid "Failed registraton"
 msgstr ""
 
-#: ../src/createaccount.php:132 ../src/login.php:74
+#: ../src/createaccount.php:132 ../src/login.php:78
 msgid "Sign On"
 msgstr ""
 
@@ -447,17 +569,9 @@ msgstr ""
 msgid "Singn On"
 msgstr ""
 
-#: ../src/createaccount.php:142
-msgid "Firstname"
-msgstr ""
-
-#: ../src/createaccount.php:144
-msgid "Lastname"
-msgstr ""
-
 #: ../src/createaccount.php:146
 msgid "User name"
-msgstr ""
+msgstr "Uživatelské jméno"
 
 #: ../src/createaccount.php:150
 msgid "Password confirmation"
@@ -495,20 +609,28 @@ msgstr ""
 msgid "New FlexiBee instance"
 msgstr ""
 
-#: ../src/index.php:20 ../src/request.php:15
+#: ../src/index.php:23 ../src/request.php:15
 msgid "Request for payment"
-msgstr ""
+msgstr "Žádost o proplacení"
 
 #: ../src/intend.php:31
 msgid "Intend was not saved"
-msgstr ""
+msgstr "Záměr nebyl uložen"
 
 #: ../src/intend.php:33
 msgid "Intend was saved"
-msgstr ""
+msgstr "Záměr byl uložen"
+
+#: ../src/intend.php:71
+msgid "Votes"
+msgstr "Hlasy"
 
 #: ../src/intends.php:15 ../src/intends.php:17
 msgid "Intends"
+msgstr "Záměry"
+
+#: ../src/invoices.php:15 ../src/invoices.php:17
+msgid "Invoices"
 msgstr ""
 
 #: ../src/login.php:14
@@ -527,21 +649,21 @@ msgstr ""
 msgid "Welcome to FlexiBudget"
 msgstr ""
 
-#: ../src/login.php:59
+#: ../src/login.php:60
 msgid "Singn In"
 msgstr ""
 
-#: ../src/login.php:63 ../src/passwordrecovery.php:47
+#: ../src/login.php:64 ../src/passwordrecovery.php:47
 msgid "Username"
-msgstr ""
+msgstr "Uživatelské jméno"
 
-#: ../src/login.php:71 ../src/passwordrecovery.php:73
+#: ../src/login.php:74 ../src/passwordrecovery.php:73
 msgid "Password Recovery"
 msgstr ""
 
 #: ../src/logout.php:24
 msgid "Good bye"
-msgstr ""
+msgstr "Nashledanou"
 
 #: ../src/logout.php:29
 msgid ""
@@ -574,7 +696,7 @@ msgstr ""
 
 #: ../src/passwordrecovery.php:63
 msgid "Lost password recovery"
-msgstr ""
+msgstr "Obnova ztraceného hesla"
 
 #: ../src/passwordrecovery.php:67
 msgid "Tip"
@@ -587,10 +709,10 @@ msgid ""
 msgstr ""
 
 #: ../src/passwordrecovery.php:77
-msgid "Sent New Password"
+msgid "Send New Password"
 msgstr ""
 
-#: ../src/passwordrecovery.php:91
+#: ../src/passwordrecovery.php:94
 msgid "Continue"
 msgstr ""
 
@@ -607,8 +729,8 @@ msgid "Oprávnění"
 msgstr ""
 
 #: ../src/settings.php:18
-msgid "Změna hesla"
-msgstr ""
+msgid "Password Change"
+msgstr "Změna hesla"
 
 #: ../src/settings.php:25
 msgid "Init FlexiBee"
@@ -616,7 +738,7 @@ msgstr ""
 
 #: ../src/template.php:15
 msgid "Vitex Software"
-msgstr ""
+msgstr "Vitex Software"
 
 #: ../src/transaction.php:29
 msgid "Transactiona"
@@ -642,14 +764,26 @@ msgstr ""
 msgid "Transakce"
 msgstr ""
 
+#: ../src/try_auth.php:18
+msgid "Expected an OpenID URL"
+msgstr ""
+
 #: ../src/user.php:29
 msgid "User"
-msgstr ""
+msgstr "Uživatel"
 
 #: ../src/users.php:17
-msgid "Přehled uživatelů"
-msgstr ""
+msgid "Users Listing"
+msgstr "Přehled uživatelů"
 
-#: ../src/users.php:19
-msgid "Uživatelé"
-msgstr ""
+#: ../src/vote.php:23
+msgid "Vote accepted"
+msgstr "Hlas byl přijat"
+
+#: ../src/vote.php:25
+msgid "Vote acceptepting failed"
+msgstr "Volbu se nepodařilo přijmout"
+
+#: ../src/vote.php:28
+msgid "Voting error"
+msgstr "Chyba ukládání volby"

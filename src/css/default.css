@@ -146,3 +146,5 @@ body { background-image: linear-gradient(top, rgba(255,255,255,.5), rgba(255,255
 .heading { 
     font-size: 30px; background: lightblue; 
 }
+
+.list-icon { height: 20px }
