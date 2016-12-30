@@ -62,11 +62,12 @@ class Budget extends Engine
         $this->columns['Goodman']['title']     = _('Goodman');
         $this->columns['Creator']['title']     = _('Creator');
         $this->columns['Creator']['default']   = \Ease\Shared::user()->getUserID();
+        $this->setDataValue('Creator', $this->columns['Creator']['default']);
 //        $this->columns['description']['title'] = _('Description');
         $this->columns['approval_at']['title'] = _('Approval At');
         parent::__construct($init);
     }
-    
+
     /**
      * Prepare row to show as html
      * 
@@ -75,13 +76,26 @@ class Budget extends Engine
      */
     public function htmlizeRow($row)
     {
-        $creator = User::icoLink($row['Creator'], ['class'=>'list-icon']);
+        $creator        = User::icoLink($row['Creator'], ['class' => 'list-icon']);
         $creator->addItem(' '.$creator->getTagProperty('data-name'));
-        $row['Creator'] = (string)$creator;
-        $goodman = User::icoLink($row['Goodman'], ['class'=>'list-icon']);
+        $row['Creator'] = (string) $creator;
+        $goodman        = User::icoLink($row['Goodman'], ['class' => 'list-icon']);
         $goodman->addItem(' '.$goodman->getTagProperty('data-name'));
-        $row['Goodman'] = (string)$goodman;
+        $row['Goodman'] = (string) $goodman;
         return parent::htmlizeRow($row);
     }
-    
+
+    /**
+     * Take object data
+     * 
+     * @param array $data Values to use
+     * @return int taken items count
+     */
+    public function takeData($data)
+    {
+        if (isset($data['approval_at']) && ($data['approval_at'] == 'approve')) {
+            $data['approval_at'] = 'NOW()';
+        }
+        return parent::takeData($data);
+    }
 }

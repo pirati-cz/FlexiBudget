@@ -14,13 +14,16 @@ namespace FlexiBudget\ui;
  */
 class UserSelect extends FuelUX\Selectlist
 {
+
     public function finalize()
     {
-        $users = \Ease\Shared::user()->getColumnsFromSQL('*',null, 'lastname', 'id');
-        foreach ($users as $userId=>$user){
-            $this->addSelectListItem( '<img src="'.$user['icon'].'" class="list-icon"> '.$user['lastname'].' '.$user['firstname'] , $userId);
+        $users = \Ease\Shared::user()->getColumnsFromSQL('*', null, 'lastname',
+            'id');
+        foreach ($users as $userId => $user) {
+            $this->addSelectListItem('<img src="'.$user['icon'].'" class="list-icon"> '.$user['lastname'].' '.$user['firstname'],
+                $userId);
         }
-       
+
         parent::finalize();
     }
 }

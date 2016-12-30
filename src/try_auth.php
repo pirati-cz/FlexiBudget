@@ -30,9 +30,9 @@ if (!$auth_request) {
 
 $sreg_request = \Auth_OpenID_SRegRequest::build(
         // Required
-        array('nickname'),
+        ['nickname'],
         // Optional
-        array('fullname', 'email'));
+        ['fullname', 'email']);
 
 if ($sreg_request) {
     $auth_request->addExtension($sreg_request);
@@ -68,7 +68,7 @@ if ($auth_request->shouldSendRedirect()) {
     // Generate form markup and render it.
     $form_id   = 'openid_message';
     $form_html = $auth_request->htmlMarkup(getTrustRoot(), getReturnTo(), false,
-        array('id' => $form_id));
+        ['id' => $form_id]);
 
     // Display an error if the form markup couldn't be generated;
     // otherwise, render the HTML.

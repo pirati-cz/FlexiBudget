@@ -26,7 +26,7 @@ class BudgetEditor extends \Ease\TWB\Form
         $this->budget = $budget;
         $this->setTagID();
         parent::__construct('budget', null, 'post');
-        
+
         $creator = \FlexiBudget\User::icoLink($budget->getDataValue('Creator'));
         $creator->addItem(' '.$creator->getTagProperty('data-name'));
         $this->addItem($creator);
@@ -40,8 +40,16 @@ class BudgetEditor extends \Ease\TWB\Form
                 ['class' => 'required', 'default' => date('Y')]));
         $this->addItem($budget->inputWidget('Goodman',
                 ['class' => 'required', 'default' => \Ease\Shared::user()->getUserID()]));
-//        $this->addItem($budget->inputWidget('approval_at',
-//                ['class' => 'required']));
+
+        $approval_at = $budget->getDataValue('approval_at');
+        if (isset($approval_at)) {
+            $approvalBlock = new \Ease\Html\InputTextTag('approval_at',
+                $approval_at, ['disabled' => true]);
+        } else {
+            $approvalBlock = new TWBSwitch('approval_at', false, 'approve');
+        }
+
+        $this->addInput($approvalBlock, _('Approval'));
         $id = $budget->getMyKey();
         if (!is_null($id)) {
             $this->addItem(new \Ease\Html\InputHiddenTag('id', $id));
