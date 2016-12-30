@@ -10,6 +10,7 @@ src/images/*		usr/share/flexibudget/images
 src/includes/*.php	usr/share/flexibudget/includes
 src/classes/*.php		usr/share/flexibudget/classes
 src/classes/ui/*.php		usr/share/flexibudget/classes/ui
+src/classes/ui/FuelUX/*.php	usr/share/flexibudget/classes/ui/FuelUX
 debian/conf/flexibudget.conf	etc/apache2/conf-available
 debian/conf/flexibudget.service etc/avahi/services
 README.md               usr/share/doc/flexibudget/
