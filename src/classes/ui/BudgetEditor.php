@@ -27,10 +27,13 @@ class BudgetEditor extends \Ease\TWB\Form
         $this->setTagID();
         parent::__construct('budget', null, 'post');
         
-        $creator = \FlexiBudget\User::icoLink($budget->getDataValue('Creator'));
+        $creator = \FlexiBudget\User::icoLink($budget->getDataValue('Creator'),['class'=>'list-icon']);
         $creator->addItem(' '.$creator->getTagProperty('data-name'));
+        $this->addItem(new \Ease\Html\H4Tag(_('Creator')));
         $this->addItem($creator);
 
+        $this->addItem(new \Ease\Html\InputHiddenTag('Creator', \Ease\Shared::user()->getMyKey()));
+        
         $this->addItem($budget->inputWidget('Name',
                 ['minlength' => 5, 'maxlength' => 45, 'class' => 'required']));
 //        $this->addItem($budget->inputWidget('description',
