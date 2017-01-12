@@ -14,7 +14,7 @@
         "spoje.net/flexipeehp": "dev-master",
         "vitexsoftware/ease-framework": "dev-master",
         "league/commonmark": "^0.15.0",
-        "openid/php-openid": "^2.3"
+        "openid/php-openid": "dev-master"
     },
     "autoload": {
         "psr-4": {

@@ -70,3 +70,10 @@ define('SEND_INFO_TO', 'root@localhost');
  * Default sender address
  */
 define('SEND_MAILS_FROM', 'flexibudget@pirati.cz');
+
+/**
+ * #267 Hotfix
+ */
+
+define('Auth_OpenID_RAND_SOURCE',null);
+

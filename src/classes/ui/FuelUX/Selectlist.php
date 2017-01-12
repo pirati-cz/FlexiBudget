@@ -27,6 +27,11 @@ class Selectlist extends \Ease\TWB\ButtonGroup
      */
     public $items = [];
 
+    /**
+     * Select Properties
+     * @var string 
+     */
+    public $init = '';
 
     /**
      * FuelUX SelectList
@@ -41,6 +46,10 @@ class Selectlist extends \Ease\TWB\ButtonGroup
         $this->addTagClass('selectlist');
         $this->setTagProperties(['data-resize' => 'auto', 'data-initialize' => 'selectlist']);
         $this->setTagID('Selectlist'.$name);
+        
+        if(isset($value)){
+          $this->init = "'selectByValue', ".$value;
+        }
 
         $this->addButton([
             new \Ease\Html\Span('&nbsp;', ['class' => 'selected-label']),
@@ -79,7 +88,7 @@ class Selectlist extends \Ease\TWB\ButtonGroup
             true);
 
         \Ease\Shared::webPage()->includeJavascript('/javascript/twitter-bootstrap/fuelux.js');
-        \Ease\Shared::webPage()->addJavascript("$('#".$this->getTagID()."').selectlist();");
+        \Ease\Shared::webPage()->addJavascript("$('#".$this->getTagID()."').selectlist(". $this->init .");");
 
         $this->addItem(new \Ease\Html\InputTextTag($this->name, null,
             ['class' => 'hidden hidden-field', 'readonly' => 'readonly', 'aria-hidden' => 'true']));

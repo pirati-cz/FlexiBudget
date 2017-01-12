@@ -62,6 +62,7 @@ class Budget extends Engine
         $this->columns['Goodman']['title']     = _('Goodman');
         $this->columns['Creator']['title']     = _('Creator');
         $this->columns['Creator']['default']   = \Ease\Shared::user()->getUserID();
+        $this->setDataValue('Creator', $this->columns['Creator']['default']);
 //        $this->columns['description']['title'] = _('Description');
         $this->columns['approval_at']['title'] = _('Approval At');
         parent::__construct($init);

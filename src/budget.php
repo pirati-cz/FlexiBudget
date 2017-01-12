@@ -31,6 +31,7 @@ switch ($oPage->getRequestValue('action')) {
                 $budget->addStatusMessage(_('Budget was not saved'), 'warning');
             } else {
                 $budget->addStatusMessage(_('Budget was saved'), 'success');
+                $budget->loadFromSQL(); //Reload Approval Date if any
             }
         }
         break;
@@ -65,7 +66,7 @@ switch ($oPage->getRequestValue('action')) {
 //        $operationsMenu->dropdown->addTagClass('pull-right');
 //
         $oPage->container->addItem(new \Ease\TWB\Panel(_('Budget').' '.$budget->getRecordName(),
-            'warning', new ui\BudgetEditor($budget)));
+            $budget->getDataValue('approval_at') ? 'success' : 'warning', new ui\BudgetEditor($budget)));
         break;
 }
 
