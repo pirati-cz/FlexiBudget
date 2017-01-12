@@ -279,11 +279,20 @@ class Engine extends \Ease\Brick
         return $result;
     }
 
+    /**
+     * 
+     * @return type
+     */
     public function getName()
     {
         return $this->getDataValue($this->nameColumn);
     }
 
+    /**
+     * 
+     * @param type $oPage
+     * @return \FlexiBudget\class
+     */
     static function &doThings($oPage)
     {
         $engine = null;

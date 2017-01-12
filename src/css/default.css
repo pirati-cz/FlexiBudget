@@ -1,6 +1,6 @@
-.mpicon { width: 150px; height: 150px; }
+.mpicon { width: 50px; height: 50px; }
 
-.mpicon:hover { width: 150px; height: 150px; 
+.mpicon:hover { width: 50px; height: 50px; 
 
                 -moz-box-shadow:    3px 3px 5px 6px #ccc;
                 -webkit-box-shadow: 3px 3px 5px 6px #ccc;
@@ -148,3 +148,5 @@ body { background-image: linear-gradient(top, rgba(255,255,255,.5), rgba(255,255
 }
 
 .list-icon { height: 20px }
+
+.tree { background: #c1e4ec; }

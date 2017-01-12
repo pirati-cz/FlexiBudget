@@ -66,7 +66,7 @@ class Budget extends Engine
         $this->columns['approval_at']['title'] = _('Approval At');
         parent::__construct($init);
     }
-    
+
     /**
      * Prepare row to show as html
      * 
@@ -75,13 +75,34 @@ class Budget extends Engine
      */
     public function htmlizeRow($row)
     {
-        $creator = User::icoLink($row['Creator'], ['class'=>'list-icon']);
+        $creator        = User::icoLink($row['Creator'], ['class' => 'list-icon']);
         $creator->addItem(' '.$creator->getTagProperty('data-name'));
-        $row['Creator'] = (string)$creator;
-        $goodman = User::icoLink($row['Goodman'], ['class'=>'list-icon']);
+        $row['Creator'] = (string) $creator;
+        $goodman        = User::icoLink($row['Goodman'], ['class' => 'list-icon']);
         $goodman->addItem(' '.$goodman->getTagProperty('data-name'));
-        $row['Goodman'] = (string)$goodman;
+        $row['Goodman'] = (string) $goodman;
         return parent::htmlizeRow($row);
     }
-    
+
+    /**
+     * Insert new Budget into database
+     * 
+     * @param array $data
+     * @return int record id
+     */
+    public function insertToSQL($data = null)
+    {
+        if(is_null($data)){
+            $data = $this->getData();
+        }
+        
+        $resultID = parent::insertToSQL($data);
+        $treedata = new TreeData(['structure_table' => 'tree_struct', 'data_table' => 'tree_data',
+            'data' => ['nm','icon']]);
+        $budgetNodeID = $treedata->addNode($data['Name'].' '.$data['Year'],'images/budget.svg','budget.php?id='.$resultID);
+
+        $treedata->addNode(sprintf( _('new intend for %s'), $this->getName() ), 'images/intend.svg', 'intend.php?budget_id='.$resultID, $budgetNodeID, 0, 0, 1);
+        
+        return $resultID;
+    }
 }

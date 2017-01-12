@@ -72,10 +72,12 @@ class User extends \Ease\User
     {
         $icon = $this->getDataValue('icon');
         if (is_null($icon)) {
-            return parent::getIcon();
-        } else {
-            return $icon;
+            $icon = parent::getIcon();
         }
+        if (is_null($icon)) {
+            $icon = 'images/users_150.png';
+        }
+        return $icon;
     }
 
     /**
@@ -173,10 +175,10 @@ class User extends \Ease\User
      */
     static public function icoLink($user, $properties = [])
     {
-        if (is_numeric($user)) {
+        if (!is_object($user)) {
             $user = new User((int) $user);
         }
-        if (!isset($properties['title'])) {
+        if (!isset($properties['title']) && is_object($user)) {
             $properties['title'] = $user->getUserName();
         }
         return new \Ease\Html\ATag('user.php?id='.$user->getId(),

@@ -14,8 +14,6 @@ $oPage->onlyForLogged();
 
 $oPage->addItem(new ui\PageTop(_('FlexiBudget')));
 
-$flexiBees = new FlexiBees();
-
 $mainPageMenu = new ui\MainPageMenu();
 
 $mainPageMenu->addMenuItem('images/budget.svg', _('Budget'), 'budgets.php');
@@ -25,7 +23,7 @@ $mainPageMenu->addMenuItem('images/request.svg', _('Request for payment'),
 $mainPageMenu->addMenuItem('images/intend.svg', _('Intend'), 'intends.php');
 
 $oPage->container->addItem($mainPageMenu);
-
+$oPage->container->addItem(new \Ease\TWB\Well(new ui\Tree('tree')));
 $oPage->addItem(new ui\PageBottom());
 
 $oPage->draw();
