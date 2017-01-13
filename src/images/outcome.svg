@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:ns1="http://sozi.baierouge.fr"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    id="svg2"
+    sodipodi:docname="Money in hand.svg"
+    viewBox="0 0 1052.4 531.5"
+    version="1.1"
+    inkscape:version="0.48.4 r9939"
+  >
+  <defs
+      id="defs6"
+    >
+    <filter
+        id="filter4075"
+        inkscape:menu="Overlays"
+        height="1"
+        width="1"
+        color-interpolation-filters="sRGB"
+        y="0"
+        x="0"
+        inkscape:menu-tooltip="Random whiteouts inside"
+        inkscape:label="Rubber stamp"
+      >
+      <feTurbulence
+          id="feTurbulence4077"
+          numOctaves="4"
+          type="fractalNoise"
+          baseFrequency="0.064"
+          result="result1"
+      />
+      <feGaussianBlur
+          id="feGaussianBlur4079"
+          result="result91"
+          stdDeviation="4.9"
+          in="SourceAlpha"
+      />
+      <feComposite
+          id="feComposite4081"
+          operator="out"
+          result="result92"
+          in2="result91"
+          in="SourceAlpha"
+      />
+      <feComposite
+          id="feComposite4083"
+          in2="result1"
+      />
+      <feColorMatrix
+          id="feColorMatrix4085"
+          values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 20 -9"
+          result="result1"
+      />
+      <feComposite
+          id="feComposite4087"
+          operator="in"
+          in="SourceGraphic"
+          in2="result1"
+          result="result1"
+      />
+      <feTurbulence
+          id="feTurbulence4089"
+          numOctaves="1"
+          baseFrequency="0.032"
+          result="result92"
+      />
+      <feDisplacementMap
+          id="feDisplacementMap4091"
+          scale="4.1"
+          yChannelSelector="G"
+          in2="result92"
+          xChannelSelector="R"
+          in="result1"
+      />
+    </filter
+    >
+  </defs
+  >
+  <sodipodi:namedview
+      id="namedview4"
+      inkscape:zoom="0.5"
+      height="1052.36px"
+      borderopacity="1"
+      inkscape:current-layer="svg2"
+      inkscape:cx="939.18129"
+      inkscape:cy="535.66047"
+      inkscape:window-maximized="1"
+      showgrid="false"
+      units="cm"
+      inkscape:document-units="px"
+      bordercolor="#666666"
+      inkscape:window-x="-4"
+      guidetolerance="10"
+      objecttolerance="10"
+      inkscape:window-y="-4"
+      inkscape:window-width="1600"
+      inkscape:pageopacity="0"
+      inkscape:pageshadow="2"
+      pagecolor="#ffffff"
+      gridtolerance="10"
+      inkscape:window-height="851"
+  />
+  <g
+      id="g3042"
+      transform="translate(2,208)"
+    >
+    <path
+        id="path3877"
+        d="m260 161.57 68.059 140.46 124.77-19.542 56.716-18.32 67.027-10.993 62.903-14.656 28.873 4.885 55.684 6.107 79.402-12.213 53.622-23.207 77.339-29.313 31.967-40.305-57.747-134.35-6.1872-28.092-42.279-84.274-9.2807-36.642c-16.139 8.574-29.778 19.736-43.31 31.756-18.408 17.14-30.431 39.697-55.684 43.97l-162.92 65.949-356.79 86.717z"
+        sodipodi:nodetypes="ccccccccccccccccccccc"
+        style="color:#000000;stroke:#000000;stroke-width:2.6934;fill:#b38d5e"
+        inkscape:connector-curvature="0"
+    />
+    <text
+        id="text3896-1"
+        style="filter:url(#filter4075);font-size:109.22px;font-family:Sans;letter-spacing:0px;line-height:125%;word-spacing:0px;fill:#ffffff"
+        sodipodi:linespacing="125%"
+        transform="matrix(.27949 -.16418 .13862 .32414 8.9988 -199.72)"
+        xml:space="preserve"
+        y="1719.1328"
+        x="1588.328"
+      >
+      <tspan
+          id="tspan3898-4"
+          y="1719.1328"
+          x="1588.328"
+          style="font-size:174.76px;fill:#ffffff"
+          sodipodi:role="line"
+        >World </tspan
+      >
+      <tspan
+          id="tspan4073"
+          y="1937.5822"
+          x="1588.328"
+          style="font-size:174.76px;fill:#ffffff"
+          sodipodi:role="line"
+        >Bank</tspan
+      >
+    </text
+    >
+    <path
+        id="path2987"
+        d="m6.9988-205.32-1.0312 266.26c40.786 21.975 42.331 46.504 88.682 81.832 58.853 44.856 105.48 54.008 175.3 37.863l-15.468-39.084c56.41 25.738 146.44 30.467 196.96-8.55 133.51-1.47 234.08 36.109 255.72-25.68 19.198-54.802-18.305-65.828-213.44-96.457-17.483-15.728-37.532-38.105-56.716-57.405l22.377 22.595c10.218 13.113 21.42 26.785 34.59 34.321 9.394 5.375 23.505 2.838 32.695 4.872 34.461 7.631 70.107-4.625 86.672-22.704-18.327-21.971-44.704-31.441-63.934-51.298-93.584-79.514-41.004-61.19-131.99-56.183-59.018-2.967-124.82-15.608-172.21-29.313-37.145-10.705-57.101-33.128-81.464-64.733z"
+        sodipodi:nodetypes="ccscccscccsscccccc"
+        style="stroke:#000000;stroke-width:2.6934;fill:#ffccaa"
+        inkscape:connector-curvature="0"
+    />
+    <path
+        id="path3757"
+        d="m692.74 118.34c15.381-6.706 18.541-43.209 2.0624-52.52-19.218-10.858-31.624-11.278-40.129-1.118-11.415 13.639-13.918 41.88-1.5104 54.191 7.4949 7.436 21.085 7.508 39.577-0.553z"
+        sodipodi:nodetypes="sssss"
+        style="color:#000000;stroke:#000000;stroke-width:2.6934;fill:none"
+        inkscape:connector-curvature="0"
+    />
+    <path
+        id="path3781"
+        d="m655.62 66.243c11.792 14.838 1.8868 28.53-4.1248 45.145-8.4085-17.127-3.1474-28.865 4.1248-45.145z"
+        sodipodi:nodetypes="ccc"
+        style="color:#000000;fill:#ffffff"
+        inkscape:connector-curvature="0"
+    />
+    <path
+        id="path3789"
+        d="m252.42 140.32-28.873 10.993-43.31 10.992"
+        style="color:#000000;stroke:#000000;stroke-width:2.6934;fill:none"
+        inkscape:connector-curvature="0"
+    />
+    <path
+        id="path3797"
+        d="m401.94 60.935 16.499 46.412 20.624 24.428h5.1559"
+        style="color:#000000;stroke:#000000;stroke-width:2.6934;fill:none"
+        inkscape:connector-curvature="0"
+    />
+    <path
+        id="path3805"
+        d="m367.92 31.622 25.78 87.939 22.686 25.649"
+        style="color:#000000;stroke:#000000;stroke-width:2.6934;fill:none"
+        inkscape:connector-curvature="0"
+    />
+    <path
+        id="path3813"
+        d="m575.19 34.065-13.406 69.618"
+        style="color:#000000;stroke:#000000;stroke-width:2.6934;fill:none"
+        inkscape:connector-curvature="0"
+    />
+    <path
+        id="path3821"
+        d="m586.53 57.271-11.34 58.629"
+        style="color:#000000;stroke:#000000;stroke-width:2.6934;fill:none"
+        inkscape:connector-curvature="0"
+    />
+    <path
+        id="path3829"
+        d="m595.81 40.172-2.0624 28.091-6.1871 29.313"
+        style="color:#000000;stroke:#000000;stroke-width:2.6934;fill:none"
+        inkscape:connector-curvature="0"
+    />
+    <path
+        id="path3837"
+        d="m294.7 60.935v25.649l6.1871 40.305"
+        style="color:#000000;stroke:#000000;stroke-width:2.6934;fill:none"
+        inkscape:connector-curvature="0"
+    />
+    <path
+        id="path3845"
+        d="m322.54 42.614 4.1248 39.084 13.405 43.97"
+        style="color:#000000;stroke:#000000;stroke-width:2.6934;fill:none"
+        inkscape:connector-curvature="0"
+    />
+    <path
+        id="path3853"
+        d="m517.44-51.431-7.2183 53.74-4.1248 7.328"
+        style="color:#000000;stroke:#000000;stroke-width:2.6934;fill:none"
+        inkscape:connector-curvature="0"
+    />
+    <path
+        id="path3861"
+        d="m530.84-46.546-16.499 21.985"
+        style="color:#000000;stroke:#000000;stroke-width:2.6934;fill:none"
+        inkscape:connector-curvature="0"
+    />
+    <path
+        id="path3869"
+        d="m108.06 126.89 71.15-43.97 79.4-79.39"
+        style="color:#000000;stroke:#000000;stroke-width:2.6934;fill:none"
+        inkscape:connector-curvature="0"
+    />
+    <text
+        id="text3896"
+        style="font-size:38.857px;font-family:Sans;letter-spacing:0px;line-height:125%;word-spacing:0px;fill:#000000"
+        sodipodi:linespacing="125%"
+        transform="matrix(.86292 -.26046 .20488 1.097 0 0)"
+        xml:space="preserve"
+        y="308.63916"
+        x="356.59943"
+      >
+      <tspan
+          id="tspan3898"
+          y="308.63916"
+          x="356.59943"
+          style="font-size:62.171px"
+          sodipodi:role="line"
+        >1 $</tspan
+      >
+    </text
+    >
+    <path
+        id="path4093"
+        d="m294.84 155.56 49.587 108.87c52.815 1.591 103.9-16.473 155.25-29.02l125.34-31.144 94.336 7.162 87.079-14.325 116.11-58.732c-15.59-42.177-32.23-84.403-59.27-123.19l-27.817-81.652-57.418 33.629-166.33 60.916"
+        sodipodi:nodetypes="cccccccccccc"
+        style="stroke:#000000;stroke-dasharray:7.94560686, 3.97280344;stroke-width:3.9728;fill:none"
+        inkscape:connector-curvature="0"
+    />
+  </g
+  >
+  <metadata
+    >
+    <rdf:RDF
+      >
+      <cc:Work
+        >
+        <dc:format
+          >image/svg+xml</dc:format
+        >
+        <dc:type
+            rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+        />
+        <cc:license
+            rdf:resource="http://creativecommons.org/licenses/publicdomain/"
+        />
+        <dc:publisher
+          >
+          <cc:Agent
+              rdf:about="http://openclipart.org/"
+            >
+            <dc:title
+              >Openclipart</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:publisher
+        >
+      </cc:Work
+      >
+      <cc:License
+          rdf:about="http://creativecommons.org/licenses/publicdomain/"
+        >
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Reproduction"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Distribution"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#DerivativeWorks"
+        />
+      </cc:License
+      >
+    </rdf:RDF
+    >
+  </metadata
+  >
+</svg
+>

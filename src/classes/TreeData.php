@@ -60,7 +60,7 @@ class TreeData extends \Ease\Brick
      */
     public function get_node($id, $options = [])
     {
-        $node = $this->dbLink->queryToValue("
+        $nodeRaw = $this->dblink->queryToArray("
 			SELECT 
 				s.".implode(", s.", $this->options['structure']).",
 				d.".implode(", d.", $this->options['data'])."
@@ -71,6 +71,7 @@ class TreeData extends \Ease\Brick
 				s.".$this->options['structure']['id']." = d.".$this->options['data2structure']." AND
 				s.".$this->options['structure']['id']." = ".(int) $id
         );
+        $node    = $nodeRaw[0];
         if (!$node) {
             throw new Exception('Node does not exist');
         }
@@ -152,7 +153,7 @@ class TreeData extends \Ease\Brick
 					s.".$this->options['structure']['left']."
 			";
         }
-        return $sql ? $this->db->all($sql) : false;
+        return $sql ? $this->dblink->queryToArray($sql) : false;
     }
 
     /**
@@ -705,7 +706,7 @@ class TreeData extends \Ease\Brick
      */
     public function rn($id, $data)
     {
-        if (!(int) $this->dbLink->queryToValue('SELECT  1 AS res FROM '.$this->options['structure_table'].' WHERE '.$this->options['structure']['id'].' = '.(int) $id)) {
+        if (!(int) $this->dblink->queryToValue('SELECT  1 AS res FROM '.$this->options['structure_table'].' WHERE '.$this->options['structure']['id'].' = '.(int) $id)) {
             throw new Exception('Could not rename non-existing node');
         }
         $tmp = [];
@@ -736,15 +737,15 @@ class TreeData extends \Ease\Brick
     public function analyze($get_errors = false)
     {
         $report = [];
-        if ((int) $this->dbLink->queryToValue("SELECT  COUNT(".$this->options['structure']["id"].") AS res FROM ".$this->options['structure_table']." WHERE ".$this->options['structure']["parent_id"]." = 0")
+        if ((int) $this->dblink->queryToValue("SELECT  COUNT(".$this->options['structure']["id"].") AS res FROM ".$this->options['structure_table']." WHERE ".$this->options['structure']["parent_id"]." = 0")
             !== 1) {
             $report[] = "No or more than one root node.";
         }
-        if ((int) $this->dbLink->queryToValue("SELECT  ".$this->options['structure']["left"]." AS res FROM ".$this->options['structure_table']." WHERE ".$this->options['structure']["parent_id"]." = 0")
+        if ((int) $this->dblink->queryToValue("SELECT  ".$this->options['structure']["left"]." AS res FROM ".$this->options['structure_table']." WHERE ".$this->options['structure']["parent_id"]." = 0")
             !== 1) {
             $report[] = "Root node's left index is not 1.";
         }
-        if ((int) $this->dbLink->queryToValue("
+        if ((int) $this->dblink->queryToValue("
 			SELECT 
 				COUNT(".$this->options['structure']['id'].") AS res
 			FROM ".$this->options['structure_table']." s
@@ -756,31 +757,31 @@ class TreeData extends \Ease\Brick
             $report[] = "Missing parents.";
         }
         if (
-            (int) $this->dbLink->queryToValue("SELECT  MAX(".$this->options['structure']["right"].") AS res FROM ".$this->options['structure_table'])
-            / 2 != (int) $this->dbLink->queryToValue("SELECT  COUNT(".$this->options['structure']["id"].") AS res FROM ".$this->options['structure_table'])
+            (int) $this->dblink->queryToValue("SELECT  MAX(".$this->options['structure']["right"].") AS res FROM ".$this->options['structure_table'])
+            / 2 != (int) $this->dblink->queryToValue("SELECT  COUNT(".$this->options['structure']["id"].") AS res FROM ".$this->options['structure_table'])
         ) {
             $report[] = "Right index does not match node count.";
         }
         if (
-            (int) $this->dbLink->queryToValue("SELECT  COUNT(DISTINCT ".$this->options['structure']["right"].") AS res FROM ".$this->options['structure_table'])
-            != (int) $this->dbLink->queryToValue("SELECT  COUNT(DISTINCT ".$this->options['structure']["left"].") AS res FROM ".$this->options['structure_table'])
+            (int) $this->dblink->queryToValue("SELECT  COUNT(DISTINCT ".$this->options['structure']["right"].") AS res FROM ".$this->options['structure_table'])
+            != (int) $this->dblink->queryToValue("SELECT  COUNT(DISTINCT ".$this->options['structure']["left"].") AS res FROM ".$this->options['structure_table'])
         ) {
             $report[] = "Duplicates in nested set.";
         }
         if (
-            (int) $this->dbLink->queryToValue("SELECT  COUNT(DISTINCT ".$this->options['structure']["id"].") AS res FROM ".$this->options['structure_table'])
-            != (int) $this->dbLink->queryToValue("SELECT  COUNT(DISTINCT ".$this->options['structure']["left"].") AS res FROM ".$this->options['structure_table'])
+            (int) $this->dblink->queryToValue("SELECT  COUNT(DISTINCT ".$this->options['structure']["id"].") AS res FROM ".$this->options['structure_table'])
+            != (int) $this->dblink->queryToValue("SELECT  COUNT(DISTINCT ".$this->options['structure']["left"].") AS res FROM ".$this->options['structure_table'])
         ) {
             $report[] = "Left indexes not unique.";
         }
         if (
-            (int) $this->dbLink->queryToValue("SELECT  COUNT(DISTINCT ".$this->options['structure']["id"].") AS res FROM ".$this->options['structure_table'])
-            != (int) $this->dbLink->queryToValue("SELECT  COUNT(DISTINCT ".$this->options['structure']["right"].") AS res FROM ".$this->options['structure_table'])
+            (int) $this->dblink->queryToValue("SELECT  COUNT(DISTINCT ".$this->options['structure']["id"].") AS res FROM ".$this->options['structure_table'])
+            != (int) $this->dblink->queryToValue("SELECT  COUNT(DISTINCT ".$this->options['structure']["right"].") AS res FROM ".$this->options['structure_table'])
         ) {
             $report[] = "Right indexes not unique.";
         }
         if (
-            (int) $this->dbLink->queryToValue("
+            (int) $this->dblink->queryToValue("
 				SELECT 
 					s1.".$this->options['structure']["id"]." AS res
 				FROM ".$this->options['structure_table']." s1, ".$this->options['structure_table']." s2
@@ -792,7 +793,7 @@ class TreeData extends \Ease\Brick
             $report[] = "Nested set - matching left and right indexes.";
         }
         if (
-            (int) $this->dbLink->queryToValue("
+            (int) $this->dblink->queryToValue("
 				SELECT 
 					".$this->options['structure']["id"]." AS res
 				FROM ".$this->options['structure_table']." s
@@ -804,7 +805,7 @@ class TreeData extends \Ease\Brick
 						WHERE ".$this->options['structure']['parent_id']." = s.".$this->options['structure']['parent_id']."
 					)
 				LIMIT 1") ||
-            (int) $this->dbLink->queryToValue("
+            (int) $this->dblink->queryToValue("
 				SELECT 
 					s1.".$this->options['structure']["id"]." AS res
 				FROM ".$this->options['structure_table']." s1, ".$this->options['structure_table']." s2
@@ -816,7 +817,7 @@ class TreeData extends \Ease\Brick
         ) {
             $report[] = "Positions not correct.";
         }
-        if ((int) $this->dbLink->queryToValue("
+        if ((int) $this->dblink->queryToValue("
 			SELECT 
 				COUNT(".$this->options['structure']["id"].") FROM ".$this->options['structure_table']." s
 			WHERE
@@ -841,7 +842,7 @@ class TreeData extends \Ease\Brick
         }
         if (
             $this->options['data_table'] &&
-            (int) $this->dbLink->queryToValue("
+            (int) $this->dblink->queryToValue("
 				SELECT 
 					COUNT(".$this->options['structure']["id"].") AS res
 				FROM ".$this->options['structure_table']." s
@@ -853,7 +854,7 @@ class TreeData extends \Ease\Brick
         }
         if (
             $this->options['data_table'] &&
-            (int) $this->dbLink->queryToValue("
+            (int) $this->dblink->queryToValue("
 				SELECT 
 					COUNT(".$this->options['data2structure'].") AS res
 				FROM ".$this->options['data_table']." s
@@ -1228,9 +1229,16 @@ class TreeData extends \Ease\Brick
         $this->setmyTable($this->options['data_table']);
         $itemID = $this->insertToSQL(['nm' => $name, 'icon' => $image, 'url' => $url]);
 
+        if ($right == 0) {
+            $right = $itemID;
+        }
+        if ($left == 0) {
+            $left = $itemID + 1;
+        }
+
         //INSERT INTO `tree_struct` (`id`, `lft`, `rgt`, `lvl`, `pid`, `pos`) VALUES
         $this->setmyTable($this->options['structure_table']);
-        return $this->insertToSQL(['id' => $itemID, 'lft' => $left, 'rgt' => $right,
-                'lvl' => $level, 'pid' => $parent, 'pos' => $position]);
+        return $this->insertToSQL(['id' => (int) $itemID, 'lft' => (int) $left, 'rgt' => (int) $right,
+                'lvl' => (int) $level, 'pid' => (int) $parent, 'pos' => (int) $position]);
     }
 }
