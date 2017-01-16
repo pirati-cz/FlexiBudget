@@ -255,7 +255,7 @@ class TreeData extends \Ease\Brick
 
         foreach ($sql as $k => $v) {
             try {
-                $this->db->query($v, $par[$k]);
+                $this->dblink->exeQuery($this->assignParams($v, $par[$k]));
             } catch (Exception $e) {
                 $this->reconstruct();
                 throw new Exception('Could not create');
@@ -1218,27 +1218,69 @@ class TreeData extends \Ease\Brick
     /**
      * Add Tree Node
      * 
-     * @param string $name
-     * @param int $parent
+     * @param string $name     Node Name
+     * @param string $image    Node Icon
+     * @param string $url      Node Link
+     * @param int    $parent   Node Parent
+     * @param int    $position Node Parent
+     *
      * @return int pid ID
      */
     public function addNode($name, $image = null, $url = null, $parent = 0,
-                            $left = 0, $right = 0, $level = 0, $position = 0)
+                            $position = 0)
     {
+        if (intval($parent)) {
+            return $this->mk($parent, $position,
+                    ['nm' => $name, 'icon' => $image, 'url' => $url]);
+        }
+
         //INSERT INTO `tree_data` (`id`, `nm`) VALUES
         $this->setmyTable($this->options['data_table']);
         $itemID = $this->insertToSQL(['nm' => $name, 'icon' => $image, 'url' => $url]);
 
-        if ($right == 0) {
-            $right = $itemID;
-        }
-        if ($left == 0) {
-            $left = $itemID + 1;
-        }
+        $left  = 0;
+        $right = 0;
+        $level = 0;
 
         //INSERT INTO `tree_struct` (`id`, `lft`, `rgt`, `lvl`, `pid`, `pos`) VALUES
         $this->setmyTable($this->options['structure_table']);
         return $this->insertToSQL(['id' => (int) $itemID, 'lft' => (int) $left, 'rgt' => (int) $right,
                 'lvl' => (int) $level, 'pid' => (int) $parent, 'pos' => (int) $position]);
+    }
+
+    /**
+     * Asign data values to ? in sql query
+     *
+     * @param string $sql sql query with ? marks
+     * @param array $data
+     * @return string sql query with values assigned
+     */
+    public function assignParams($sql, $data)
+    {
+        if (is_array($data)) {
+            foreach ($data as $value) {
+                switch (gettype($value)) {
+                    case "boolean":
+                    case "integer":
+                    case "double":
+                        $value = (int) $v;
+                        break;
+                    case "array":
+                        $value = "'".implode(',', $v)."'";
+                        break;
+                    case "object":
+                    case "resource":
+                        $value = "'".serialize($value)."'";
+                        break;
+                    case "NULL":
+                        break;
+                default:
+                        $value = "'".$value."'";
+                        break;
+                }
+                $sql = str_replace('?', $value, $sql, 1);
+            }
+        }
+        return $sql;
     }
 }

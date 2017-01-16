@@ -12,5 +12,6 @@ require_once 'includes/Init.php';
 
 $oPage->onlyForLogged();
 
-$fs = new TreeData(['structure_table' => 'tree_struct', 'data_table' => 'tree_data', 'data' => ['nm','icon','url']]);
+$fs = new TreeData(['structure_table' => 'tree_struct', 'data_table' => 'tree_data',
+    'with_children' => true, 'data' => ['nm', 'icon', 'url']]);
 $fs->getJson();
