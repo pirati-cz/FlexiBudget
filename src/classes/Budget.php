@@ -40,10 +40,10 @@ class Budget extends Engine
      */
     public $columns = [
 //        'limit' => ['type' => 'decimal'],
-        'Creator' => ['type' => 'user'],
-        'Goodman' => ['type' => 'goodman'],
+        'Creator' => ['type' => 'user', 'vartype' => 'int'],
+        'Goodman' => ['type' => 'goodman', 'vartype' => 'int'],
         'Name' => ['type' => 'string'],
-        'Year' => ['type' => 'integer'],
+        'Year' => ['type' => 'integer', 'vartype' => 'int'],
 //        'description' => ['type' => 'string', 'limit' => 45],
         'approval_at' => ['type' => 'date'],
 //        'limit' => ['type' => 'decimal'],
@@ -62,6 +62,7 @@ class Budget extends Engine
         $this->columns['Goodman']['title']     = _('Goodman');
         $this->columns['Creator']['title']     = _('Creator');
         $this->columns['Creator']['default']   = \Ease\Shared::user()->getUserID();
+        $this->setDataValue('Creator', $this->columns['Creator']['default']);
 //        $this->columns['description']['title'] = _('Description');
         $this->columns['approval_at']['title'] = _('Approval At');
         parent::__construct($init);
@@ -101,8 +102,17 @@ class Budget extends Engine
             'data' => ['nm','icon']]);
         $budgetNodeID = $treedata->addNode($data['Name'].' '.$data['Year'],'images/budget.svg','budget.php?id='.$resultID);
 
-        $treedata->addNode(sprintf( _('new intend for %s'), $this->getName() ), 'images/intend.svg', 'intend.php?budget_id='.$resultID, $budgetNodeID, 0, 0, 1);
-        
+        $treedata->addNode(sprintf(_('Incomes for %s'), $this->getName()),
+            'images/income.svg', 'intend.php?budget_id='.$resultID,
+            $budgetNodeID, 1, 0, 1);
+        $outcomeBranchID = $treedata->addNode(sprintf(_('Outcomes for %s'),
+                $this->getName()), 'images/outcome.svg',
+            'outcomes.php?budget_id='.$resultID, $budgetNodeID, 1, 0, 1);
+
+        $treedata->addNode(sprintf(_('new intend for %s'), $this->getName()),
+            'images/intend.svg', 'incomes.php?budget_id='.$resultID,
+            $outcomeBranchID, 0, 0, 2);
+
         return $resultID;
     }
 }

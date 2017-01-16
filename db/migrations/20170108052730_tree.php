@@ -27,7 +27,7 @@ class Tree extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('tree_data', ['collation' => 'utf8mb4_unicode_ci']);
+        $table = $this->table('tree_data', ['collation' => 'utf8_unicode_ci']);
         $table
             ->addColumn('nm', 'string')
             ->addColumn('icon', 'string')
@@ -36,7 +36,7 @@ class Tree extends AbstractMigration
 
 
         // Migration for table tree_struct
-        $table = $this->table('tree_struct', ['collation' => 'utf8mb4_unicode_ci']);
+        $table = $this->table('tree_struct', ['collation' => 'utf8_unicode_ci']);
         $table
             ->addColumn('lft', 'integer', ['signed' => false])
             ->addColumn('rgt', 'integer', ['signed' => false])

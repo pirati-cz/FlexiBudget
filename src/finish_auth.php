@@ -25,13 +25,13 @@ $return_to = getReturnTo();
 $response  = $consumer->complete($return_to);
 
 // Check the response status.
-if ($response->status === Auth_OpenID_CANCEL) {
+if ($response->status === constant('Auth_OpenID_CANCEL')) {
     // This means the authentication was cancelled.
     $msg = 'Verification cancelled.';
-} else if ($response->status === Auth_OpenID_FAILURE) {
+} else if ($response->status === constant('Auth_OpenID_FAILURE')) {
     // Authentication failed; display the error message.
     $msg = "OpenID authentication failed: ".$response->message;
-} else if ($response->status === Auth_OpenID_SUCCESS) {
+} else if ($response->status === constant('Auth_OpenID_SUCCESS')) {
     // This means the authentication succeeded; extract the
     // identity URL and Simple Registration data (if it was
     // returned).
@@ -68,7 +68,7 @@ if ($response->status === Auth_OpenID_CANCEL) {
         $oiduser->setmyKeyColumn('id');
     }
 
-
+    $success = '';
 
     $pape_resp = \Auth_OpenID_PAPE_Response::fromSuccessResponse($response);
 

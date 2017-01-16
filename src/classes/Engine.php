@@ -54,6 +54,17 @@ class Engine extends \Ease\Brick
         foreach ($data as $columnName => $columnValue) {
             if (!array_key_exists($columnName, $this->columns) && ($columnName != 'id')) {
                 unset($data[$columnName]);
+            } else {
+                $type = null;
+                if (isset($this->columns[$columnName]['vartype'])) {
+                    $type = $this->columns[$columnName]['vartype'];
+                } elseif (isset($this->columns[$columnName]['type'])) {
+                    $type = $this->columns[$columnName]['type'];
+                }
+                if (!is_null($type)) {
+                    $data[$columnName] = \Ease\Page::sanitizeAsType($columnValue,
+                        $type);
+                }
             }
         }
         return parent::takeData($data);

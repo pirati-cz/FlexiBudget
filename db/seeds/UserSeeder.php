@@ -1,6 +1,7 @@
 <?php
 
 use Phinx\Seed\AbstractSeed;
+use Faker\Factory;
 
 class UserSeeder extends AbstractSeed
 {
@@ -30,8 +31,7 @@ class UserSeeder extends AbstractSeed
         $table->insert($vitex);
         $table->saveData();
 
-
-        $faker = Faker\Factory::create();
+        $faker = Factory::create();
         $data  = [];
         for ($i = 0; $i < 100; $i++) {
             $data[] = [
