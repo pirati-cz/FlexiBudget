@@ -1,0 +1,35 @@
+filter:
+    excluded_paths:
+        - 'tests/*'
+        - 'vendor/*'
+tools:
+    php_code_sniffer:
+        config:
+            standard: "PSR2"
+
+checks:
+    php:
+        code_rating: true
+        duplication: true
+        
+build:
+    environment:
+        php:
+            version: 7.1.0
+        postgresql: true
+    dependencies:
+        before:
+            - sudo composer self-update && composer --version
+            - sudo -u postgres bash -c "psql -c \"CREATE USER flexibudget WITH PASSWORD 'flexibudget';\""
+            - sudo -u postgres bash -c "psql -c \"create database flexibudget with owner flexibudget encoding='utf8' template template0;\""
+            - composer self-update
+            - composer install --no-interaction
+            - ./vendor/bin/phinx migrate
+            - ./vendor/bin/phinx seed:run -v  -s UserSeeder -s BudgetSeeder -s IntendSeeder
+    tests:
+        override:
+            -
+                command: 'phpunit --coverage-clover=clover.log'
+                coverage:
+                    file: 'clover.log'
+                    format: 'clover'

@@ -4,6 +4,12 @@ FlexiBudget
 
 _Softwarová podpora finančního odboru a transparence u Pirátů_
 
+[![Source Code](http://img.shields.io/badge/source-pirati-cz/FlexiBudget-blue.svg?style=flat-square)](https://github.com/pirati-cz/FlexiBudget)
+[![Latest Version](https://img.shields.io/github/release/pirati-cz/FlexiBudget.svg?style=flat-square)](https://github.com/pirati-cz/FlexiBudget/releases)
+[![Software License](https://img.shields.io/badge/license-GPL-brightgreen.svg?style=flat-square)](https://github.com/pirati-cz/FlexiBudget/blob/master/LICENSE)
+[![Build Status](https://img.shields.io/travis/pirati-cz/FlexiBudget/master.svg?style=flat-square)](https://travis-ci.org/pirati-cz/FlexiBudget)
+
+
 Proces schvalování faktur:
 
   *  Je zadána **žádost o proplacení** (záměr na fakturu, předběžná faktura), to může zadat poměrně široká skupina lidí (LDAP skupina 100+)
@@ -41,7 +47,7 @@ Se nainstalují příkazem
 Database Init
 -------------
 
-Aplikace využívá pro práci s databází PDO nicméně je testována pouze s MySQL a PgSQL
+Aplikace využívá pro práci s databází PDO nicméně je testována pouze s MySQL a PgSQL 9.5
 
 Vytvoření uživatele a databáze postgresql:
 
