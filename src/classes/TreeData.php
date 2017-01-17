@@ -74,7 +74,7 @@ class TreeData extends \Ease\Brick
         if (!count($nodeRaw)) {
             throw new \Ease\Exception("Node $id does not exist");
         }
-        $node    = $nodeRaw[0];
+        $node = $nodeRaw[0];
         if (isset($options['with_children'])) {
             $node['children'] = $this->get_children($id,
                 isset($options['deep_children']));
@@ -224,13 +224,14 @@ class TreeData extends \Ease\Brick
 
         // INSERT NEW NODE IN STRUCTURE
         $sql[] = "INSERT INTO ".$this->options['structure_table']." (".implode(",",
-                $this->options['structure']).") VALUES (?".str_repeat(',?',
+                $this->options['structure']).") VALUES (??".str_repeat(',??',
                 count($this->options['structure']) - 1).")";
         $tmp   = [];
         foreach ($this->options['structure'] as $k => $v) {
             switch ($k) {
                 case 'id':
-                    $tmp[] = (int) $this->dblink->queryToValue('SELECT MAX(id) FROM tree_struct') + 1;
+                    $tmp[] = (int) $this->dblink->queryToValue('SELECT MAX(id) FROM '.$this->options['structure_table'])
+                        + 1;
                     break;
                 case 'left':
                     $tmp[] = (int) $ref_lft;
@@ -265,7 +266,7 @@ class TreeData extends \Ease\Brick
             $node = $this->dblink->lastInsertID;
             if (!$this->rn($node, $data)) {
                 $this->rm($node);
-                throw new Exception('Could not rename after create');
+                throw new \Ease\Exception('Could not rename after create');
             }
         }
         return $node;
@@ -720,9 +721,9 @@ class TreeData extends \Ease\Brick
             $sql                                   = "
 				INSERT INTO
 					".$this->options['data_table']." (".implode(',', array_keys($tmp)).")
-					VALUES(?".str_repeat(',?', count($tmp) - 1).")
+					VALUES(??".str_repeat(',??', count($tmp) - 1).")
 				ON DUPLICATE KEY UPDATE
-					".implode(' = ?, ', array_keys($tmp))." = ?";
+					".implode(' = ??, ', array_keys($tmp))." = ??";
             $par                                   = array_merge(array_values($tmp),
                 array_values($tmp));
             try {
@@ -1072,7 +1073,7 @@ class TreeData extends \Ease\Brick
             return false;
         }
         $sql = "INSERT INTO ".$this->options['structure_table']." (".implode(",",
-                $this->options['structure']).") VALUES (?".str_repeat(',?',
+                $this->options['structure']).") VALUES (??".str_repeat(',??',
                 count($this->options['structure']) - 1).")";
         $par = [];
         foreach ($this->options['structure'] as $k => $v) {
@@ -1280,11 +1281,11 @@ class TreeData extends \Ease\Brick
                     case "NULL":
                         $value = 'NULL';
                         break;
-                default:
+                    default:
                         $value = "'".$value."'";
                         break;
                 }
-                $sql = preg_replace('/\?/', $value, $sql, 1);
+                $sql = preg_replace('/\?\?/', $value, $sql, 1);
             }
         }
         return $sql;

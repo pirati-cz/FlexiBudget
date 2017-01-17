@@ -13,20 +13,56 @@ Proces schvalování faktur:
   *  **FO provede kontrolu**, problémy řeší s hodpodářem.
   *  FO dává **příkaz k proplacení** a **zanáší fakturu do účetnictví** (popřípadě jí z předběžné mění na zaúčtovanou)
 
+Instalace z balíčků pro Debian/Ubuntu
+-------------------------------------
+
+V současnosti není k dispozici pirátský debianí repozitář, proto prosím využijte 
+[repozitář autora kódu](http://vitexsoftware.cz/repos.php):
+
+    wget -O - http://v.s.cz/info@vitexsoftware.cz.gpg.key|sudo apt-key add -
+    echo deb http://v.s.cz/ stable main > /etc/apt/sources.list.d/vitexsoftware.list
+    aptitude update
+    aptitude install flexibudget
+
+Vývoj
+=====
+
+Zdrojové kódy je možné stahnout z GitHubu:
+
+https://github.com/pirati-cz/FlexiBudget
+
+Závislosti
+----------
+
+Se nainstalují příkazem 
+
+    composer install
  
 Database Init
-=============
+-------------
+
+Aplikace využívá pro práci s databází PDO nicméně je testována pouze s MySQL a PgSQL
+
+Vytvoření uživatele a databáze postgresql:
 
     su postgres
     psql 
     CREATE USER flexibudget WITH PASSWORD 'flexibudget';
     CREATE DATABASE flexibudget OWNER flexibudget;
     \q
-    vendor/bin/phinx migrate
-    
-Testovací data:
 
-    vendor/bin/phinx seed:run -v  -s UserSeeder -s BudgetSeeder -s IntendSeeder
+
+Vytvoření uživatele a databáze postgresql:
+
+    mysqladmin -u root -p create flexibudget
+    mysql -u root -p -e "GRANT ALL PRIVILEGES ON flexibudget.* TO flexibudget@localhost IDENTIFIED BY 'flexibudget'"
+
+poté je třeba patřičně upravit konfigurační soubor **phinx.yml** a provést naplnění databáze. 
+Pro vývojové účely je na to připraven skript:
+
+    cd testing
+    ./reset.sh
+    
 
 Konfigurace
 -----------

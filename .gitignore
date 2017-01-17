@@ -8,3 +8,5 @@
 /debian/flexibudget.postrm.debhelper
 /debian/flexibudget.substvars
 /debian/lastversion
+/composer.lock
+

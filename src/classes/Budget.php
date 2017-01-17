@@ -99,7 +99,7 @@ class Budget extends Engine
         
         $resultID = parent::insertToSQL($data);
         $treedata = new TreeData(['structure_table' => 'tree_struct', 'data_table' => 'tree_data',
-            'data' => ['nm','icon']]);
+            'data' => ['nm', 'icon', 'url']]);
         $budgetNodeID = $treedata->addNode($data['Name'].' '.$data['Year'],'images/budget.svg','budget.php?id='.$resultID);
 
         $treedata->addNode(sprintf(_('Incomes for %s'), $this->getName()),
