@@ -49,7 +49,7 @@ Database Init
 
 Aplikace využívá pro práci s databází PDO nicméně je testována pouze s MySQL a PgSQL 9.5
 
-Vytvoření uživatele a databáze postgresql:
+Vytvoření uživatele a databáze PostgreSQL:
 
     su postgres
     psql 
@@ -58,7 +58,7 @@ Vytvoření uživatele a databáze postgresql:
     \q
 
 
-Vytvoření uživatele a databáze postgresql:
+Vytvoření uživatele a databáze MySQL:
 
     mysqladmin -u root -p create flexibudget
     mysql -u root -p -e "GRANT ALL PRIVILEGES ON flexibudget.* TO flexibudget@localhost IDENTIFIED BY 'flexibudget'"

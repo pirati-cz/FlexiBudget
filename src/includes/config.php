@@ -54,11 +54,13 @@ define('DB_DATABASE', 'flexibudget');
 /**
  * Database port
  */
-define('DB_PORT', 5432);
+//define('DB_PORT', 5432);
+define('DB_PORT', 3306);
 /**
  * Database type
  */
-define('DB_TYPE', 'pgsql');
+//define('DB_TYPE', 'pgsql');
+define('DB_TYPE', 'mysql');
 
 //Mailing
 

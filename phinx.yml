@@ -6,7 +6,7 @@ environments:
     default_migration_table: phinxlog
     default_database: development
     production:
-        adapter: pgsql
+        adapter: mysql
         host: localhost
         name: flexibudget
         user: flexibudget
@@ -15,7 +15,7 @@ environments:
         charset: utf8
 
     development:
-        adapter: pgsql
+        adapter: mysql
         host: localhost
         name: flexibudget
         user: flexibudget
