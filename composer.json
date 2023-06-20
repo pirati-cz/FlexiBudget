@@ -10,11 +10,11 @@
         }
     ],
     "require": {
-        "php": ">= 5.5.9",
-        "spoje.net/flexipeehp": "dev-master",
-        "vitexsoftware/ease-framework": "dev-master",
-        "league/commonmark": "^0.15.0",
-        "openid/php-openid": "dev-master"
+        "php": ">= 8.0",
+        "spojenet/flexibee": "dev-main",
+        "vitexsoftware/ease-html": "^1.31",
+        "league/commonmark": "^1.6",
+        "openid/php-openid": "^3.0"
     },
     "autoload": {
         "psr-4": {
@@ -28,10 +28,7 @@
         }
     },
     "require-dev": {
-        "phpunit/php-token-stream": "~1.2",
-        "robmorgan/phinx": "dev-master",
-        "fzaninotto/faker": "^1.6",
-        "phpunit/phpunit": "5.3.*",
-        "phpunit/phpunit-skeleton-generator": "*"
+        "robmorgan/phinx": "^0.12",
+        "phpunit/phpunit": "^9.5"
     }
 }
