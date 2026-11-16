@@ -29,6 +29,6 @@
     },
     "require-dev": {
         "robmorgan/phinx": "^0.12",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^13.4"
     }
 }
